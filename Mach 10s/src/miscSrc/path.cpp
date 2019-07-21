@@ -15,7 +15,7 @@ namespace path{
   );
 
   auto profileController = AsyncControllerFactory::motionProfile(
-    // sets vel, accel, and jerk//
+    // sets vel, accel, and jerk
     //max chassis velocity: 1.064 m/s
     1.0,  // Maximum linear velocity of the Chassis in m/s  1.0
     2.0,  // Maximum linear acceleration of the Chassis in m/s/s  2.0
