@@ -77,13 +77,13 @@ namespace lift{
 
     else if(controllerDigital(Y))
       moveTo(LOW_TOWER, 127, true);
-      
+
     else if(controllerDigital(LIFT_SHIFTER_UP)){
           setMode(MOTOR_BRAKE_COAST);
           if(getPosition() < 0)
-            setVoltage(0);
-          else if(getPosition() < 127)
-            setVoltage(-getPosition());
+            setVoltage(-15);
+          else if(getPosition() < 107)
+            setVoltage(-(getPosition()+20));
           else
             setVoltage(-127);
     }

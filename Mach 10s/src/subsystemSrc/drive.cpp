@@ -244,15 +244,10 @@ namespace chassis{
         r/= SLOWDOWN_FACTOR;
       }
       if(l != 0 || r != 0){
-        setMode(MOTOR_BRAKE_COAST);
         setVoltage(l, r);
         wasMoving = true;
-      }else setVoltage(0, 0);
-      /*
-      else if(isStopped() && wasMoving){
-        wasMoving = false;
-        holdPosition();
-      }*/
+      }
+      else setVoltage(0, 0);
       return;
   }
 }
