@@ -247,11 +247,12 @@ namespace chassis{
         setMode(MOTOR_BRAKE_COAST);
         setVoltage(l, r);
         wasMoving = true;
-      }
+      }else setVoltage(0, 0);
+      /*
       else if(isStopped() && wasMoving){
         wasMoving = false;
         holdPosition();
-      }
+      }*/
       return;
   }
 }
