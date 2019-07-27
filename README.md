@@ -13,13 +13,11 @@ Mach 10s: 15" Robot
 Mach 10x: 24" Robot
 
 These repositories contain many standard functions to operate a chassis,
-lift, and claw (and/or intake) of our VexU robots. Aside from that, it contains 
+lift, and claw (and/or intake) of our VexU robots. Aside from that, it contains
 functions that create paths for the robots to follow (using the okapi library).
 
-When this software is released, it will be meant for teaching purposes. Parts of 
-this source code can be used for your needs, keepingin mind that the main purpose 
-of the software is to get Vex competitors familiarwith the PROS API and see how the 
-PROS API can be applied.
-
+When this software is released, it will be meant for teaching purposes. Parts of
+this source code can be used for your needs, keeping in mind that the main purpose
+of the software is to get Vex competitors familiar with the PROS API and see how
+the PROS API can be applied.
 ____________________________________________________________________________
-
