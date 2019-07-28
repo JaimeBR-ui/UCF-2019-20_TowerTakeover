@@ -6,8 +6,11 @@
 using namespace okapi;
 
 namespace chassis{
+  //Variables
+  extern int positionL, positionR;
+  extern std::uint32_t now;
+  extern bool wasMoving;
   //DATA FUNCTIONS//////////////////////////////////////////////////////////////
-
   double avgRightSideEncoderUnits(void);
 
   double avgLeftSideEncoderUnits(void);
