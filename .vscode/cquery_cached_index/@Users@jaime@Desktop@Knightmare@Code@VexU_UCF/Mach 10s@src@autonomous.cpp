@@ -14,6 +14,4 @@
 
  void autonomous(void) {
    skills();
-   //located in globals.cpp
  }
- 

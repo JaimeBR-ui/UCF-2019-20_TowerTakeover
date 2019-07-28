@@ -33,11 +33,11 @@ namespace chassis{
 
   //CONTROL FUNCTIONS///////////////////////////////////////////////////////////
 
-  void setMode(pros::motor_brake_mode_e a){
-    driveRightFront.set_brake_mode(a);
-    driveRightBack.set_brake_mode(a);
-    driveLeftFront.set_brake_mode(a);
-    driveLeftBack.set_brake_mode(a);
+  void setMode(pros::motor_brake_mode_e mode){
+    driveRightFront.set_brake_mode(mode);
+    driveRightBack.set_brake_mode(mode);
+    driveLeftFront.set_brake_mode(mode);
+    driveLeftBack.set_brake_mode(mode);
     return;
   }
 
@@ -57,7 +57,7 @@ namespace chassis{
     return;
   }
 
-  void GoToTargetTurn(int target, int maxSpeed){
+  void turnToTarget(int target, int maxSpeed){
     //chassis goes to encoder target when turning//
     driveLeftBack.move_absolute(target, maxSpeed);
     driveLeftFront.move_absolute(target, maxSpeed);
@@ -75,15 +75,9 @@ namespace chassis{
   }
 
   void brake(int mills){ //brakes drive for set amount of milliseconds//
-    driveLeftFront.set_brake_mode(MOTOR_BRAKE_HOLD);
-    driveLeftBack.set_brake_mode(MOTOR_BRAKE_HOLD);
-    driveRightFront.set_brake_mode(MOTOR_BRAKE_HOLD);
-    driveRightBack.set_brake_mode(MOTOR_BRAKE_HOLD);
+    setMode(MOTOR_BRAKE_HOLD);
     pros::delay(mills);
-    driveLeftFront.set_brake_mode(MOTOR_BRAKE_COAST);
-    driveLeftBack.set_brake_mode(MOTOR_BRAKE_COAST);
-    driveRightFront.set_brake_mode(MOTOR_BRAKE_COAST);
-    driveRightBack.set_brake_mode(MOTOR_BRAKE_COAST);
+    setMode(MOTOR_BRAKE_COAST);
     return;
   }
 
@@ -140,7 +134,7 @@ namespace chassis{
         avgTurningEncoderUnits(), target,speed);
       pros::delay(20);
     }
-    GoToTargetTurn(target, 20);
+    turnToTarget(target, 20);
     pros::delay(accuracyTimer);
     setVoltage(0, 0);
     return;
@@ -239,7 +233,7 @@ namespace chassis{
       int r = controllerAnalog(RIGHT_JOYSTICK);
       l = (abs(l) > 10) ? l: 0;
       r = abs(r) > 10 ? r : 0;
-      if(lift::getPosition() > 200){
+      if(lift::getPosition() > 1000){
         l/= SLOWDOWN_FACTOR;
         r/= SLOWDOWN_FACTOR;
       }

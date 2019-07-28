@@ -4,6 +4,7 @@ using namespace okapi;
 using namespace chassis;
 
 namespace path{
+  //Variables
   Point startingPoint = Point({0_in, 0_in, 0_deg});
   //motion profiler declarations
   auto RobotChassis = ChassisControllerFactory::create(

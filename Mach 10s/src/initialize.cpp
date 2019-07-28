@@ -7,8 +7,8 @@
  * to keep execution time for this mode under a few seconds.
  */
 
-void initialize(void)
-  { // initializes motors and sensors//
+void initialize(void){
+  // initializes motors and sensors//
   runDisplay();
 	driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
@@ -25,7 +25,7 @@ void initialize(void)
  * Runs while the robot is in the disabled state of Field Management System or
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
- */ 
+ */
 void disabled(void) {
   return;
 }
