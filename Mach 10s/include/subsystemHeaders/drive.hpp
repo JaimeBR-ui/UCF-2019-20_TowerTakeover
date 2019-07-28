@@ -32,6 +32,8 @@ namespace chassis{
   void brake(int mills);
 
   //AUTONOMOUS FUNCTIONS////////////////////////////////////////////////////////
+  void forward(unsigned long long int disp, bool wait);
+
   void turn(int degrees10, int maxSpeed, int accuracyTimer);
 
   void pointTurn(int degrees10, int maxSpeed, int accuracyTimer);

@@ -98,8 +98,14 @@ namespace chassis{
   }
 
   //AUTONOMOUS FUNCTIONS////////////////////////////////////////////////////////
-  void turn(int degrees10, int maxSpeed, int accuracyTimer)
-    { //rotates encoder using encoder counts//
+  void forward(unsigned long long disp, bool wait){
+    path::makePath({path::startingPoint, path::makePoint(disp, 0, 0)}, "s");
+    path::setPath("s");
+    if(wait)
+      path::waitUntilSettled();
+  }
+  void turn(int degrees10, int maxSpeed, int accuracyTimer){
+    //rotates encoder using encoder counts//
     int target = degrees10 * TURN_CONSTANT;
     float myP = 0.18, error = 0.0, ratio;
     int speed = 0;
