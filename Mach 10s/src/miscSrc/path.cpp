@@ -24,12 +24,12 @@ namespace path{
   );
 
   Point makePoint(unsigned long long int x, unsigned long long int y, long double theta){
-    //use this so the program can make its own paths//QLength x_in =;
-    Point p = Point();
-    p.x = okapi::literals::operator""_in(x);
-    p.y = okapi::literals::operator""_in(y);
-    p.theta = okapi::literals::operator""_deg(theta);
-    return p;
+    //use this so the program can make its own paths
+    return okapi::Point{
+      okapi::literals::operator""_in(x),
+      okapi::literals::operator""_in(y),
+      okapi::literals::operator""_deg(theta)
+    };
   }
   ///Path functions
   void makePath(std::initializer_list<Point> p, std::string s){
