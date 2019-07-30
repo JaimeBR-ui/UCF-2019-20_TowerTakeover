@@ -1,0 +1,30 @@
+add all capabilities of profile controller to path.cpp and add special cases
+such as going forward and back to drive.cpp
+
+for UI:
+work on gui to have the following features:
+autonomous selector
+show sensor values
+
+
+for path:
+generate critical paths at startup and create the rest in a separate thread to decrease wait
+time. depending on how long it takes to generate them.
+maybe store paths to reuse
+
+
+for chassis:
+make robot turn based on a constant acceleration that removes drift, base on time,
+not encoder counts for the start
+
+for lift: none found
+
+for intake: none found
+
+mechanical things that impact auto:
+chain may skip over middle sprocket; fixed?                  n
+Reasoning: reduces wheel slop not detected by IME's
+sprocket and wheel need to be screwed together; done?        n
+Reasoning: reduces wheel slop not detected by IME's
+wheels need to have screwed in rollers; done?                n
+Reasoning: prevents robot moving sideways, improving accuracy.
