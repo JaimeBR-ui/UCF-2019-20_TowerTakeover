@@ -99,10 +99,18 @@ namespace chassis{
 
   //AUTONOMOUS FUNCTIONS////////////////////////////////////////////////////////
   void forward(unsigned long long disp, bool wait){
-    path::makePath({path::startingPoint, path::makePoint(disp, 0, 0)}, "s");
-    path::setPath("s");
+    path::moveTo({path::startingPoint, path::makePoint(disp, 0, 0)});
     if(wait)
       path::waitUntilSettled();
+    return;
+  }
+  void back(unsigned long long disp, bool wait){
+    path::makePath({path::startingPoint, path::makePoint(disp, 0, 0)}, "temp");
+    path::setPath("temp", true);
+    if(wait)
+      path::waitUntilSettled();
+    path::removePath("temp");
+    return;
   }
   void turn(int degrees10, int maxSpeed, int accuracyTimer){
     //rotates encoder using encoder counts//
@@ -144,7 +152,7 @@ namespace chassis{
     pros::delay(accuracyTimer);
     setVoltage(0, 0);
     return;
-}
+  }
 
   void pointTurn(int degrees10, int maxSpeed, int accuracyTimer){
     //rotates chassis using encoder counts with one side stopped//
