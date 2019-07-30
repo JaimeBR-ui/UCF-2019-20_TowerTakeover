@@ -14,7 +14,6 @@ namespace path{
     AbstractMotor::gearset::green, // Torque gearset
     {4_in, 15.7_in} // 4 inch wheels, 16 inch wheelbase width
   );
-
   auto profileController = AsyncControllerFactory::motionProfile(
     // sets vel, accel, and jerk
     //max chassis velocity: 1.064 m/s
@@ -23,7 +22,11 @@ namespace path{
     10.0, // Maximum linear jerk of the Chassis in m/s/s/s  10.0
     RobotChassis // Robot Chassis Controller
   );
-
+  //Data Functions
+  bool isSettled(void){
+    return profileController.isSettled();
+  }
+  //Control Functions
   Point makePoint(unsigned long long int x, unsigned long long int y, long double theta){
     //use this so the program can make its own paths
     return okapi::Point{
@@ -33,16 +36,27 @@ namespace path{
     };
   }
   ///Path functions
-  void makePath(std::initializer_list<Point> p, std::string s){
-    profileController.generatePath(p, s);
+  void makePath(std::initializer_list<Point> points, std::string id){
+    profileController.generatePath(points, id);
     return;
+  }
+  void removePath(std::string id){
+    profileController.removePath(id);
   }
   void waitUntilSettled(void){
     profileController.waitUntilSettled();
     return;
   }
-  void setPath(std::string s){
-    profileController.setTarget(s);
+  void setPath(std::string id, bool backwards){
+    profileController.setTarget(id, backwards);
+    return;
+  }
+  void setPath(std::string id){
+    profileController.setTarget(id);
+    return;
+  }
+  void moveTo(std::initializer_list<Point> point){
+    profileController.moveTo(point);
     return;
   }
   void makePaths(void){//creates paths at start of Autonomous//
