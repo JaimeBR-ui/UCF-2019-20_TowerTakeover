@@ -28,3 +28,5 @@ sprocket and wheel need to be screwed together; done?        n
 Reasoning: reduces wheel slop not detected by IME's
 wheels need to have screwed in rollers; done?                n
 Reasoning: prevents robot moving sideways, improving accuracy.
+
+________________________________________________________________________________
