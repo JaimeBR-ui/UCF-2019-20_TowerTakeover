@@ -14,7 +14,8 @@ namespace path{
     AbstractMotor::gearset::green, // Torque gearset
     {4_in, 15.7_in} // 4 inch wheels, 16 inch wheelbase width
   );
-  okapi::AsyncMotionProfileController profileController = AsyncControllerFactory::motionProfile(
+  okapi::AsyncMotionProfileController profileController
+    = AsyncControllerFactory::motionProfile(
     // sets vel, accel, and jerk
     //max chassis velocity: 1.064 m/s
     1.0,  // Maximum linear velocity of the Chassis in m/s  1.0
