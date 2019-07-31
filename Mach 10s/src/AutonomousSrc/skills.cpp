@@ -4,17 +4,21 @@ using namespace path;
 
 void skills(void) {
   path::makePaths();
-  path::setPath("Turn1");
-  path::waitUntilSettled();
+  //raw pointer used since there wont be a memory leak
+  AsyncMotionProfileController *chassis = &profileController;
+  chassis->setTarget("Turn1");
+  chassis->waitUntilSettled();
   pros::delay(500);
   chassis::turn(900, 127, 400);
   pros::delay(500);
-  path::setPath("Turn2", false);
+  chassis->setTarget("Turn2", false);
   //this boolean if true, ↑, makes path to be follwed backwards/reverse
-  path::waitUntilSettled();
+  chassis->waitUntilSettled();
   pros::delay(500);
   chassis::turn(900, 127, 400);
   pros::delay(500);
   chassis::forward(48, true);
+  chassis = NULL;
+  delete(chassis);
   return;
 }

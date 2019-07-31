@@ -6,6 +6,7 @@ using namespace chassis;
 namespace path{
   //Variables
   extern Point startingPoint;
+  extern AsyncMotionProfileController profileController;
   //Data Functions
   bool isSettled(void);
   //Control Functions
