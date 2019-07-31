@@ -29,4 +29,20 @@ Reasoning: reduces wheel slop not detected by IME's
 wheels need to have screwed in rollers; done?                n
 Reasoning: prevents robot moving sideways, improving accuracy.
 
-________________________________________________________________________________
+for branch
+what i wanna do
+i wanna have a pointer to object on the already created profile controller
+to reference in the autonomous functions
+problems:
+datatype is auto
+if i change it to motionProfile i get out of scope errors
+cant make a class, other files use those functions and they're convenient
+
+what if:
+i make a class but it is initialized already
+but then theres no substancial advantage
+end
+
+what if:
+
+_____________________________________________________________________________
