@@ -5,8 +5,8 @@
 //there is no need to use one and usually better to avoid them
 
 void skills(void) {
-  path::makePaths();
   AsyncMotionProfileController *chassis = &path::profileController;
+  path::makePaths();
   chassis->setTarget("Turn1");
   chassis->waitUntilSettled();
   pros::delay(500);
@@ -19,7 +19,7 @@ void skills(void) {
   chassis::turn(900, 127, 400);
   pros::delay(500);
   chassis::forward(48, true);
-  chassis = NULL;
+  //chassis = NULL;//no need for this
   delete(chassis);
   return;
 }

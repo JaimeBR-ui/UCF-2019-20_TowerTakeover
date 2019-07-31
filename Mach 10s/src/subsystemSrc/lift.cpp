@@ -1,7 +1,5 @@
 #include "main.h"
 
-using namespace pros;
-
 namespace lift{
   //VARIABLES
   int liftPositionL = liftLeft.get_position(), liftPositionR;
@@ -38,11 +36,9 @@ namespace lift{
     liftLeft.move_absolute(target, maxSpeed);
     liftRight.move_absolute(target, maxSpeed);
     liftWasMoving = true;
-    if(wait) {
-      while(fabs(target - getPosition()) > 10){
+    if(wait)
+      while(fabs(target - getPosition()) > 10)
         chassis::assign();
-      }
-    }
     return;
   }
 
@@ -91,9 +87,8 @@ namespace lift{
           setMode(MOTOR_BRAKE_COAST);
           setVoltage(127);
     }
-    else if(liftWasMoving){
+    else if(liftWasMoving)
         holdPosition();
-    }
     return;
   }
 }
