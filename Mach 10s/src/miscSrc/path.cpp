@@ -5,6 +5,8 @@ using namespace chassis;
 
 namespace path{
   //Variables
+  pros::Mutex mutex;
+  int pathsStored = 0;//for reference, must change to use mutex later
   Point startingPoint = Point({0_in, 0_in, 0_deg});
   //motion profiler declarations
   auto RobotChassis = ChassisControllerFactory::create(
@@ -38,11 +40,11 @@ namespace path{
     };
   }
   ///Path functions
-  void makePath(std::initializer_list<Point> points, std::string id){
+  void make(std::initializer_list<Point> points, std::string id){
     profileController.generatePath(points, id);
     return;
   }
-  void removePath(std::string id){
+  void remove(std::string id){
     profileController.removePath(id);
     return;
   }
@@ -50,7 +52,7 @@ namespace path{
     profileController.waitUntilSettled();
     return;
   }
-  void setPath(std::string id, bool backwards){
+  void set(std::string id, bool backwards){
     profileController.setTarget(id, backwards);
     return;
   }
@@ -58,25 +60,48 @@ namespace path{
     profileController.moveTo(point);
     return;
   }
-  void makePaths(void){//creates paths at start of Autonomous//
-    profileController.generatePath({
-        Point{0_ft, 0_ft, 0_deg},
-        Point{2_ft, 2.3_ft, 90_deg}
-      },
-      "Turn1"
-    );
+  void skillsPathThread(void * ignore){
+    //thread generates paths as robot uses them to avoid stack overflow
     profileController.generatePath({
         Point{0_ft, 0_ft, 0_deg},
         Point{2_ft, -2.3_ft, -90_deg}
       },
       "Turn2"
     );
+    pathsStored++;
+    while(pathsStored > 2)
+      pros::delay(50);
     profileController.generatePath({
         Point{0_ft, 0_ft, 0_deg},
-        Point{4.2_ft, 0_ft, 0_deg}
+        Point{2_ft, -2.3_ft, -90_deg}
       },
-      "Straight4"
+      "Turn2"
     );
+    pathsStored++;
+    while(pathsStored > 2)
+      pros::delay(50);
+    profileController.generatePath({
+        Point{0_ft, 0_ft, 0_deg},
+        Point{2_ft, -2.3_ft, -90_deg}
+      },
+      "Turn2"
+    );
+    pathsStored++;
+    while(pathsStored > 2)
+      pros::delay(50);
+    return;
+  }
+  void makeAll(std::string autonomousRoutine){//creates paths at start of Autonomous//
+    if(autonomousRoutine == "skills"){
+      profileController.generatePath({
+          Point{0_ft, 0_ft, 0_deg},
+          Point{2_ft, 2.3_ft, 90_deg}
+        },
+        "Turn1"
+      );
+      pathsStored++;
+      pros::Task paths(skillsPathThread, &autonomousRoutine);
+    }
     return;
   }
 }//namespace path

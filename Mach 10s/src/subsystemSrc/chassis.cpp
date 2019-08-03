@@ -104,11 +104,11 @@ namespace chassis{
     return;
   }
   void back(unsigned long long disp, bool wait){
-    path::makePath({path::startingPoint, path::makePoint(disp, 0, 0)}, "temp");
-    path::setPath("temp", true);
+    path::make({path::startingPoint, path::makePoint(disp, 0, 0)}, "temp");
+    path::set("temp", true);
     if(wait)
       path::waitUntilSettled();
-    path::removePath("temp");
+    path::remove("temp");
     return;
   }
   void turn(int degrees10, int maxSpeed, int accuracyTimer){
