@@ -44,6 +44,7 @@ namespace path{
   }
   void removePath(std::string id){
     profileController.removePath(id);
+    return;
   }
   void waitUntilSettled(void){
     profileController.waitUntilSettled();
@@ -51,10 +52,6 @@ namespace path{
   }
   void setPath(std::string id, bool backwards){
     profileController.setTarget(id, backwards);
-    return;
-  }
-  void setPath(std::string id){
-    profileController.setTarget(id);
     return;
   }
   void moveTo(std::initializer_list<Point> point){
@@ -82,4 +79,4 @@ namespace path{
     );
     return;
   }
-}
+}//namespace path

@@ -43,6 +43,6 @@ i make a class but it is initialized already
 but then theres no substancial advantage
 end
 
-what if:
+ez solution: change from auto datatype, move verbosity but no big deal
 
 _____________________________________________________________________________

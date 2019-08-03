@@ -7,10 +7,13 @@ namespace path{
   //Variables
   extern Point startingPoint;
   extern AsyncMotionProfileController profileController;
+
   //Data Functions
   bool isSettled(void);
+
   //Control Functions
   Point makePoint(unsigned long long int x, unsigned long long int y, long double theta);
+  
   ///Path Functions
   void makePaths(void);
 
@@ -22,7 +25,5 @@ namespace path{
 
   void waitUntilSettled(void);
 
-  void setPath(std::string id);
-
-  void setPath(std::string id, bool backwards);
+  void setPath(std::string id, bool backwards = false);
 }

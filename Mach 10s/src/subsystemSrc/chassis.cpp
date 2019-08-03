@@ -1,13 +1,12 @@
 #include "main.h"
 
 namespace chassis{
-  //VARIABLES///////////////////////////////////////////////////////////////////
+  //VARIABLES
   int positionL, positionR;
   std::uint32_t now = pros::millis();
   bool wasMoving = true;
 
-  //DATA FUNCTIONS//////////////////////////////////////////////////////////////
-
+  //DATA FUNCTIONS
   double avgRightSideEncoderUnits(void){
     return (driveRightFront.get_raw_position(&now)+ driveRightBack.get_raw_position(&now)) / 2;
   }
@@ -178,8 +177,7 @@ namespace chassis{
         driveLeftBack.move_velocity(speed);
         pros::delay(20);
         printf("rotateEncoder(); loop2; avgTurningEncoderUnits(): %f; target: \
-                %d; speed: %d;\n", \
-          avgLeftSideEncoderUnits(), target,speed);
+                %d; speed: %d;\n", avgLeftSideEncoderUnits(), target,speed);
         while(avgLeftSideEncoderUnits() > target + 50
               || avgLeftSideEncoderUnits() < target - 50) {
           error = target - avgLeftSideEncoderUnits();

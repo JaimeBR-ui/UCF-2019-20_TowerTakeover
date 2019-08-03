@@ -14,7 +14,7 @@ void skills(void) {
   chassis::turn(900, 127, 400);
   pros::delay(500);
   chassis->setTarget("Turn2", false);
-  //this boolean if true, ↑, makes path to be follwed backwards/reverse
+  //this boolean,  if true,     ↑ makes path to be follwed backwards/reverse
   chassis->waitUntilSettled();
   pros::delay(500);
   chassis::turn(900, 127, 400);
