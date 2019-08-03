@@ -10,6 +10,7 @@ namespace intake{
   @return position: return average location of the intake.
   */
   int getPosition(void);
+  
   /*
   gives feedback regarding the movement of the intake.
   @return isStopped: return true if intake is stopped, else otherwise.

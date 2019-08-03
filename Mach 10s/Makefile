@@ -11,8 +11,8 @@ FWDIR:=$(ROOT)/firmware
 BINDIR=$(ROOT)/bin
 SRCDIR=$(ROOT)/src
 INCDIR=$(ROOT)/include
-
-WARNFLAGS+=
+# Remove -Wno-psabi if having any compile issues that don't show up - Jaime
+WARNFLAGS+= -Wno-psabi
 EXTRA_CFLAGS=
 EXTRA_CXXFLAGS=
 

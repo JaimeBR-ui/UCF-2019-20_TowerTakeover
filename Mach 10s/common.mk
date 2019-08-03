@@ -53,16 +53,18 @@ endif
 rwildcard=$(foreach d,$(filter-out $3,$(wildcard $1*)),$(call rwildcard,$d/,$2,$3)$(filter $(subst *,%,$2),$d))
 
 # Colors
-NO_COLOR=\x1b[0m
-OK_COLOR=\x1b[32;01m
+NO_COLOR= \x1b[0m
+OK_COLOR= \033[32;01m
 ERROR_COLOR=\x1b[31;01m
 WARN_COLOR=\x1b[33;01m
-STEP_COLOR=\x1b[37;01m
-OK_STRING=$(OK_COLOR)[OK]$(NO_COLOR)
-DONE_STRING=$(OK_COLOR)[DONE]$(NO_COLOR)
-ERROR_STRING=$(ERROR_COLOR)[ERRORS]$(NO_COLOR)
-WARN_STRING=$(WARN_COLOR)[WARNINGS]$(NO_COLOR)
-ECHO=/bin/echo -e
+STEP_COLOR=\x1b[33;01m
+PURPLE=\x1b[35;01m
+BLUE=\x1b[34;01m
+OK_STRING=$(BLUE)Status: $(OK_COLOR)[OK]$(NO_COLOR)
+DONE_STRING=$(BLUE)Status: $(OK_COLOR)[DONE]$(NO_COLOR)
+ERROR_STRING=$(BLUE)Status: $(ERROR_COLOR)[ERRORS]$(NO_COLOR)
+WARN_STRING=$(BLUE)Status: $(WARN_COLOR)[WARNINGS]$(NO_COLOR)
+ECHO= echo
 echo=@$(ECHO) "$2$1$(NO_COLOR)"
 echon=@$(ECHO) -n "$2$1$(NO_COLOR)"
 
@@ -182,12 +184,13 @@ ELF_DEPS=$(call GETALLOBJ,$(EXCLUDE_SRCDIRS))
 endif
 
 $(MONOLITH_BIN): $(MONOLITH_ELF) $(BINDIR)
-	@echo -n "Creating $@ for $(DEVICE) "
+	@echo "Creating $@ for $(DEVICE) "
 	$(call test_output,$D$(OBJCOPY) $< -O binary -R .hot_init $@,$(DONE_STRING))
+	@echo "$(PURPLE)Mach 10s compiled $(NO_COLOR)"
 
 $(MONOLITH_ELF): $(ELF_DEPS) $(LIBRARIES)
 	$(call _pros_ld_timestamp)
-	@echo -n "Linking project with $(ARCHIVE_TEXT_LIST) "
+	@echo "Linking project with $(ARCHIVE_TEXT_LIST) "
 	$(call test_output,$D$(LD) $(LDFLAGS) $(ELF_DEPS) $(LDTIMEOBJ) $(call wlprefix,-T$(FWDIR)/v5.ld $(LNK_FLAGS)) -o $@,$(OK_STRING))
 	@echo Section sizes:
 	-$(VV)$(SIZETOOL) $(SIZEFLAGS) $@ $(SIZES_SED) $(SIZES_NUMFMT)
@@ -235,14 +238,14 @@ $(foreach cext,$(CEXTS),$(eval $(call c_rule,$(cext))))
 define cxx_rule
 $(BINDIR)/%.$1.o: $(SRCDIR)/%.$1
 	$(VV)mkdir -p $$(dir $$@)
-	@echo -n "Compiling $$< "
-	$$(call test_output,$D$(CXX) -c $(INCLUDE) -iquote"$(INCDIR)/$$(dir $$*)" $(CXXFLAGS) $(EXTRA_CXXFLAGS) -o $$@ $$<,$(OK_STRING))
+	@echo "Compiling on $(PURPLE) Mach 10s$(NO_COLOR): $(STEP_COLOR) $$< "
+	$$(call test_output,$D$(CXX) -c $(INCLUDE) -iquote"$(INCDIR)/$$(dir $$*)" $(CXXFLAGS) $(EXTRA_CXXFLAGS) -o $$@ $$<, $(OK_STRING))
 endef
 $(foreach cxxext,$(CXXEXTS),$(eval $(call cxx_rule,$(cxxext))))
 
 define _pros_ld_timestamp
 $(VV)mkdir -p $(dir $(LDTIMEOBJ))
-@echo -n "Adding timestamp "
+@echo "Adding timestamp "
 @# Pipe a line of code defining _PROS_COMPILE_TOOLSTAMP and _PROS_COMPILE_DIRECTORY into GCC,
 @# which allows compilation from stdin. We define _PROS_COMPILE_DIRECTORY using a command line-defined macro
 @# which is the pwd | tail bit, which will truncate the path to the last 23 characters

@@ -19,17 +19,18 @@
             "-D_POSIX_THREADS",
             "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
             "-Os",
+            "-Wno-psabi",
             "-funwind-tables",
             "-ffunction-sections",
             "-fdata-sections",
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/autonomous.cpp.o",
-            "src/autonomous.cpp"
+            "bin/opcontrol.cpp.o",
+            "src/opcontrol.cpp"
         ],
         "directory": "/Users/jaime/Desktop/Knightmare/Code/VexU_UCF/Mach 10s",
-        "file": "src/autonomous.cpp"
+        "file": "src/opcontrol.cpp"
     },
     {
         "arguments": [
@@ -51,81 +52,18 @@
             "-D_POSIX_THREADS",
             "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
             "-Os",
+            "-Wno-psabi",
             "-funwind-tables",
             "-ffunction-sections",
             "-fdata-sections",
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/subsystemSrc/chassis.cpp.o",
-            "src/subsystemSrc/chassis.cpp"
+            "bin/subsystemSrc/lift.cpp.o",
+            "src/subsystemSrc/lift.cpp"
         ],
         "directory": "/Users/jaime/Desktop/Knightmare/Code/VexU_UCF/Mach 10s",
-        "file": "src/subsystemSrc/chassis.cpp"
-    },
-    {
-        "arguments": [
-            "clang++",
-            "-c",
-            "-target",
-            "armv7ar-none-none-eabi",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1/arm-none-eabi/thumb/v7+fp/softfp",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1/backward",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/include",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/include-fixed",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include",
-            "-iquote./include",
-            "-iquote./include/AutonomousSrc/",
-            "-mcpu=cortex-a9",
-            "-mfpu=neon-fp16",
-            "-mfloat-abi=softfp",
-            "-D_POSIX_THREADS",
-            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
-            "-Os",
-            "-funwind-tables",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-fdiagnostics-color",
-            "--std=gnu++17",
-            "-o",
-            "bin/AutonomousSrc/skills.cpp.o",
-            "src/AutonomousSrc/skills.cpp"
-        ],
-        "directory": "/Users/jaime/Desktop/Knightmare/Code/VexU_UCF/Mach 10s",
-        "file": "src/AutonomousSrc/skills.cpp"
-    },
-    {
-        "arguments": [
-            "clang++",
-            "-c",
-            "-target",
-            "armv7ar-none-none-eabi",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1/arm-none-eabi/thumb/v7+fp/softfp",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1/backward",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/include",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/include-fixed",
-            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include",
-            "-iquote./include",
-            "-iquote./include/subsystemSrc/",
-            "-mcpu=cortex-a9",
-            "-mfpu=neon-fp16",
-            "-mfloat-abi=softfp",
-            "-D_POSIX_THREADS",
-            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
-            "-Os",
-            "-funwind-tables",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-fdiagnostics-color",
-            "--std=gnu++17",
-            "-o",
-            "bin/subsystemSrc/intake.cpp.o",
-            "src/subsystemSrc/intake.cpp"
-        ],
-        "directory": "/Users/jaime/Desktop/Knightmare/Code/VexU_UCF/Mach 10s",
-        "file": "src/subsystemSrc/intake.cpp"
+        "file": "src/subsystemSrc/lift.cpp"
     },
     {
         "arguments": [
@@ -147,6 +85,7 @@
             "-D_POSIX_THREADS",
             "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
             "-Os",
+            "-Wno-psabi",
             "-funwind-tables",
             "-ffunction-sections",
             "-fdata-sections",
@@ -172,6 +111,39 @@
             "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/include-fixed",
             "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+            "-iquote./include/./",
+            "-mcpu=cortex-a9",
+            "-mfpu=neon-fp16",
+            "-mfloat-abi=softfp",
+            "-D_POSIX_THREADS",
+            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
+            "-Os",
+            "-Wno-psabi",
+            "-funwind-tables",
+            "-ffunction-sections",
+            "-fdata-sections",
+            "-fdiagnostics-color",
+            "--std=gnu++17",
+            "-o",
+            "bin/initialize.cpp.o",
+            "src/initialize.cpp"
+        ],
+        "directory": "/Users/jaime/Desktop/Knightmare/Code/VexU_UCF/Mach 10s",
+        "file": "src/initialize.cpp"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1/arm-none-eabi/thumb/v7+fp/softfp",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1/backward",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/include",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/include-fixed",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include",
+            "-iquote./include",
             "-iquote./include/miscSrc/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
@@ -179,6 +151,7 @@
             "-D_POSIX_THREADS",
             "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
             "-Os",
+            "-Wno-psabi",
             "-funwind-tables",
             "-ffunction-sections",
             "-fdata-sections",
@@ -211,6 +184,40 @@
             "-D_POSIX_THREADS",
             "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
             "-Os",
+            "-Wno-psabi",
+            "-funwind-tables",
+            "-ffunction-sections",
+            "-fdata-sections",
+            "-fdiagnostics-color",
+            "--std=gnu++17",
+            "-o",
+            "bin/subsystemSrc/intake.cpp.o",
+            "src/subsystemSrc/intake.cpp"
+        ],
+        "directory": "/Users/jaime/Desktop/Knightmare/Code/VexU_UCF/Mach 10s",
+        "file": "src/subsystemSrc/intake.cpp"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1/arm-none-eabi/thumb/v7+fp/softfp",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include/c++/8.2.1/backward",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/include",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/include-fixed",
+            "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include",
+            "-iquote./include",
+            "-iquote./include/subsystemSrc/",
+            "-mcpu=cortex-a9",
+            "-mfpu=neon-fp16",
+            "-mfloat-abi=softfp",
+            "-D_POSIX_THREADS",
+            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
+            "-Os",
+            "-Wno-psabi",
             "-funwind-tables",
             "-ffunction-sections",
             "-fdata-sections",
@@ -243,17 +250,18 @@
             "-D_POSIX_THREADS",
             "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
             "-Os",
+            "-Wno-psabi",
             "-funwind-tables",
             "-ffunction-sections",
             "-fdata-sections",
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/initialize.cpp.o",
-            "src/initialize.cpp"
+            "bin/autonomous.cpp.o",
+            "src/autonomous.cpp"
         ],
         "directory": "/Users/jaime/Desktop/Knightmare/Code/VexU_UCF/Mach 10s",
-        "file": "src/initialize.cpp"
+        "file": "src/autonomous.cpp"
     },
     {
         "arguments": [
@@ -275,17 +283,18 @@
             "-D_POSIX_THREADS",
             "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
             "-Os",
+            "-Wno-psabi",
             "-funwind-tables",
             "-ffunction-sections",
             "-fdata-sections",
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/subsystemSrc/lift.cpp.o",
-            "src/subsystemSrc/lift.cpp"
+            "bin/subsystemSrc/chassis.cpp.o",
+            "src/subsystemSrc/chassis.cpp"
         ],
         "directory": "/Users/jaime/Desktop/Knightmare/Code/VexU_UCF/Mach 10s",
-        "file": "src/subsystemSrc/lift.cpp"
+        "file": "src/subsystemSrc/chassis.cpp"
     },
     {
         "arguments": [
@@ -300,23 +309,24 @@
             "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/include-fixed",
             "-isystem/usr/local/Cellar/arm-gcc-bin/8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
-            "-iquote./include/./",
+            "-iquote./include/AutonomousSrc/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
             "-D_POSIX_THREADS",
             "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
             "-Os",
+            "-Wno-psabi",
             "-funwind-tables",
             "-ffunction-sections",
             "-fdata-sections",
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/opcontrol.cpp.o",
-            "src/opcontrol.cpp"
+            "bin/AutonomousSrc/skills.cpp.o",
+            "src/AutonomousSrc/skills.cpp"
         ],
         "directory": "/Users/jaime/Desktop/Knightmare/Code/VexU_UCF/Mach 10s",
-        "file": "src/opcontrol.cpp"
+        "file": "src/AutonomousSrc/skills.cpp"
     }
 ]
