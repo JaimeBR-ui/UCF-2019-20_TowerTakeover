@@ -20,7 +20,7 @@ namespace intake{
          && intakeLeft.is_stopped();
   }
 
-  bool changedToPressed(int a){
+  bool changedToPressed(std::int32_t a){
     static int lastVal = 0;
     static int newVal = 0;
     lastVal = newVal;

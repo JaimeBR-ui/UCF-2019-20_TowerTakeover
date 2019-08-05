@@ -20,10 +20,10 @@ pros::Motor intakeLeft(7, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER
 //Controller Functions
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
-int controllerDigital(pros::controller_digital_e_t channel) {
+std::int32_t controllerDigital(pros::controller_digital_e_t channel) {
   return controller.get_digital(channel);
 }
 
-int controllerAnalog(pros::controller_analog_e_t channel) {
+std::int32_t controllerAnalog(pros::controller_analog_e_t channel) {
   return controller.get_analog(channel);
 }

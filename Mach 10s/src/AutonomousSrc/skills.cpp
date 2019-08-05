@@ -16,7 +16,7 @@ STACK 1000  RELEASE 750 SCORE 500
 //chassis forward or backward movement have their paths removed automatically
 
 void skills(void) {
-  AsyncMotionProfileController *chassis = &path::profileController;
+  /*AsyncMotionProfileController *chassis = &path::profileController;
   path::makeAll("skills");
   chassis->setTarget("Turn1");
   lift::moveTo(LOW_TOWER, 127, false);
@@ -36,5 +36,6 @@ void skills(void) {
   chassis::turn(900, 127, 400);
   pros::delay(500);
   chassis::forward(48, true);
+  */
   return;
 }

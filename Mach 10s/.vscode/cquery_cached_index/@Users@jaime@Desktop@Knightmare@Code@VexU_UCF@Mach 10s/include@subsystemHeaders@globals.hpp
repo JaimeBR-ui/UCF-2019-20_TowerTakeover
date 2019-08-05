@@ -12,8 +12,8 @@ extern pros::Controller controller;
 #define B pros::E_CONTROLLER_DIGITAL_B
 #define X pros::E_CONTROLLER_DIGITAL_X
 #define Y pros::E_CONTROLLER_DIGITAL_Y
-int controllerDigital(pros::controller_digital_e_t channel);
-int controllerAnalog(pros::controller_analog_e_t channel);
+std::int32_t controllerDigital(pros::controller_digital_e_t channel);
+std::int32_t controllerAnalog(pros::controller_analog_e_t channel);
 bool anyIntakeButtonPressed();
 
 //MOTORS
