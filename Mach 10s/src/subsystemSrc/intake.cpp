@@ -20,6 +20,17 @@ namespace intake{
          && intakeLeft.is_stopped();
   }
 
+  bool changedToPressed(int a){
+    static int lastVal = 0;
+    static int newVal = 0;
+    lastVal = newVal;
+    if(a == 0)
+      newVal = 0;
+    else
+      newVal = 1;
+    return newVal == 1 && lastVal == 0;
+  }
+
   //Control Functions
   void setMode(pros::motor_brake_mode_e mode){
     intakeRight.set_brake_mode(mode);
@@ -77,21 +88,13 @@ namespace intake{
   }
 
   void assign(void) {
-    if(controllerDigital(INTAKE) && intakeMode > 0) {
+    if(changedToPressed(controllerDigital(INTAKE)) && intakeMode > 0) {
       intakeMode--;
       setIntakeMode(intakeMode);
-      while(controllerDigital(INTAKE)){
-        chassis::assign();
-        lift::assign();
-      }
     }
-    else if(controllerDigital(OUTTAKE) && intakeMode < 2) {
+    else if(changedToPressed(controllerDigital(OUTTAKE)) && intakeMode < 2) {
       intakeMode++;
       setIntakeMode(intakeMode);
-      while(controllerDigital(OUTTAKE)){
-        chassis::assign();
-        lift::assign();
-      }
     }
     return;
   }

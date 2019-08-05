@@ -75,6 +75,7 @@ void opcontrol(void);
 /**
  * You can add C++-only headers here
  */
+#include "pros/misc.hpp"
 #include "okapi/impl/chassis/controller/chassisControllerFactory.hpp"
 #include "okapi/impl/control/async/asyncControllerFactory.hpp"
 #include "subsystemHeaders/Autonomous/skills.hpp"

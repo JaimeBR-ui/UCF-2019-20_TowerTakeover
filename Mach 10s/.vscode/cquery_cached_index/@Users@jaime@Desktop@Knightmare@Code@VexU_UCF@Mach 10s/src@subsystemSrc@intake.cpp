@@ -1,26 +1,17 @@
 #include "main.h"
 
-//SENSORS
-pros::ADIDigitalIn limitSwitch('H');
-
 namespace intake{
-  //VARIABLES///////////////////////////////////////////////////////////////////
-  bool loadOverride = false;
+  //Variables
   enum intakeModes {
     INTAKE_MODE_STACK = 0,
     INTAKE_MODE_RELEASE = 1,
     INTAKE_MODE_SCORE = 2,
     INTAKE_MODE_STORED = 3
   };
-  enum intakePositions {
-    STACK = 1000,
-    RELEASE = 750,
-    SCORE = 500
-  };
-  int intakeMode = INTAKE_MODE_STORED; //Starting position of claw
+  int intakeMode = INTAKE_MODE_STORED; //Starting position of intake
 
-  //DATA FUNCTIONS//////////////////////////////////////////////////////////////
-  double avgEncoderUnits(void){
+  //Data Functions
+  int getPosition(void){
     return (intakeLeft.get_position() + intakeRight.get_position()) / 2;
   }
 
@@ -29,10 +20,21 @@ namespace intake{
          && intakeLeft.is_stopped();
   }
 
-  //CONTROL FUNCTIONS///////////////////////////////////////////////////////////
-  void setMode(pros::motor_brake_mode_e a){
-    intakeRight.set_brake_mode(a);
-    intakeLeft.set_brake_mode(a);
+  bool changedToPressed(int a){
+    static int lastVal = 0;
+    static int newVal = 0;
+    lastVal = newVal;
+    if(a == 0)
+      newVal = 0;
+    else
+      newVal = 1;
+    return newVal == 1 && lastVal == 0;
+  }
+
+  //Control Functions
+  void setMode(pros::motor_brake_mode_e mode){
+    intakeRight.set_brake_mode(mode);
+    intakeLeft.set_brake_mode(mode);
     return;
   }
 
@@ -54,57 +56,46 @@ namespace intake{
     return;
   }
 
-  void intakeStack(void){
-    intakeRight.move_absolute(STACK, 127);
-    intakeLeft.move_absolute(STACK, 127);
-    return;
-  }
-  void intakeRelease(void){
-    intakeRight.move_absolute(RELEASE, 127);
-    intakeLeft.move_absolute(RELEASE, 127);
-    return;
-  }
-  void intakeScore(void){
-    intakeRight.move_absolute(SCORE, 127);
-    intakeLeft.move_absolute(SCORE, 127);
+  //Autonomous Functions
+  void moveTo(int position, int maxSpeed, bool wait) {
+    intakeLeft.move_absolute(position, maxSpeed);
+    intakeRight.move_absolute(position, maxSpeed);
+    if(wait && pros::competition::is_autonomous())
+      while(fabs(position - getPosition()) > 10)
+        pros::delay(20);
+    else if(wait)
+      while(fabs(position - getPosition()) > 10){
+        chassis::assign();
+        lift::assign();
+      }
     return;
   }
 
-  //AUTONOMOUS FUNCTIONS////////////////////////////////////////////////////////
+  //User Control Functions
   void setIntakeMode(int mode) {
-    intakeMode = mode;
     switch(mode) {
       case INTAKE_MODE_STACK:
-          intakeStack();
+          moveTo(STACK, 127, false);
           break;
       case INTAKE_MODE_RELEASE:
-          intakeRelease();
+          moveTo(RELEASE, 127, false);
           break;
       case INTAKE_MODE_SCORE:
-          intakeScore();
+          moveTo(SCORE, 127, false);
           break;
     }
     return;
   }
 
-  //USER CONTROL////////////////////////////////////////////////////////////////
   void assign(void) {
-    if(controllerDigital(INTAKE) && intakeMode > 0) {
+    if(changedToPressed(controllerDigital(INTAKE)) && intakeMode > 0) {
       intakeMode--;
       setIntakeMode(intakeMode);
-      while(controllerDigital(INTAKE)){
-        chassis::assign();
-        lift::assign();
-      }
     }
-    else if(controllerDigital(OUTTAKE) && intakeMode < 2) {
+    else if(changedToPressed(controllerDigital(OUTTAKE)) && intakeMode < 2) {
       intakeMode++;
       setIntakeMode(intakeMode);
-      while(controllerDigital(OUTTAKE)){
-        chassis::assign();
-        lift::assign();
-      }
     }
     return;
   }
-}
+}//namespace intake

@@ -14,10 +14,11 @@
  */
 
 void opcontrol(void) {
+	lift::liftWasMoving = -1;
 	while(true) {
 		chassis::assign();
 		lift::assign();
 		intake::assign();
 		pros::delay(20);
 	}
-} 
+}

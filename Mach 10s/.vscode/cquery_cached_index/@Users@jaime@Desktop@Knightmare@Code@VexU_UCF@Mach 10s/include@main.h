@@ -75,10 +75,11 @@ void opcontrol(void);
 /**
  * You can add C++-only headers here
  */
+#include "pros/misc.hpp"
 #include "okapi/impl/chassis/controller/chassisControllerFactory.hpp"
 #include "okapi/impl/control/async/asyncControllerFactory.hpp"
 #include "subsystemHeaders/Autonomous/skills.hpp"
-#include "subsystemHeaders/drive.hpp"
+#include "subsystemHeaders/chassis.hpp"
 #include "subsystemHeaders/lift.hpp"
 #include "subsystemHeaders/path.hpp"
 #include "subsystemHeaders/globals.hpp"
