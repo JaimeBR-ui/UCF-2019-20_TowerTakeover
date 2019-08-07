@@ -31,13 +31,15 @@ namespace path{
   bool isSettled(void){
     return profileController.isSettled();
   }
-  Point makePoint(unsigned long long int x, unsigned long long int y, long double theta){
-    //use this so the program can make its own paths
-    return okapi::Point{
-      okapi::literals::operator""_in(x),
-      okapi::literals::operator""_in(y),
-      okapi::literals::operator""_deg(theta)
-    };
+  namespace point{
+    Point make(unsigned long long int x, unsigned long long int y, long double theta){
+      //use this so the program can make its own paths
+      return okapi::Point{
+        okapi::literals::operator""_in(x),
+        okapi::literals::operator""_in(y),
+        okapi::literals::operator""_deg(theta)
+      };
+    }
   }
   ///Path functions
   void make(std::initializer_list<Point> points, std::string id){
@@ -48,8 +50,10 @@ namespace path{
     profileController.removePath(id);
     return;
   }
-  void waitUntilSettled(void){
+  void waitUntilSettled(std::string id){
     profileController.waitUntilSettled();
+    if(id != "")
+      remove(id);
     return;
   }
   void set(std::string id, bool backwards){

@@ -97,13 +97,13 @@ namespace chassis{
 
   //Autonomous Functions
   void forward(unsigned long long disp, bool wait){
-    path::moveTo({path::startingPoint, path::makePoint(disp, 0, 0)});
+    path::moveTo({path::startingPoint, path::point::make(disp, 0, 0)});
     if(wait)
       path::waitUntilSettled();
     return;
   }
   void back(unsigned long long disp, bool wait){
-    path::make({path::startingPoint, path::makePoint(disp, 0, 0)}, "temp");
+    path::make({path::startingPoint, path::point::make(disp, 0, 0)}, "temp");
     path::set("temp", true);
     if(wait)
       path::waitUntilSettled();

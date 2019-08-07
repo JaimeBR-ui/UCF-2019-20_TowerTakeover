@@ -21,7 +21,7 @@ void opcontrol(void) {
 		chassis::assign();
 		lift::assign();
 		intake::assign();
-		for(int i = 0; i < 20; i++)
+		for(int i = 0; i < 15; i++)
 			printf("\b");
 		pros::delay(20);
 	}

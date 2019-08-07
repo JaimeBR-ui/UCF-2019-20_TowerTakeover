@@ -29,14 +29,12 @@ void skills(void) {
   lift::moveTo(LOW_TOWER, 127, false);
   pros::delay(300);
   intake::moveTo(STACK, 127, false);
-  chassis->waitUntilSettled();
-  path::remove("Turn1");
+  path::waitUntilSettled("Turn1");
   pros::delay(500);
   chassis::turn(900, 127, 400);
   pros::delay(500);
   chassis->setTarget("Turn2", false);
-  chassis->waitUntilSettled();
-  path::remove("Turn2");
+  path::waitUntilSettled("Turn2");
   pros::delay(500);
   chassis::turn(900, 127, 400);
   pros::delay(500);
