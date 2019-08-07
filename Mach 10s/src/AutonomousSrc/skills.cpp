@@ -11,20 +11,20 @@ STACK 1000  RELEASE 750 SCORE 500
 //usually better to avoid them.
 //Notes:
 //chassis->isSetteled() doesnt work for turns since it doesnt use okapi
-//this boolean in set target makes path to be follwed in reverse
+//the boolean in set target makes path to be follwed in reverse
 //boolean in moveTo() defines if program will wait or not.
 //chassis forward or backward movement have their paths removed automatically
 
 void skillsPathThread(void * ignore);
 
 void skills(void) {
+  AsyncMotionProfileController *chassis = &path::profileController;
   path::make({
       Point{0_ft, 0_ft, 0_deg},
       Point{2_ft, 2.3_ft, 90_deg}
     },
     "Turn1"
   );
-  AsyncMotionProfileController *chassis = &path::profileController;
   chassis->setTarget("Turn1");
   lift::moveTo(LOW_TOWER, 127, false);
   pros::delay(300);

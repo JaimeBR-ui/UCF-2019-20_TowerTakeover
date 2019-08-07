@@ -25,13 +25,13 @@ namespace intake{
   void setVoltage(int leftVolt, int rightVolt);
 
   //Autonomous Functions
-  /*
-  Sends the intake to the position specified
-  @param posiition: Sends intake to specified position can use predefined conditions
-                    such as STACK, RELEASE, or SCORE.
-  @param maxSpeed: Specifies the meximum speed when going to target.
-  @param wait: Defines the behavior of the function to act like a thread or function
-  */
+  /**
+   * Sends the intake to the position specified, can use predefined conditions
+   * such as STACK, RELEASE, or SCORE.
+   * @param posiition: Sends intake to specified position.
+   * @param maxSpeed: Specifies the meximum speed when going to target.
+   * @param wait: Defines the behavior of the function to act like a thread or function
+  **/
   void moveTo(int position, int maxSpeed, bool wait);
 
   //User Control Functions
