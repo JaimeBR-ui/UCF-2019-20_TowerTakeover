@@ -88,14 +88,23 @@ namespace intake{
   }
 
   void assign(void) {
-    if(changedToPressed(controllerDigital(INTAKE)) && intakeMode > 0) {
+    if(controllerDigital(INTAKE) && intakeMode > 0) {
       intakeMode--;
       setIntakeMode(intakeMode);
+      while(controllerDigital(INTAKE)){
+        chassis::assign();
+        lift::assign();
+      }
     }
-    else if(changedToPressed(controllerDigital(OUTTAKE)) && intakeMode < 2) {
+    else if(controllerDigital(OUTTAKE) && intakeMode < 4) {
       intakeMode++;
       setIntakeMode(intakeMode);
+      while(controllerDigital(OUTTAKE)){
+        chassis::assign();
+        lift::assign();
+      }
     }
+    std::cout << "intake " << getPosition() << std::endl;
     return;
   }
 }//namespace intake

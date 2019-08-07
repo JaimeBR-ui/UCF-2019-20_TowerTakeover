@@ -2,17 +2,19 @@
 
 namespace lift{
   //Variables
-  int liftPositionL = liftLeft.get_position(), liftPositionR;
+  int liftPositionL = 0, liftPositionR = 0;
   int liftWasMoving = 1;
   std::uint32_t now = pros::millis();
 
   //Data Functions
   int getPosition(void){
+    now = pros::millis();
     return (liftLeft.get_raw_position(&now) +
             liftLeft.get_raw_position(&now)) / 2;
   }
 
   bool isStopped(void){
+    now = pros::millis();
     return liftLeft.is_stopped()
        && liftRight.is_stopped();
   }
@@ -80,7 +82,7 @@ namespace lift{
 
   //User Control Functions
   void assign(void){
-    std::cout << "liftval: " << getPosition() << std::endl;
+    printf("%4d\b\b\b\b", getPosition());
     if(controllerDigital(A))
       moveTo(MAX_POS, 127, true);
     else if(controllerDigital(B))
@@ -99,10 +101,10 @@ namespace lift{
             setVoltage(-127);
           liftWasMoving = -1;
     }
-    else if(controllerDigital(LIFT_SHIFTER_DOWN)){
+    else if(controllerDigital(LIFT_SHIFTER_DOWN) && getPosition() < 3000){
           setMode(MOTOR_BRAKE_COAST);
-          if(getPosition() > 3100)
-            setVoltage(0);
+          if(getPosition() > 2873)
+            setVoltage(3000 - getPosition());
           else
             setVoltage(127);
           liftWasMoving = 1;

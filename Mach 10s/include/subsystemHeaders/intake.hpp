@@ -1,6 +1,6 @@
 #include "main.h"
-#define STACK 1000
-#define RELEASE 750
+#define STACK 750
+#define RELEASE 650
 #define SCORE 500
 
 namespace intake{
@@ -10,7 +10,7 @@ namespace intake{
   @return position: return average location of the intake.
   */
   int getPosition(void);
-  
+
   /*
   gives feedback regarding the movement of the intake.
   @return isStopped: return true if intake is stopped, else otherwise.

@@ -15,6 +15,7 @@
 
 void opcontrol(void) {
 	lift::liftWasMoving = -1;
+	printf("liftValue: ");
 	while(true) {
 		chassis::assign();
 		lift::assign();

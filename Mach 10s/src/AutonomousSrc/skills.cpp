@@ -15,27 +15,54 @@ STACK 1000  RELEASE 750 SCORE 500
 //boolean in moveTo() defines if program will wait or not.
 //chassis forward or backward movement have their paths removed automatically
 
+void skillsPathThread(void * ignore);
+
 void skills(void) {
-  /*AsyncMotionProfileController *chassis = &path::profileController;
-  path::makeAll("skills");
+  path::make({
+      Point{0_ft, 0_ft, 0_deg},
+      Point{2_ft, 2.3_ft, 90_deg}
+    },
+    "Turn1"
+  );
+  AsyncMotionProfileController *chassis = &path::profileController;
   chassis->setTarget("Turn1");
   lift::moveTo(LOW_TOWER, 127, false);
   pros::delay(300);
   intake::moveTo(STACK, 127, false);
   chassis->waitUntilSettled();
   path::remove("Turn1");
-  path::pathsStored--;
   pros::delay(500);
   chassis::turn(900, 127, 400);
   pros::delay(500);
   chassis->setTarget("Turn2", false);
   chassis->waitUntilSettled();
   path::remove("Turn2");
-  path::pathsStored--;
   pros::delay(500);
   chassis::turn(900, 127, 400);
   pros::delay(500);
   chassis::forward(48, true);
-  */
+  return;
+}
+
+void skillsPathThread(void * ignore){
+  //thread generates paths as robot uses them to avoid memory error
+  path::make({
+      Point{0_ft, 0_ft, 0_deg},
+      Point{2_ft, -2.3_ft, -90_deg}
+    },
+    "Turn2"
+  );
+  path::make({
+      Point{0_ft, 0_ft, 0_deg},
+      Point{2_ft, -2.3_ft, -90_deg}
+    },
+    "Turn2"
+  );
+  path::make({
+      Point{0_ft, 0_ft, 0_deg},
+      Point{2_ft, -2.3_ft, -90_deg}
+    },
+    "Turn2"
+  );
   return;
 }

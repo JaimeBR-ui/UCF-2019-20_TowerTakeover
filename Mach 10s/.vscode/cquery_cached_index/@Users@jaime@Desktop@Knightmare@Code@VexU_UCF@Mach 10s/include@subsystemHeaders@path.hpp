@@ -8,7 +8,7 @@ namespace path{
   extern pros::Mutex mutex;
   extern int pathsStored;
   extern Point startingPoint;
-  extern AsyncMotionProfileController profileController;
+  //extern AsyncMotionProfileController profileController;
 
   //Data Functions
   bool isSettled(void);
