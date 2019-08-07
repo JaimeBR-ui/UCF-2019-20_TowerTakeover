@@ -15,11 +15,14 @@
 
 void opcontrol(void) {
 	lift::liftWasMoving = -1;
-	printf("liftValue: ");
+	std::cout << "Lift Value" << "     ";
+	std::cout << "Claw Value" << std::endl;
 	while(true) {
 		chassis::assign();
 		lift::assign();
 		intake::assign();
+		for(int i = 0; i < 20; i++)
+			printf("\b");
 		pros::delay(20);
 	}
 }

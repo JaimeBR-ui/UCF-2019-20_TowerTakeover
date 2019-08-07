@@ -82,7 +82,7 @@ namespace lift{
 
   //User Control Functions
   void assign(void){
-    printf("%4d\b\b\b\b", getPosition());
+    printf("%10d     ", getPosition());
     if(controllerDigital(A))
       moveTo(MAX_POS, 127, true);
     else if(controllerDigital(B))

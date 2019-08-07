@@ -104,7 +104,7 @@ namespace intake{
         lift::assign();
       }
     }
-    std::cout << "intake " << getPosition() << std::endl;
+    printf("%10d", getPosition());
     return;
   }
 }//namespace intake
