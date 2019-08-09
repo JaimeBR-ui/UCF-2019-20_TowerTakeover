@@ -1,9 +1,11 @@
 #include "main.h"
-/*//values in lift.hpp
+/*
+//values in lift.hpp
 for lift
-MIN_POS 0 LOW_TOWER 1500  HIGH_TOWER 2200 ALLIANCE_TOWER 700  MAX_POS 3100
+MIN_POS LOW_TOWER  HIGH_TOWER ALLIANCE_TOWER MAX_POS
 for intake
-STACK 1000  RELEASE 750 SCORE 500
+//values in intake.hpp
+STACK RELEASE SCORE
 */
 //raw pointer used since there wont be a memory leak
 //I just wanted to use a pointer for sake of consistency with naming(although i
@@ -18,8 +20,8 @@ STACK 1000  RELEASE 750 SCORE 500
 void skillsPathThread(void * ignore);
 
 void skills(void) {
-  AsyncMotionProfileController *chassis = &path::profileController;
-  path::make({
+  AsyncMotionProfileController *chassis = &chassis::path::profileController;
+  chassis::path::make({
       Point{0_ft, 0_ft, 0_deg},
       Point{2_ft, 2.3_ft, 90_deg}
     },
@@ -29,12 +31,12 @@ void skills(void) {
   lift::moveTo(LOW_TOWER, 127, false);
   pros::delay(300);
   intake::moveTo(STACK, 127, false);
-  path::waitUntilSettled("Turn1");
+  chassis::path::waitUntilSettled("Turn1");
   pros::delay(500);
   chassis::turn(900, 127, 400);
   pros::delay(500);
   chassis->setTarget("Turn2", false);
-  path::waitUntilSettled("Turn2");
+  chassis::path::waitUntilSettled("Turn2");
   pros::delay(500);
   chassis::turn(900, 127, 400);
   pros::delay(500);
@@ -44,19 +46,19 @@ void skills(void) {
 
 void skillsPathThread(void * ignore){
   //thread generates paths as robot uses them to avoid memory error
-  path::make({
+  chassis::path::make({
       Point{0_ft, 0_ft, 0_deg},
       Point{2_ft, -2.3_ft, -90_deg}
     },
     "Turn2"
   );
-  path::make({
+  chassis::path::make({
       Point{0_ft, 0_ft, 0_deg},
       Point{2_ft, -2.3_ft, -90_deg}
     },
     "Turn2"
   );
-  path::make({
+  chassis::path::make({
       Point{0_ft, 0_ft, 0_deg},
       Point{2_ft, -2.3_ft, -90_deg}
     },
@@ -64,3 +66,9 @@ void skillsPathThread(void * ignore){
   );
   return;
 }
+/*
+
+create next path while the current one is running to set setTarget,
+be ahead by 2 to 3 paths
+
+*/

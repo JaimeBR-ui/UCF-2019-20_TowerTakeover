@@ -33,7 +33,6 @@
  * For instance, you can do `4_mtr = 50` to set motor 4's target velocity to 50
  */
 #define PROS_USE_LITERALS
-#define GYRO_CONSTANT 1
 #include "api.h"
 
 /**
@@ -75,7 +74,6 @@ void opcontrol(void);
 /**
  * You can add C++-only headers here
  */
-#include "pros/misc.hpp"
 #include "okapi/impl/chassis/controller/chassisControllerFactory.hpp"
 #include "okapi/impl/control/async/asyncControllerFactory.hpp"
 #include "subsystemHeaders/Autonomous/skills.hpp"
