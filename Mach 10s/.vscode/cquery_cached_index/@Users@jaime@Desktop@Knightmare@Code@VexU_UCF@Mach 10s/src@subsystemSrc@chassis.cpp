@@ -208,7 +208,7 @@ namespace chassis{
             speed = 200;
           else if (speed < -200)
             speed = -200;
-          driveRightFront.move_velocity(speed);
+          driveRightFront.move_velocity(speed); 
           driveRightBack.move_velocity(speed);
           pros::delay(20);
           printf("rotateEncoder(); loop2; avgTurningEncoderUnits(): %f; target: \

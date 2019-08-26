@@ -14,9 +14,9 @@
  */
 
 void opcontrol(void) {
-	lift::liftWasMoving = -1;
+	lift::wasMoving = -1;
 	std::cout << "Lift Value" << "     ";
-	std::cout << "Claw Value\n" << std::endl;
+	std::cout << "Claw Value" << std::endl;
 	while(true) {
 		chassis::assign();
 		lift::assign();

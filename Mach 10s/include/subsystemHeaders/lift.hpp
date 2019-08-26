@@ -7,7 +7,7 @@
 
 namespace lift{
   //Variables
-  extern int liftWasMoving;
+  extern int wasMoving;
 
   //Data Functions
   /*

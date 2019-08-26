@@ -3,7 +3,7 @@
 namespace lift{
   //Variables
   int liftPositionL = 0, liftPositionR = 0;
-  int liftWasMoving = 1;
+  int wasMoving = 1;
   std::uint32_t now = pros::millis();
 
   //Data Functions
@@ -42,10 +42,10 @@ namespace lift{
     liftPositionR = (liftRight.get_raw_position(&now) > 0)
       ? liftRight.get_raw_position(&now)
       : 0;
-    if(liftWasMoving == 1){
+    if(wasMoving == 1){
       liftLeft.move_absolute(liftPositionL, 127);
       liftRight.move_absolute(liftPositionR, 127);
-      liftWasMoving = 0;
+      wasMoving = 0;
       return;
     }
     /*//why do this when I can just lower the speed lol
@@ -59,7 +59,7 @@ namespace lift{
     int maxSpeed = 60;
     liftLeft.move_absolute(liftPositionL, maxSpeed);
     liftRight.move_absolute(liftPositionR, maxSpeed);
-    liftWasMoving = 0;
+    wasMoving = 0;
     return;
   }
 
@@ -67,9 +67,9 @@ namespace lift{
     liftLeft.move_absolute(position, maxSpeed);
     liftRight.move_absolute(position, maxSpeed);
     if(position - getPosition() > 0)
-      liftWasMoving = 1;
+      wasMoving = 1;
     else
-      liftWasMoving = -1;
+      wasMoving = -1;
     if(wait && pros::competition::is_autonomous())
       while(fabs(position - getPosition()) > 10)
         pros::delay(20);
@@ -99,7 +99,7 @@ namespace lift{
             setVoltage(-(getPosition()+20));
           else
             setVoltage(-127);
-          liftWasMoving = -1;
+          wasMoving = -1;
     }
     else if(controllerDigital(LIFT_SHIFTER_DOWN) && getPosition() < 3000){
           setMode(MOTOR_BRAKE_COAST);
@@ -107,9 +107,9 @@ namespace lift{
             setVoltage(3000 - getPosition());
           else
             setVoltage(127);
-          liftWasMoving = 1;
+          wasMoving = 1;
     }
-    else if(liftWasMoving != 0)
+    else if(wasMoving != 0)
         holdPosition();
     return;
   }
