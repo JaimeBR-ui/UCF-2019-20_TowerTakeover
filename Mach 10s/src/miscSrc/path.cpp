@@ -32,6 +32,7 @@ namespace chassis{
     bool isSettled(void){
       return profileController->isSettled();
     }
+
     namespace point{
       Point make(unsigned long long int x, unsigned long long int y, long double theta){
         //use this so the program can make its own paths
@@ -43,7 +44,7 @@ namespace chassis{
       }
     }//namespace point
 
-    ///Path functions
+    //Path functions
     void make(std::initializer_list<Point> points, std::string id){
       profileController->generatePath(points, id);
       return;
