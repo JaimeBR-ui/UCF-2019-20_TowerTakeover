@@ -5,9 +5,8 @@ using namespace okapi;
 namespace chassis{
   namespace path{
     //Variables
-  //  pros::Mutex mutex;
-  //  int pathsStored = 0;//for reference, must change to use mutex later
     Point startingPoint = Point({0_in, 0_in, 0_deg});
+
     //motion profiler declarations
     auto RobotChassis = ChassisControllerFactory::create(
       //sets ports and chassis width//
@@ -16,8 +15,8 @@ namespace chassis{
       AbstractMotor::gearset::green, // Torque gearset
       {4_in, 15.7_in} // 4 inch wheels, 16 inch wheelbase width
     );
-    okapi::AsyncMotionProfileController profileController
-  //  auto profileController
+
+    okapi::AsyncMotionProfileController motionProfiler
       = AsyncControllerFactory::motionProfile(
       // sets vel, accel, and jerk
       //max chassis velocity: 1.064 m/s
@@ -27,9 +26,11 @@ namespace chassis{
       RobotChassis // Robot Chassis Controller
     );
 
+    AsyncMotionProfileController *profileController = &motionProfiler;
+
     //Data Functions
     bool isSettled(void){
-      return profileController.isSettled();
+      return profileController->isSettled();
     }
     namespace point{
       Point make(unsigned long long int x, unsigned long long int y, long double theta){
@@ -40,28 +41,29 @@ namespace chassis{
           okapi::literals::operator""_deg(theta)
         };
       }
-    }
+    }//namespace point
+
     ///Path functions
     void make(std::initializer_list<Point> points, std::string id){
-      profileController.generatePath(points, id);
+      profileController->generatePath(points, id);
       return;
     }
     void remove(std::string id){
-      profileController.removePath(id);
+      profileController->removePath(id);
       return;
     }
     void waitUntilSettled(std::string id){
-      profileController.waitUntilSettled();
+      profileController->waitUntilSettled();
       if(id != "")
         remove(id);
       return;
     }
     void set(std::string id, bool backwards){
-      profileController.setTarget(id, backwards);
+      profileController->setTarget(id, backwards);
       return;
     }
     void moveTo(std::initializer_list<Point> point){
-      profileController.moveTo(point);
+      profileController->moveTo(point);
       return;
     }
   }//namespace path
