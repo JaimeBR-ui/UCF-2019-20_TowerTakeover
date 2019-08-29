@@ -1,4 +1,5 @@
 #include "main.h"
+#define DEPLOY_HEIGHT 400
 
 /*
 set targets in lift.hpp
@@ -7,11 +8,11 @@ set targets in intake.hpp
   STACK RELEASE SCORE
 */
 
-//Notes:
-//chassis->isSetteled() doesnt work for turns since it doesnt use okapi
-//the boolean in set target makes path to be follwed in reverse
-//boolean in moveTo() defines if program will wait or not.
-//chassis forward or backward movement have their paths removed automatically
+// Notes:
+// chassis->isSetteled() doesnt work for turns since it doesnt use okapi, unless...
+// the boolean in set target makes path to be follwed in reverse
+// boolean in moveTo() defines if program will wait or not.
+// in namespace chassis, forward or backward func have their paths removed automatically
 
 void deployClaw(void * ignore);
 
@@ -24,9 +25,6 @@ void skills(void) {
     "Turn1"
   );
   chassis::path::set("Turn1");
-  lift::moveTo(LOW_TOWER, 127, false);
-  pros::delay(300);
-  intake::moveTo(STACK, 127, false);
   chassis::path::make({
       Point{0_ft, 0_ft, 0_deg},
       Point{2_ft, -2.3_ft, -90_deg}
@@ -48,12 +46,16 @@ void skills(void) {
 
 void deployClaw(void * ignore){
   //thread that deploys the robot's claw
+  /*
+  lift::moveTo(DEPLOY_HEIGHT, 127, true);
+  intake::moveTo(SCORE, 127, false);
+  while(abs(SCORE - intake::getPosition) > 30)
+    pros::delay(100);
+  lift::moveTo(0, 127, true);
+  */
   return;
 }
 
 /*
-
-create next path while the current one is running to set setTarget,
-be ahead by 2 to 3 paths
-
+  i think i can make my own isSetteled object
 */
