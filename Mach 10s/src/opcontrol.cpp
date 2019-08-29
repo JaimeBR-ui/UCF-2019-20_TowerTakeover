@@ -17,11 +17,11 @@ void opcontrol(void) {
 	lift::wasMoving = -1;
 	std::cout << "Lift Value" << "     ";
 	std::cout << "Claw Value" << std::endl;
-	while(true) {
+	while (true) {
 		chassis::assign();
 		lift::assign();
 		intake::assign();
-		for(int i = 0; i < 15; i++)
+		for (int i = 0; i < 15; i++)
 			printf("\b");
 		pros::delay(20);
 	}

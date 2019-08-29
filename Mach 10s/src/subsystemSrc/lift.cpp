@@ -7,33 +7,36 @@ namespace lift{
   std::uint32_t now = pros::millis();
 
   //Data Functions
-  int getPosition(void){
+  int getPosition(void)
+  {
     now = pros::millis();
     return (liftLeft.get_raw_position(&now) +
             liftLeft.get_raw_position(&now)) / 2;
   }
 
-  bool isStopped(void){
+  bool isStopped(void)
+  {
     now = pros::millis();
     return liftLeft.is_stopped()
        && liftRight.is_stopped();
   }
 
   //Control Functions
-  void setVoltage(int voltage) {
+  void setVoltage(int voltage)
+  {
     liftLeft = voltage;
     liftRight = voltage;
-    return;
   }
 
-  void setMode(pros::motor_brake_mode_e mode){
+  void setMode(pros::motor_brake_mode_e mode)
+  {
     liftLeft.set_brake_mode(mode);
     liftRight.set_brake_mode(mode);
-    return;
   }
 
   //Autonomous Functions
-  void holdPosition(void){
+  void holdPosition(void)
+  {
     setVoltage(0);
     setMode(MOTOR_BRAKE_HOLD);
     liftPositionL = (liftLeft.get_raw_position(&now) > 0)
@@ -42,11 +45,10 @@ namespace lift{
     liftPositionR = (liftRight.get_raw_position(&now) > 0)
       ? liftRight.get_raw_position(&now)
       : 0;
-    if(wasMoving == 1){
+    if (wasMoving == 1){
       liftLeft.move_absolute(liftPositionL, 127);
       liftRight.move_absolute(liftPositionR, 127);
       wasMoving = 0;
-      return;
     }
     /*//why do this when I can just lower the speed lol
     setMode(MOTOR_BRAKE_COAST);
@@ -60,38 +62,39 @@ namespace lift{
     liftLeft.move_absolute(liftPositionL, maxSpeed);
     liftRight.move_absolute(liftPositionR, maxSpeed);
     wasMoving = 0;
-    return;
   }
 
-  void moveTo(int position, int maxSpeed, bool wait) {
+  void moveTo(int position, int maxSpeed, bool wait)
+  {
     liftLeft.move_absolute(position, maxSpeed);
     liftRight.move_absolute(position, maxSpeed);
-    if(position - getPosition() > 0)
+    if (position - getPosition() > 0)
       wasMoving = 1;
     else
       wasMoving = -1;
-    if(wait && pros::competition::is_autonomous())
-      while(fabs(position - getPosition()) > 10)
+    if (wait && pros::competition::is_autonomous())
+      while (fabs(position - getPosition()) > 10)
         pros::delay(20);
-    else if(wait)
-      while(fabs(position - getPosition()) > 10)
+    else if (wait)
+      while (fabs(position - getPosition()) > 10)
         chassis::assign();
     holdPosition();
-    return;
   }
 
   //User Control Functions
-  void assign(void){
+  void assign(void)
+  {
     printf("%10d     ", getPosition());
-    if(controllerDigital(A))
+    if (controllerDigital(A))
       moveTo(MAX_POS, 127, true);
-    else if(controllerDigital(B))
+    else if (controllerDigital(B))
       moveTo(ALLIANCE_TOWER, 127, true);
-    else if(controllerDigital(X))
+    else if (controllerDigital(X))
       moveTo(HIGH_TOWER, 127, true);
-    else if(controllerDigital(Y))
+    else if (controllerDigital(Y))
       moveTo(LOW_TOWER, 127, true);
-    else if(controllerDigital(LIFT_SHIFTER_UP)){
+    else if (controllerDigital(LIFT_SHIFTER_UP))
+    {
           setMode(MOTOR_BRAKE_COAST);
           if(getPosition() < 0)
             setVoltage(-15);
@@ -101,16 +104,16 @@ namespace lift{
             setVoltage(-127);
           wasMoving = -1;
     }
-    else if(controllerDigital(LIFT_SHIFTER_DOWN) && getPosition() < 3000){
+    else if (controllerDigital(LIFT_SHIFTER_DOWN) && getPosition() < 3000)
+    {
           setMode(MOTOR_BRAKE_COAST);
-          if(getPosition() > 2873)
+          if (getPosition() > 2873)
             setVoltage(3000 - getPosition());
           else
             setVoltage(127);
           wasMoving = 1;
     }
-    else if(wasMoving != 0)
+    else if (wasMoving != 0)
         holdPosition();
-    return;
   }
 }//namespace lift
