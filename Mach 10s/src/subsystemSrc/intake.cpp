@@ -2,7 +2,7 @@
 
 namespace intake
 {
-  //Variables
+  // Variables
   enum intakeModes
   {
     INTAKE_MODE_STACK = 0,
@@ -10,9 +10,10 @@ namespace intake
     INTAKE_MODE_SCORE = 2,
     INTAKE_MODE_STORED = 3
   };
-  int intakeMode = INTAKE_MODE_STORED; //Starting position of intake
+  
+  int intakeMode = INTAKE_MODE_STORED; // Starting position of intake
 
-  //Data Functions
+  // Data Functions
   int getPosition(void)
   {
     return (intakeLeft.get_position() + intakeRight.get_position()) / 2;
@@ -36,7 +37,7 @@ namespace intake
     return newVal == 1 && lastVal == 0;
   }
 
-  //Control Functions
+  // Control Functions
   void setMode(pros::motor_brake_mode_e mode)
   {
     intakeRight.set_brake_mode(mode);
@@ -61,7 +62,7 @@ namespace intake
     intakeRight.tare_position();
   }
 
-  //Autonomous Functions
+  // Autonomous Functions
   void moveTo(int position, int maxSpeed, bool wait)
   {
     intakeLeft.move_absolute(position, maxSpeed);
@@ -78,7 +79,7 @@ namespace intake
       }
   }
 
-  //User Control Functions
+  // User Control Functions
   void setIntakeMode(int mode)
   {
     switch (mode)
@@ -119,4 +120,4 @@ namespace intake
     }
     printf("%10d", getPosition());
   }
-}//namespace intake
+}// namespace intake

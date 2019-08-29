@@ -19,7 +19,7 @@ void runDisplay(void){
 	myButtonStylePR.body.grad_color = LV_COLOR_MAKE(0, 0, 255);
 	myButtonStylePR.body.radius = 0;
 	myButtonStylePR.text.color = LV_COLOR_MAKE(255, 255, 255);
-  //myButton = createBtn(,10,10,200,50,,);
+  
 	myButton = lv_btn_create(lv_scr_act(), NULL); //create button, lv_scr_act() is deafult screen object
 	lv_obj_set_free_num(myButton, 0); //set button is to 0
 	lv_btn_set_action(myButton, LV_BTN_ACTION_CLICK, btn_click_action); //set function to be called on button click

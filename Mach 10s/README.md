@@ -9,7 +9,7 @@ ____________________________________________________________________________
 With the help of teams:
 Bangarang - Testing Hardware
 Skyline - Folder Setup
-VexMen - UI
+VexMen - UI startup
 ____________________________________________________________________________
 
 This software runs the tele-operated and autonomous programs for the 15" cube

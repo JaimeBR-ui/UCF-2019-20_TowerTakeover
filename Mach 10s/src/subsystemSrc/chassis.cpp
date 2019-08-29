@@ -2,12 +2,12 @@
 
 namespace chassis
 {
-  //Variables
+  // Variables
   int positionL, positionR;
   std::uint32_t now = pros::millis();
   bool wasMoving = true;
 
-  //Data Functions
+  // Data Functions
   double avgRightSideEncoderUnits(void)
   {
     return (driveRightFront.get_raw_position(&now) +
@@ -39,7 +39,7 @@ namespace chassis
          &&  driveLeftBack.is_stopped();
    }
 
-  //Control Functions
+  // Control Functions
   void setMode(pros::motor_brake_mode_e mode)
   {
     driveRightFront.set_brake_mode(mode);
@@ -49,7 +49,7 @@ namespace chassis
   }
 
   void setVoltage(int leftVolt, int rightVolt)
-  { //sets drive to an 8 bit signed voltage int//
+  { // Sets drive voltage to an 8 bit signed int
     driveRightBack = rightVolt;
     driveRightFront = rightVolt;
     driveLeftBack = leftVolt;
@@ -57,7 +57,7 @@ namespace chassis
   }
 
   void setVelocity(int leftVel, int rightVel)
-  { //sets chassis velocity//
+  { // Sets chassis velocity
     driveRightFront.move_velocity(rightVel);
     driveRightBack.move_velocity(rightVel);
     driveLeftFront.move_velocity(leftVel);
@@ -66,7 +66,7 @@ namespace chassis
 
   void turnToTarget(int target, int maxSpeed)
   {
-    //chassis goes to encoder target when turning//
+    // Chassis goes to encoder target when turning
     driveLeftBack.move_absolute(target, maxSpeed);
     driveLeftFront.move_absolute(target, maxSpeed);
     driveRightBack.move_absolute(-target, maxSpeed);
@@ -74,7 +74,7 @@ namespace chassis
   }
 
   void tare(void)
-  { //sets chassis encoders to zero//
+  { // Sets chassis encoders to zero
     driveLeftFront.tare_position();
     driveLeftBack.tare_position();
     driveRightFront.tare_position();
@@ -82,7 +82,7 @@ namespace chassis
   }
 
   void brake(int mills)
-  { //brakes drive for set amount of milliseconds//
+  { // Brakes drive for set amount of milliseconds
     setMode(MOTOR_BRAKE_HOLD);
     pros::delay(mills);
     setMode(MOTOR_BRAKE_COAST);
@@ -104,24 +104,24 @@ namespace chassis
     moveTo(positionR, positionL, 127);
   }
 
-  //Autonomous Functions
+  // Autonomous Functions
   void forward(unsigned long long disp, bool wait)
   {
     path::moveTo({path::startingPoint, path::point::make(disp, 0, 0)});
-    if(wait)
+    if (wait)
       path::waitUntilSettled();
   }
   void back(unsigned long long disp, bool wait)
   {
     path::make({path::startingPoint, path::point::make(disp, 0, 0)}, "temp");
     path::set("temp", true);
-    if(wait)
+    if (wait)
       path::waitUntilSettled();
     path::remove("temp");
   }
   void turn(int degrees10, int maxSpeed, int accuracyTimer)
   {
-    //rotates encoder using encoder counts//
+    // Rotates encoder using encoder counts
     int target = degrees10 * TURN_CONSTANT;
     float myP = 0.18, error = 0.0, ratio;
     int speed = 0;
@@ -164,15 +164,15 @@ namespace chassis
   }
 
   void pointTurn(int degrees10, int maxSpeed, int accuracyTimer)
-  { //rotates chassis using encoder counts with one side stopped//
+  { // Rotates chassis using encoder counts with one side stopped
     int target = degrees10 * POINT_TURN_CONSTANT;
     float myP = 0.18, error = 0.0, ratio;
     int speed = 0;
     int reverse = abs(target) / target;
     int distanceLimitToSpeedUp = target * 0.2 * 900 / degrees10;
     tare();
-    if(target > 0)
-    {//if we are turning right
+    if (target > 0)
+    {// If we are turning right
       driveRightBack.move_absolute(0, maxSpeed);
       driveRightFront.move_absolute(0, maxSpeed);
       while (avgLeftSideEncoderUnits() < abs(distanceLimitToSpeedUp))
@@ -209,10 +209,9 @@ namespace chassis
         driveLeftBack.move_absolute(target, 20);
         driveLeftFront.move_absolute(target, 20);
       }
-
-      }
+    }
       else
-      {//if we are turning left
+      {// If we are turning left
         driveLeftBack.move_absolute(0, maxSpeed);
         driveLeftFront.move_absolute(0, maxSpeed);
         while (avgRightSideEncoderUnits() < abs(distanceLimitToSpeedUp))
@@ -253,26 +252,26 @@ namespace chassis
       }
       pros::delay(accuracyTimer);
       setVoltage(0, 0);
-    }
-
-    //User Control Functions
-    void assign(void)
-    { //assigns voltage with deadband//
-      int l = controllerAnalog(LEFT_JOYSTICK);
-      int r = controllerAnalog(RIGHT_JOYSTICK);
-      l = (abs(l) > 10) ? l: 0;
-      r = (abs(r) > 10) ? r : 0;
-      if (lift::getPosition() > 1000)
-      {
-        l/= SLOWDOWN_FACTOR;
-        r/= SLOWDOWN_FACTOR;
-      }
-      if (l != 0 || r != 0)
-      {
-        setVoltage(l, r);
-        wasMoving = true;
-      }
-      else
-        setVoltage(0, 0);
   }
-}//namespace chassis
+
+  // User Control Functions
+  void assign(void)
+  { // Assigns voltage with deadband
+    int l = controllerAnalog(LEFT_JOYSTICK);
+    int r = controllerAnalog(RIGHT_JOYSTICK);
+    l = (abs(l) > 10) ? l: 0;
+    r = (abs(r) > 10) ? r : 0;
+    if (lift::getPosition() > 1000)
+    {
+      l/= SLOWDOWN_FACTOR;
+      r/= SLOWDOWN_FACTOR;
+    }
+    if (l != 0 || r != 0)
+    {
+      setVoltage(l, r);
+      wasMoving = true;
+    }
+    else
+      setVoltage(0, 0);
+  }
+}// namespace chassis

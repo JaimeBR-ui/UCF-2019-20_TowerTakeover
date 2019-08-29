@@ -16,7 +16,7 @@ maybe store paths to reuse
 
 
 for chassis:
-make robot turn based on a constant acceleration that removes drift, base on time,
+make robot turn based on a constant acceleration that removes drift, based on time,
 not encoder counts for the start
 
 for lift: none found

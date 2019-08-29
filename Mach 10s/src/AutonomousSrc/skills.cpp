@@ -16,7 +16,8 @@ set targets in intake.hpp
 
 void deployClaw(void * ignore);
 
-void skills(void) {
+void skills(void)
+{
   pros::Task deploy = pros::Task(deployClaw);
   chassis::path::make({
       Point{0_ft, 0_ft, 0_deg},
@@ -25,7 +26,8 @@ void skills(void) {
     "Turn1"
   );
   chassis::path::set("Turn1");
-  chassis::path::make({
+  chassis::path::make(
+    {
       Point{0_ft, 0_ft, 0_deg},
       Point{2_ft, -2.3_ft, -90_deg}
     },
@@ -41,19 +43,15 @@ void skills(void) {
   chassis::turn(900, 127, 400);
   pros::delay(500);
   chassis::forward(48, true);
-  return;
 }
 
-void deployClaw(void * ignore){
-  //thread that deploys the robot's claw
-  /*
+void deployClaw(void * ignore)
+{ // Thread that deploys the robot's claw
   lift::moveTo(DEPLOY_HEIGHT, 127, true);
   intake::moveTo(SCORE, 127, false);
-  while(abs(SCORE - intake::getPosition) > 30)
+  while(abs(SCORE - 200 - intake::getPosition()) > 30)
     pros::delay(100);
   lift::moveTo(0, 127, true);
-  */
-  return;
 }
 
 /*

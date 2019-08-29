@@ -2,12 +2,14 @@
 
 using namespace okapi;
 
-namespace chassis{
-  namespace path{
-    //Variables
+namespace chassis
+{
+  namespace path
+  {
+    // Variables
     Point startingPoint = Point({0_in, 0_in, 0_deg});
 
-    //motion profiler declarations
+    // Motion Profiler Declarations
     auto RobotChassis = ChassisControllerFactory::create(
       //sets ports and chassis width//
       {1, 10}, // Left motors
@@ -28,44 +30,46 @@ namespace chassis{
 
     AsyncMotionProfileController *profileController = &motionProfiler;
 
-    //Data Functions
-    bool isSettled(void){
+    // Data Functions
+    bool isSettled(void)
+    {
       return profileController->isSettled();
     }
 
-    namespace point{
+    namespace point
+    {
       Point make(unsigned long long int x, unsigned long long int y, long double theta){
         //use this so the program can make its own paths
-        return okapi::Point{
+        return okapi::Point
+        {
           okapi::literals::operator""_in(x),
           okapi::literals::operator""_in(y),
           okapi::literals::operator""_deg(theta)
         };
       }
-    }//namespace point
+    }// namespace point
 
-    //Path functions
+    // Path Functions
     void make(std::initializer_list<Point> points, std::string id){
       profileController->generatePath(points, id);
-      return;
     }
+
     void remove(std::string id){
       profileController->removePath(id);
-      return;
     }
+
     void waitUntilSettled(std::string id){
       profileController->waitUntilSettled();
-      if(id != "")
+      if (id != "")
         remove(id);
-      return;
     }
+
     void set(std::string id, bool backwards){
       profileController->setTarget(id, backwards);
-      return;
     }
+
     void moveTo(std::initializer_list<Point> point){
       profileController->moveTo(point);
-      return;
     }
-  }//namespace path
-}//namespace chassis
+  }// namespace path
+}// namespace chassis
