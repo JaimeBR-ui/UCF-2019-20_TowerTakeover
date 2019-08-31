@@ -134,7 +134,7 @@ namespace chassis
         ? avgTurningEncoderUnits() / abs(distanceLimitToSpeedUp)
         : 0.15;
       speed = maxSpeed * ratio * reverse * 1.57;
-      if(speed>200)
+      if (speed>200)
         speed = 200;
       else if (speed< -200)
         speed = -200;
@@ -143,9 +143,10 @@ namespace chassis
       /*printf("encoderloop1: %f; ratio: %f; speed: %d;\n", \
               avgTurningEncoderUnits(), ratio,speed);*/
     }
-    while(avgTurningEncoderUnits() > target + 50
+    while (avgTurningEncoderUnits() > target + 50
           || avgTurningEncoderUnits() < target - 50)
     {
+      //shorter logic: while (abs(avgTurningEncoderUnits() - target) > 25)
     	error = target - avgTurningEncoderUnits();
     	speed = (myP * error > 127)
         ? 127
