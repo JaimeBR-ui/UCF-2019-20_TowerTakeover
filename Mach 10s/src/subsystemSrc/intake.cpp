@@ -10,8 +10,10 @@ namespace intake
     INTAKE_MODE_SCORE = 2,
     INTAKE_MODE_STORED = 3
   };
-  
+
+  bool wasMoving = true;
   int intakeMode = INTAKE_MODE_STORED; // Starting position of intake
+  std::uint32_t now = pros::millis();
 
   // Data Functions
   int getPosition(void)
@@ -44,10 +46,10 @@ namespace intake
     intakeLeft.set_brake_mode(mode);
   }
 
-  void setVoltage(int leftVolt, int rightVolt)
+  void setVoltage(int voltage)
   {
-    intakeLeft = leftVolt;
-    intakeRight = rightVolt;
+    intakeLeft = voltage;
+    intakeRight = voltage;
   }
 
   void setVelocity(int leftVel, int rightVel)
@@ -65,6 +67,7 @@ namespace intake
   // Autonomous Functions
   void moveTo(int position, int maxSpeed, bool wait)
   {
+    setMode(MOTOR_BRAKE_HOLD);
     intakeLeft.move_absolute(position, maxSpeed);
     intakeRight.move_absolute(position, maxSpeed);
     if (wait && pros::competition::is_autonomous())
@@ -77,6 +80,18 @@ namespace intake
         chassis::assign();
         lift::assign();
       }
+  }
+
+  void holdPosition(void)
+  {
+    int maxSpeed = 127, positionL, positionR;
+    setVoltage(0);
+    setMode(MOTOR_BRAKE_HOLD);
+    positionL = intakeLeft.get_raw_position(&now);
+    positionR = intakeRight.get_raw_position(&now);
+    intakeLeft.move_absolute(positionL, maxSpeed);
+    intakeRight.move_absolute(positionR, maxSpeed);
+    wasMoving = false;
   }
 
   // User Control Functions
@@ -98,26 +113,45 @@ namespace intake
 
   void assign(void)
   {
-    if (controllerDigital(INTAKE) && intakeMode > 0)
+    if (controllerDigital(INTAKE))
     {
-      intakeMode--;
-      setIntakeMode(intakeMode);
-      while (controllerDigital(INTAKE))
-      {
-        chassis::assign();
-        lift::assign();
-      }
+          setMode(MOTOR_BRAKE_COAST);
+          setVoltage(-127);
+          wasMoving = true;
     }
-    else if (controllerDigital(OUTTAKE) && intakeMode < 4)
+    else if (controllerDigital(OUTTAKE))
     {
-      intakeMode++;
-      setIntakeMode(intakeMode);
-      while (controllerDigital(OUTTAKE))
-      {
-        chassis::assign();
-        lift::assign();
-      }
+          setMode(MOTOR_BRAKE_COAST);
+          setVoltage(127);
+          wasMoving = true;
     }
-    printf("%10d", getPosition());
+    else if (wasMoving)
+        holdPosition();
+    //printf("%10d", getPosition());
   }
 }// namespace intake
+
+
+/*
+// past toggle code
+if (controllerDigital(INTAKE) && intakeMode > 0)
+{
+  intakeMode--;
+  setIntakeMode(intakeMode);
+  while (controllerDigital(INTAKE))
+  {
+    chassis::assign();
+    lift::assign();
+  }
+}
+else if (controllerDigital(OUTTAKE) && intakeMode < 4)
+{
+  intakeMode++;
+  setIntakeMode(intakeMode);
+  while (controllerDigital(OUTTAKE))
+  {
+    chassis::assign();
+    lift::assign();
+  }
+}
+*/

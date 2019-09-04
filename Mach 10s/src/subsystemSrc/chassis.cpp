@@ -121,32 +121,25 @@ namespace chassis
   }
   void turn(int degrees10, int maxSpeed, int accuracyTimer)
   {
-    // Rotates encoder using encoder counts
-    int target = degrees10 * TURN_CONSTANT;
+    // Rotates robot using encoder counts
+    int target = degrees10 * 0.715;
     float myP = 0.18, error = 0.0, ratio;
     int speed = 0;
     int reverse = abs(target) / target;
-    int distanceLimitToSpeedUp = target * 0.2 * 900 / degrees10;
     tare();
-    while(avgTurningEncoderUnits() < abs(distanceLimitToSpeedUp))
-    {
+    int distanceLimitToSpeedUp = target * 0.2;//make this decrease as the degrees10 increases
+    while(avgTurningEncoderUnits() < abs(distanceLimitToSpeedUp)){
       ratio = (avgTurningEncoderUnits() / abs(distanceLimitToSpeedUp) >= 0.15)
         ? avgTurningEncoderUnits() / abs(distanceLimitToSpeedUp)
         : 0.15;
-      speed = maxSpeed * ratio * reverse * 1.57;
-      if (speed>200)
-        speed = 200;
-      else if (speed< -200)
-        speed = -200;
+      speed = maxSpeed * ratio * reverse;
+      speed = speed * 1.57;
       setVelocity(speed, -speed);
       pros::delay(20);
-      /*printf("encoderloop1: %f; ratio: %f; speed: %d;\n", \
-              avgTurningEncoderUnits(), ratio,speed);*/
-    }
-    while (avgTurningEncoderUnits() > target + 50
-          || avgTurningEncoderUnits() < target - 50)
-    {
-      //shorter logic: while (abs(avgTurningEncoderUnits() - target) > 25)
+    printf("encoderloop1: %f; ratio: %f; speed: %d;\n", avgTurningEncoderUnits(), ratio,speed);
+  }///*
+    while(avgTurningEncoderUnits() > target + 50
+          || avgTurningEncoderUnits() < target - 50) {
     	error = target - avgTurningEncoderUnits();
     	speed = (myP * error > 127)
         ? 127
@@ -154,12 +147,12 @@ namespace chassis
       speed = (speed >= 20)? speed: 20;
       speed = speed * 1.57;
       setVelocity(speed, -speed);
-      /*printf("rotateEncoder(); loop2; avgTurningEncoderUnits(): %f; \
-        target: %d; speed: %d;\n", \
-        avgTurningEncoderUnits(), target,speed);*/
+      printf("encoderloop2: %f; target: %d; speed: %d;\n", avgTurningEncoderUnits(), target,speed);
       pros::delay(20);
-    }
+    }//*/
     turnToTarget(target, 20);
+    //shorter logic: while (abs(avgTurningEncoderUnits() - target) > 25)
+
     pros::delay(accuracyTimer);
     setVoltage(0, 0);
   }

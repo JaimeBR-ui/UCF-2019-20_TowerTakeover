@@ -1,7 +1,5 @@
 #include "main.h"
 
-using namespace okapi;
-
 namespace chassis
 {
   namespace path
@@ -18,8 +16,7 @@ namespace chassis
       {4_in, 15.7_in} // 4 inch wheels, 16 inch wheelbase width
     );
 
-    okapi::AsyncMotionProfileController motionProfiler
-      = AsyncControllerFactory::motionProfile(
+    auto profileController = AsyncControllerFactory::motionProfile(
       // sets vel, accel, and jerk
       //max chassis velocity: 1.064 m/s
       1.0,  // Maximum linear velocity of the Chassis in m/s  1.0
@@ -28,12 +25,10 @@ namespace chassis
       RobotChassis // Robot Chassis Controller
     );
 
-    AsyncMotionProfileController *profileController = &motionProfiler;
-
     // Data Functions
     bool isSettled(void)
     {
-      return profileController->isSettled();
+      return profileController.isSettled();
     }
 
     namespace point
@@ -50,26 +45,29 @@ namespace chassis
     }// namespace point
 
     // Path Functions
-    void make(std::initializer_list<Point> points, std::string id){
-      profileController->generatePath(points, id);
+    void make(std::initializer_list<Point> points, std::string id)
+    {
+      profileController.generatePath(points, id);
     }
 
-    void remove(std::string id){
-      profileController->removePath(id);
+    void remove(std::string id)
+    {
+      profileController.removePath(id);
     }
 
-    void waitUntilSettled(std::string id){
-      profileController->waitUntilSettled();
-      if (id != "")
-        remove(id);
+    void waitUntilSettled()
+    {
+      profileController.waitUntilSettled();
     }
 
-    void set(std::string id, bool backwards){
-      profileController->setTarget(id, backwards);
+    void set(std::string id, bool backwards)
+    {
+      profileController.setTarget(id, backwards);
     }
 
-    void moveTo(std::initializer_list<Point> point){
-      profileController->moveTo(point);
+    void moveTo(std::initializer_list<Point> point)
+    {
+      profileController.moveTo(point);
     }
   }// namespace path
 }// namespace chassis

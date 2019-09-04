@@ -5,10 +5,9 @@ using namespace okapi;
 namespace chassis{
   namespace path{
     //Variables
-    extern pros::Mutex mutex;
+//    extern pros::Mutex mutex;
     extern int pathsStored;
     extern Point startingPoint;
-    extern AsyncMotionProfileController *profileController;
 
     //Data Functions
     bool isSettled(void);
@@ -26,7 +25,7 @@ namespace chassis{
 
     void remove(std::string id);
 
-    void waitUntilSettled(std::string id = "");
+    void waitUntilSettled();
 
     void set(std::string id, bool backwards = false);
   }

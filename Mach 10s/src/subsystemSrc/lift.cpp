@@ -10,13 +10,14 @@ namespace lift{
   int getPosition(void)
   {
     now = pros::millis();
+    if (1) // This is here only because im running the list on 1 motor atm
+      return liftRight.get_raw_position(&now);
     return (liftLeft.get_raw_position(&now) +
             liftLeft.get_raw_position(&now)) / 2;
   }
 
   bool isStopped(void)
   {
-    now = pros::millis();
     return liftLeft.is_stopped()
        && liftRight.is_stopped();
   }
@@ -49,6 +50,7 @@ namespace lift{
       liftLeft.move_absolute(liftPositionL, 127);
       liftRight.move_absolute(liftPositionR, 127);
       wasMoving = 0;
+      return;
     }
     /*//why do this when I can just lower the speed lol
     setMode(MOTOR_BRAKE_COAST);
@@ -84,7 +86,7 @@ namespace lift{
   //User Control Functions
   void assign(void)
   {
-    printf("%10d     ", getPosition());
+    // printf("%10d     ", getPosition());
     if (controllerDigital(A))
       moveTo(MAX_POS, 127, true);
     else if (controllerDigital(B))

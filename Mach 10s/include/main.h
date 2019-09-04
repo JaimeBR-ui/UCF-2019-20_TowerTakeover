@@ -77,11 +77,11 @@ void opcontrol(void);
 #include "okapi/impl/chassis/controller/chassisControllerFactory.hpp"
 #include "okapi/impl/control/async/asyncControllerFactory.hpp"
 #include "subsystemHeaders/Autonomous/skills.hpp"
-#include "subsystemHeaders/chassis.hpp"
 #include "subsystemHeaders/lift.hpp"
 #include "subsystemHeaders/path.hpp"
 #include "subsystemHeaders/globals.hpp"
 #include "subsystemHeaders/intake.hpp"
+#include "subsystemHeaders/chassis.hpp"
 #include "subsystemHeaders/UI.hpp"
 #include "iostream"
 #endif
