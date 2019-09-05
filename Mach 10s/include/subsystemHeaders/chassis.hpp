@@ -3,8 +3,6 @@
 #define TURN_CONSTANT 0.73
 #define POINT_TURN_CONSTANT 1.72
 
-using namespace okapi;
-
 namespace chassis{
   //Variables
   extern int positionL, positionR;

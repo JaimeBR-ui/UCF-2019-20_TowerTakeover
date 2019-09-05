@@ -5,11 +5,6 @@ namespace chassis
   namespace path
   {
     // Variables
-    namespace point
-    {
-      Point startingPoint = Point({0_in, 0_in, 0_deg});
-    }
-    // Motion Profiler Declarations
     auto RobotChassis = ChassisControllerFactory::create(
       //sets ports and chassis width//
       {1, 10}, // Left motors
@@ -32,19 +27,6 @@ namespace chassis
     {
       return profileController.isSettled();
     }
-
-    namespace point
-    {
-      Point make(unsigned long long int x, unsigned long long int y, long double theta){
-        //use this so the program can make its own paths
-        return okapi::Point
-        {
-          okapi::literals::operator""_in(x),
-          okapi::literals::operator""_in(y),
-          okapi::literals::operator""_deg(theta)
-        };
-      }
-    }// namespace point
 
     // Path Functions
     void make(std::initializer_list<Point> points, std::string id)

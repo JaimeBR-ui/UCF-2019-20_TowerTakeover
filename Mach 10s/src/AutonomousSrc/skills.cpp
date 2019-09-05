@@ -21,7 +21,7 @@ void skills(void)
   pros::Task deploy(deployClaw);
   chassis::path::set("Straight_24in");
   chassis::path::make({
-      chassis::path::point::startingPoint,
+      point::start,
       Point{6_in, 0_in, 0_deg}
     },
     "Straight_6in"
@@ -35,18 +35,10 @@ void skills(void)
   lift::moveTo(ALLIANCE_TOWER - 300, 127, false);
   pros::delay(100);
   chassis::back(21, true); // 21 inches backwards, wait for action
-  chassis::turn(900, 80, 100); // waits by default
+  chassis::turn(900, 60, 100); // waits by default
   lift::moveTo(ALLIANCE_TOWER + 400, 127, true);
   chassis::forward(20, true);
-  // start the stack
-  lift::moveTo(ALLIANCE_TOWER - 300, 127, false);
-  pros::delay(500);
-  intake::moveTo(RELEASE, 127, true); // waits for action to complete
-  lift::moveTo(0, 127, true);
-  pros::delay(500);
-  intake::moveTo(STACK, 127, true);
-  lift::moveTo(ALLIANCE_TOWER - 300, 127, false);
-  // end the stack
+  stack();
   chassis::forward(9, true);
   chassis::turn(450, 60, 400);
   chassis::forward(11, true);
@@ -59,7 +51,7 @@ void skills(void)
 void makeFirstPath(void)
 {
   chassis::path::make({
-      chassis::path::point::startingPoint,
+      point::start,
       Point{24_in, 0_in, 0_deg}
     },
     "Straight_24in"
@@ -77,9 +69,16 @@ void deployClaw(void * ignore)
 
 void stack(void)
 {
-
+  lift::moveTo(ALLIANCE_TOWER - 300, 127, false);
+  pros::delay(500);
+  intake::moveTo(RELEASE, 127, true); // waits for action to complete
+  lift::moveTo(0, 127, true);
+  pros::delay(500);
+  intake::moveTo(STACK, 127, true);
+  lift::moveTo(ALLIANCE_TOWER - 300, 127, false);
 }
 
 /* Notes
   i think i can make my own isSetteled object for the turn func
+  turn is a bit iffy due to my slippery floor causing wheel slippage
 */

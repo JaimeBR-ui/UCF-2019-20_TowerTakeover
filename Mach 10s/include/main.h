@@ -83,6 +83,7 @@ void opcontrol(void);
 #include "subsystemHeaders/intake.hpp"
 #include "subsystemHeaders/chassis.hpp"
 #include "subsystemHeaders/UI.hpp"
+#include "subsystemHeaders/point.hpp"
 #include "iostream"
 #endif
 
