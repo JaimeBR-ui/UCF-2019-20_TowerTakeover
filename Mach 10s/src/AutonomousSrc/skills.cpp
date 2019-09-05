@@ -1,5 +1,4 @@
 #include "main.h"
-#define DEPLOY_HEIGHT 400
 
 /*
 set targets in lift.hpp
@@ -15,36 +14,56 @@ set targets in intake.hpp
 // in namespace chassis, forward or backward func have their paths removed automatically
 
 void deployClaw(void * ignore);
+void stack(void);
 
 void skills(void)
 {
-  //pros::Task deploy(deployClaw);
-
+  pros::Task deploy(deployClaw);
+  chassis::path::set("Straight_24in");
   chassis::path::make({
-      Point{0_ft, 0_ft, 0_deg},
-      Point{2_ft, 2.3_ft, 90_deg}
+      chassis::path::point::startingPoint,
+      Point{6_in, 0_in, 0_deg}
     },
-    "Turn1"
-  );
-  pros::delay(5000);
-  chassis::path::set("Turn1");
-  chassis::path::make(
-    {
-      Point{0_ft, 0_ft, 0_deg},
-      Point{2_ft, -2.3_ft, -90_deg}
-    },
-    "Turn2"
+    "Straight_6in"
   );
   chassis::path::waitUntilSettled();
-  pros::delay(2000);
-  chassis::turn(900, 127, 400);
-  pros::delay(500);
-  chassis::path::set("Turn2", false);
+  chassis::path::remove("Straight_24in");
+  chassis::path::set("Straight_6in");
   chassis::path::waitUntilSettled();
+  chassis::path::remove("Straight_6in");
+  intake::moveTo(STACK, 127, true); // waits for action to complete
+  lift::moveTo(ALLIANCE_TOWER - 300, 127, false);
+  pros::delay(100);
+  chassis::back(21, true); // 21 inches backwards, wait for action
+  chassis::turn(900, 80, 100); // waits by default
+  lift::moveTo(ALLIANCE_TOWER + 400, 127, true);
+  chassis::forward(20, true);
+  // start the stack
+  lift::moveTo(ALLIANCE_TOWER - 300, 127, false);
   pros::delay(500);
-  chassis::turn(900, 127, 400);
+  intake::moveTo(RELEASE, 127, true); // waits for action to complete
+  lift::moveTo(0, 127, true);
   pros::delay(500);
-  chassis::forward(48, true);
+  intake::moveTo(STACK, 127, true);
+  lift::moveTo(ALLIANCE_TOWER - 300, 127, false);
+  // end the stack
+  chassis::forward(9, true);
+  chassis::turn(450, 60, 400);
+  chassis::forward(11, true);
+  lift::moveTo(0, 127, true);
+  pros::delay(700);
+  intake::moveTo(SCORE, 127, true);
+  chassis::back(11, true);
+}
+
+void makeFirstPath(void)
+{
+  chassis::path::make({
+      chassis::path::point::startingPoint,
+      Point{24_in, 0_in, 0_deg}
+    },
+    "Straight_24in"
+  );
 }
 
 void deployClaw(void * ignore)
@@ -56,6 +75,11 @@ void deployClaw(void * ignore)
   lift::moveTo(0, 127, true);
 }
 
+void stack(void)
+{
+
+}
+
 /* Notes
-  i think i can make my own isSetteled object
+  i think i can make my own isSetteled object for the turn func
 */

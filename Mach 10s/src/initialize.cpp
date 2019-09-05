@@ -18,6 +18,7 @@ void initialize(void)
 	liftRight.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	intakeRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	intakeLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+  makeFirstPath();
 }
 
 /**

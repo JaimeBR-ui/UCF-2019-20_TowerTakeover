@@ -79,8 +79,10 @@ namespace lift{
         pros::delay(20);
     else if (wait)
       while (fabs(position - getPosition()) > 10)
+      {
         chassis::assign();
-    holdPosition();
+        intake::assign();
+      }
   }
 
   //User Control Functions

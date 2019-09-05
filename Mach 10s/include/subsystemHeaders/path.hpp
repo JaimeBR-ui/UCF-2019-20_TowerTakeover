@@ -7,13 +7,17 @@ namespace chassis{
     //Variables
 //    extern pros::Mutex mutex;
     extern int pathsStored;
-    extern Point startingPoint;
+    namespace point
+    {
+      extern Point startingPoint;
+    }
 
     //Data Functions
     bool isSettled(void);
 
     //Control Functions
-    namespace point{
+    namespace point
+    {
       Point make(unsigned long long int x, unsigned long long int y, long double theta);
     }
     ///Path Functions

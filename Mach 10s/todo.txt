@@ -24,11 +24,11 @@ for lift: none found
 for intake: none found
 
 mechanical things that impact auto:
-chain may skip over middle sprocket; fixed?                  n
+chain may skip over middle sprocket; fixed?                  y
 Reasoning: reduces wheel slop not detected by IME's
-sprocket and wheel need to be screwed together; done?        n
+sprocket and wheel need to be screwed together; done?        y
 Reasoning: reduces wheel slop not detected by IME's
-wheels need to have screwed in rollers; done?                n
+wheels need to have screwed in rollers; done?                y
 Reasoning: prevents robot moving sideways, improving accuracy.
 
 for branch
@@ -48,3 +48,6 @@ end
 ez solution: change from auto datatype, move verbosity but no big deal
 
 _____________________________________________________________________________
+
+first recorded issue: turning was messed up due to something wrong with using
+chassis::tare() and motor.get_raw_position(&timestamp);

@@ -10,12 +10,14 @@ namespace chassis
   // Data Functions
   double avgRightSideEncoderUnits(void)
   {
+    now = pros::millis();
     return (driveRightFront.get_raw_position(&now) +
             driveRightBack.get_raw_position(&now)) / 2;
   }
 
   double avgLeftSideEncoderUnits(void)
   {
+    now = pros::millis();
     return (driveLeftFront.get_raw_position(&now) +
             driveLeftBack.get_raw_position(&now)) / 2;
   }
@@ -27,8 +29,8 @@ namespace chassis
 
   double avgTurningEncoderUnits(void)
   {
-    return (fabs(avgRightSideEncoderUnits()) +
-            fabs(avgLeftSideEncoderUnits())) / 2;
+    int a = abs(driveLeftBack.get_position()) + abs(driveLeftFront.get_position()) + abs(driveRightBack.get_position()) + abs(driveRightFront.get_position());
+    return a/4;
   }
 
   bool isStopped(void)
@@ -107,13 +109,13 @@ namespace chassis
   // Autonomous Functions
   void forward(unsigned long long disp, bool wait)
   {
-    path::moveTo({path::startingPoint, path::point::make(disp, 0, 0)});
+    path::moveTo({path::point::startingPoint, path::point::make(disp, 0, 0)});
     if (wait)
       path::waitUntilSettled();
   }
   void back(unsigned long long disp, bool wait)
   {
-    path::make({path::startingPoint, path::point::make(disp, 0, 0)}, "temp");
+    path::make({path::point::startingPoint, path::point::make(disp, 0, 0)}, "temp");
     path::set("temp", true);
     if (wait)
       path::waitUntilSettled();
@@ -122,27 +124,34 @@ namespace chassis
   void turn(int degrees10, int maxSpeed, int accuracyTimer)
   {
     // Rotates robot using encoder counts
+    tare();
     int target = degrees10 * 0.715;
     float myP = 0.18, error = 0.0, ratio;
     int speed = 0;
     int reverse = abs(target) / target;
-    tare();
     int distanceLimitToSpeedUp = target * 0.2;//make this decrease as the degrees10 increases
-    while(avgTurningEncoderUnits() < abs(distanceLimitToSpeedUp)){
+    setMode(MOTOR_BRAKE_COAST);
+    setVoltage(0, 0);
+    std::cout << "going into loop 1" << std::endl;
+    printf("%d\n", avgTurningEncoderUnits());
+    while (avgTurningEncoderUnits() < abs(distanceLimitToSpeedUp)){
       ratio = (avgTurningEncoderUnits() / abs(distanceLimitToSpeedUp) >= 0.15)
         ? avgTurningEncoderUnits() / abs(distanceLimitToSpeedUp)
         : 0.15;
       speed = maxSpeed * ratio * reverse;
-      speed = speed * 1.57;
+      speed = speed * 1.57 * maxSpeed / 127;
       setVelocity(speed, -speed);
       pros::delay(20);
     printf("encoderloop1: %f; ratio: %f; speed: %d;\n", avgTurningEncoderUnits(), ratio,speed);
-  }///*
-    while(avgTurningEncoderUnits() > target + 50
-          || avgTurningEncoderUnits() < target - 50) {
+    }///*
+    std::cout << "left loop 1, going to loop 2" << std::endl;
+    /*while(avgTurningEncoderUnits() > target + 50
+          || avgTurningEncoderUnits() < target - 50) */
+    while (abs(avgTurningEncoderUnits() - target) > 25)
+    {
     	error = target - avgTurningEncoderUnits();
-    	speed = (myP * error > 127)
-        ? 127
+    	speed = (myP * error > maxSpeed)
+        ? maxSpeed
         : myP * error;
       speed = (speed >= 20)? speed: 20;
       speed = speed * 1.57;
@@ -150,8 +159,9 @@ namespace chassis
       printf("encoderloop2: %f; target: %d; speed: %d;\n", avgTurningEncoderUnits(), target,speed);
       pros::delay(20);
     }//*/
+    printf("ended loop 2");
     turnToTarget(target, 20);
-    //shorter logic: while (abs(avgTurningEncoderUnits() - target) > 25)
+    //shorter logic:
 
     pros::delay(accuracyTimer);
     setVoltage(0, 0);

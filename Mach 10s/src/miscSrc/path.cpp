@@ -5,8 +5,10 @@ namespace chassis
   namespace path
   {
     // Variables
-    Point startingPoint = Point({0_in, 0_in, 0_deg});
-
+    namespace point
+    {
+      Point startingPoint = Point({0_in, 0_in, 0_deg});
+    }
     // Motion Profiler Declarations
     auto RobotChassis = ChassisControllerFactory::create(
       //sets ports and chassis width//

@@ -4,14 +4,15 @@
 extern pros::Controller controller;
 #define LEFT_JOYSTICK pros::E_CONTROLLER_ANALOG_LEFT_Y
 #define RIGHT_JOYSTICK pros::E_CONTROLLER_ANALOG_RIGHT_Y
-#define OUTTAKE pros::E_CONTROLLER_DIGITAL_L2
-#define INTAKE pros::E_CONTROLLER_DIGITAL_L1
+#define INTAKE pros::E_CONTROLLER_DIGITAL_L2
+#define OUTTAKE pros::E_CONTROLLER_DIGITAL_L1
 #define LIFT_SHIFTER_UP pros::E_CONTROLLER_DIGITAL_R2
 #define LIFT_SHIFTER_DOWN pros::E_CONTROLLER_DIGITAL_R1
 #define A pros::E_CONTROLLER_DIGITAL_A
 #define B pros::E_CONTROLLER_DIGITAL_B
 #define X pros::E_CONTROLLER_DIGITAL_X
 #define Y pros::E_CONTROLLER_DIGITAL_Y
+#define DEPLOY_HEIGHT 400
 
 std::int32_t controllerDigital(pros::controller_digital_e_t channel);
 std::int32_t controllerAnalog(pros::controller_analog_e_t channel);

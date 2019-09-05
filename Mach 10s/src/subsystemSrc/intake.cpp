@@ -71,7 +71,7 @@ namespace intake
     intakeLeft.move_absolute(position, maxSpeed);
     intakeRight.move_absolute(position, maxSpeed);
     if (wait && pros::competition::is_autonomous())
-      while (fabs(position - getPosition()) > 10)
+      while (fabs(position - getPosition()) > 200)
         pros::delay(20);
 
     else if (wait)
@@ -116,13 +116,13 @@ namespace intake
     if (controllerDigital(INTAKE))
     {
           setMode(MOTOR_BRAKE_COAST);
-          setVoltage(-127);
+          setVoltage(-21);
           wasMoving = true;
     }
     else if (controllerDigital(OUTTAKE))
     {
           setMode(MOTOR_BRAKE_COAST);
-          setVoltage(127);
+          setVoltage(21);
           wasMoving = true;
     }
     else if (wasMoving)

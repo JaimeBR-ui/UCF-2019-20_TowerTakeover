@@ -1,7 +1,7 @@
 #include "main.h"
 #define SLOWDOWN_FACTOR 2
 #define TURN_CONSTANT 0.73
-#define POINT_TURN_CONSTANT 0.58
+#define POINT_TURN_CONSTANT 1.72
 
 using namespace okapi;
 
