@@ -57,9 +57,32 @@ void skills(void)
   pros::delay(500);
   intake::moveTo(RELEASE, 127, true); // Releases second stack
   chassis::back(5, false);
-  lift::moveTo(0, 127, true);
+  lift::moveTo(600, 127, true);
   chassis::path::waitUntilSettled();
   // make arc from current location to top pole
+  chassis::path::make(
+    {
+      point::start,
+      Point{24_in, 24_in, 90_deg}
+    },
+    "ArcToPole"
+  );
+  chassis::path::set("ArcToPole", true);
+  chassis::path::waitUntilSettled();
+  chassis::path::remove("ArcToPole");
+  chassis::turn(900, 127, true);
+  chassis::forward(3, true);
+  intake::moveTo(STACK, 127, true);
+  pros::delay(500);
+  lift::moveTo(LOW_TOWER, 127, true);
+  chassis::forward(3, true);
+  lift::moveTo(lift::getPosition() - 300, 127, false);
+  pros::delay(500);
+  chassis::back(3, false);
+  pros::delay(500);
+  chassis::path::waitUntilSettled();
+  //scored on the first tower
+
 }
 
 void makeFirstPath(void)
