@@ -1,2 +1,0 @@
-y
-maybe the fact that the path is created right before it runs is a problem
