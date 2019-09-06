@@ -8,13 +8,12 @@
 //  MIN_POS   LOW_TOWER     HIGH_TOWER  ALLIANCE_TOWER
 //  MAX_POS   STACK_HEIGHT  OFF_GROUND  DEPLOY_HEIGHT
 // Set targets in intake.hpp:
-//  STACK RELEASE SCORE
+//  STACK  RELEASE  SCORE
 
 // Notes:
-// chassis->isSetteled() doesnt work for turns since it doesnt use okapi, unless...
-// the boolean in set target makes path to be follwed in reverse
-// boolean in moveTo() defines if program will wait or not.
-// in namespace chassis, forward or backward func have their paths removed automatically
+// The boolean in set target makes path to be follwed in reverse
+// Boolean in moveTo() defines if program will wait or not.
+// In namespace chassis, forward or backward func have their paths removed automatically
 
 void skills(void)
 {
@@ -76,13 +75,14 @@ void skills(void)
   pros::delay(500);
   lift::moveTo(LOW_TOWER, 127, true);
   chassis::forward(3, true);
-  lift::moveTo(lift::getPosition() - 300, 127, false);
+  lift::moveTo(lift::getPosition() - 300, 127, true);
   pros::delay(500);
+  intake::moveTo(SCORE, 127, true);
   chassis::back(3, false);
   pros::delay(500);
+  lift::moveTo(0, 127, true);
   chassis::path::waitUntilSettled();
   //scored on the first tower
-
 }
 
 void makeFirstPath(void)

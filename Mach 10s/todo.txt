@@ -1,4 +1,4 @@
-memory acess error on robot - check pointers or auto method
+memory access error on robot - check pointers or auto method
 
 add all capabilities of profile controller to path.cpp and add special cases
 such as going forward and back to drive.cpp
