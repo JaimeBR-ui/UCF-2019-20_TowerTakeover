@@ -1,3 +1,7 @@
+// Author: Jaime Bohorquez
+// Knightmare Engineering Club
+// Programmed using Atom + Terminal on Mac OS
+
 #include "main.h"
 #define SLOWDOWN_FACTOR 2
 #define TURN_CONSTANT 0.73

@@ -1,3 +1,7 @@
+// Author: Jaime Bohorquez
+// Knightmare Engineering Club
+// Programmed using Atom + Terminal on Mac OS
+
 #include "main.h"
 #define MIN_POS 0
 #define LOW_TOWER 1500

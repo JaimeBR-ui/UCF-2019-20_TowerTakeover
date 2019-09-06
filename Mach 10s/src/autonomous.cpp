@@ -1,3 +1,7 @@
+// Author: Jaime Bohorquez
+// Knightmare Engineering Club
+// Programmed using Atom + Terminal on Mac OS
+
 #include "main.h"
 /**
  * Runs the user autonomous code. This function will be started in its own task
