@@ -1,3 +1,7 @@
+// Author: Jaime Bohorquez
+// Knightmare Engineering Club
+// Programmed using Atom + Terminal on Mac OS
+
 #include "main.h"
 
 namespace intake
@@ -13,6 +17,7 @@ namespace intake
 
   bool wasMoving = true;
   int intakeMode = INTAKE_MODE_STORED; // Starting position of intake
+  int intakePower = 63;
   std::uint32_t now = pros::millis();
 
   // Data Functions
@@ -116,13 +121,13 @@ namespace intake
     if (controllerDigital(INTAKE))
     {
           setMode(MOTOR_BRAKE_COAST);
-          setVoltage(-21);
+          setVoltage(-intakePower);
           wasMoving = true;
     }
     else if (controllerDigital(OUTTAKE))
     {
           setMode(MOTOR_BRAKE_COAST);
-          setVoltage(21);
+          setVoltage(intakePower);
           wasMoving = true;
     }
     else if (wasMoving)
