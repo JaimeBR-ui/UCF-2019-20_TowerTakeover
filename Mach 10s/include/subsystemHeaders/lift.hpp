@@ -8,6 +8,8 @@
 #define HIGH_TOWER 2200
 #define ALLIANCE_TOWER 700
 #define MAX_POS 3000
+#define STACK_HEIGHT 500
+#define OFF_GROUND 300
 
 namespace lift{
   //Variables

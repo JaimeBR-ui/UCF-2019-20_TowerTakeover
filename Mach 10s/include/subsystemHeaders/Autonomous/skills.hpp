@@ -8,3 +8,7 @@
 void skills(void);
 
 void makeFirstPath();
+
+void deployClaw(void * ignore);
+
+void stack(void);
