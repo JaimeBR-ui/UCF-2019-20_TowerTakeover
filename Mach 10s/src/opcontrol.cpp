@@ -17,11 +17,13 @@
  * task, not resume it from where it left off.
  */
 
-void opcontrol(void) {
+void opcontrol(void)
+{
 	lift::wasMoving = -1;
 	std::cout << "Lift Value" << "     ";
 	std::cout << "Claw Value" << std::endl;
-	while (true) {
+	while (true)
+	{
 		chassis::assign();
 		lift::assign();
 		intake::assign();

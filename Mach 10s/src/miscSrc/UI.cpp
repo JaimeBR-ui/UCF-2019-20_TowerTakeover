@@ -11,7 +11,8 @@ lv_obj_t *myLabel;
 lv_style_t myButtonStyleREL; //relesed style
 lv_style_t myButtonStylePR; //pressed style
 
-void runDisplay(void){
+void runDisplay(void)
+{
   lv_style_copy(&myButtonStyleREL, &lv_style_plain);
 	myButtonStyleREL.body.main_color = LV_COLOR_MAKE(150, 0, 0);
 	myButtonStyleREL.body.grad_color = LV_COLOR_MAKE(0, 0, 150);
@@ -38,7 +39,6 @@ void runDisplay(void){
 	myLabel = lv_label_create(lv_scr_act(), NULL); //create label and puts it on the screen
 	lv_label_set_text(myLabel, "Never let a computer tell you what to do"); //sets label text
 	lv_obj_align(myLabel, NULL, LV_ALIGN_IN_LEFT_MID, 10, 0); //set the position to center
-  return;
 }
 
 static lv_res_t btn_click_action(lv_obj_t * btn)
