@@ -23,7 +23,7 @@ void opcontrol(void)
 	std::cout << "Lift Value" << "     ";
 	std::cout << "Claw Value" << std::endl;
 	while (true)
-	{
+	{ // make into threads if the code requires it
 		chassis::assign();
 		lift::assign();
 		intake::assign();

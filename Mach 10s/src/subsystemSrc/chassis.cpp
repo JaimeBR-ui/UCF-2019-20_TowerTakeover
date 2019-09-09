@@ -113,20 +113,31 @@ namespace chassis
   // Autonomous Functions
   void forward(unsigned long long disp, bool wait)
   {
-    path::moveTo({point::start, point::make(disp, 0, 0)});
+    path::moveTo(
+      {
+        point::start,
+        point::make(disp, 0, 0)
+      }
+    );
     if (wait)
       path::waitUntilSettled();
   }
   void back(unsigned long long disp, bool wait)
   {
-    path::make({point::start, point::make(disp, 0, 0)}, "temp");
+    path::make(
+      {
+        point::start,
+        point::make(disp, 0, 0)
+      },
+      "temp"
+    );
     path::set("temp", true);
     if (wait)
       path::waitUntilSettled();
     path::remove("temp");
   }
   void turn(int degrees10, int maxSpeed, int accuracyTimer)
-  {
+  { // sketchy turning with proportional control (that works lol)
     // Rotates robot using encoder counts
     tare();
     int target = degrees10 * 0.715;
@@ -165,8 +176,6 @@ namespace chassis
     }//*/
     printf("ended loop 2");
     turnToTarget(target, 20);
-    //shorter logic:
-
     pros::delay(accuracyTimer);
     setVoltage(0, 0);
   }

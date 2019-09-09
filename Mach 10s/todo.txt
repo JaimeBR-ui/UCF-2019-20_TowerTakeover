@@ -47,6 +47,8 @@ end
 
 ez solution: change from auto datatype, move verbosity but no big deal
 
+or just dont use pointers, big brain
+
 _____________________________________________________________________________
 
 first recorded issue: turning was messed up due to something wrong with using
