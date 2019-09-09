@@ -1,5 +1,5 @@
-// Author: Jaime Bohorquez
-// Knightmare Engineering Club
+// Author(s): Jaime Bohorquez
+// Copyright (c) 2019-2020, Knightmare Engineering Club.
 // Programmed using Atom + Terminal on Mac OS
 
 #include "main.h"
@@ -19,7 +19,8 @@ void skills(void)
 {
   pros::Task deploy(deployClaw);
   chassis::path::set("Straight_6in");
-  chassis::path::make({
+  chassis::path::make(
+    {
       point::start,
       Point{24_in, 0_in, 0_deg}
     },
@@ -41,6 +42,7 @@ void skills(void)
   pros::delay(700);
   intake::moveTo(SCORE, 127, true);
   chassis::back(11, true);
+  // scored first stack
   chassis::turn(900, 127, 400);
   chassis::forward(30, true);
   chassis::turn(900, 127, 400);
@@ -54,12 +56,12 @@ void skills(void)
   chassis::forward(5, true);
   lift::moveTo(lift::getPosition() - 300, 127, true);
   pros::delay(500);
-  intake::moveTo(RELEASE, 127, true); // Releases second stack
+  intake::moveTo(SCORE, 127, true); // Releases second stack
+  // scored second stack
   chassis::back(5, false);
   lift::moveTo(600, 127, true);
   chassis::path::waitUntilSettled();
-  // make arc from current location to top pole
-  chassis::path::make(
+  chassis::path::make( // make arc from current location to pole or far side
     {
       point::start,
       Point{24_in, 24_in, 90_deg}
@@ -87,7 +89,8 @@ void skills(void)
 
 void makeFirstPath(void)
 {
-  chassis::path::make({
+  chassis::path::make(
+    {
       point::start,
       Point{6_in, 0_in, 0_deg}
     },
