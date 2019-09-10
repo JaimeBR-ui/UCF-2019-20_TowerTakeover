@@ -140,7 +140,7 @@ namespace chassis
   { // sketchy turning with proportional control (that works lol)
     // Rotates robot using encoder counts
     tare();
-    int target = degrees10 * 0.715;
+    int target = degrees10 * TURN_CONSTANT;
     float myP = 0.18, error = 0.0, ratio;
     int speed = 0;
     int reverse = abs(target) / target;
@@ -280,8 +280,8 @@ namespace chassis
     r = (abs(r) > 10) ? r : 0;
     if (lift::getPosition() > 1000)
     {
-      l/= SLOWDOWN_FACTOR;
-      r/= SLOWDOWN_FACTOR;
+      l = (int) l / SLOWDOWN_FACTOR;
+      r = (int) l /SLOWDOWN_FACTOR;
     }
     if (l != 0 || r != 0)
     {

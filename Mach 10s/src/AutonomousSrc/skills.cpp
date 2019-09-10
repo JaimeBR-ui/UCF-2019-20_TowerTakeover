@@ -57,8 +57,8 @@ void skills(void)
   lift::moveTo(lift::getPosition() - 300, 127, true);
   pros::delay(500);
   intake::moveTo(SCORE, 127, true); // Releases second stack
-  // scored second stack
   chassis::back(5, false);
+  // scored second stack
   lift::moveTo(600, 127, true);
   chassis::path::waitUntilSettled();
   chassis::path::make( // make arc from current location to pole or far side
@@ -88,7 +88,7 @@ void skills(void)
 }
 
 void makeFirstPath(void)
-{
+{ // Creates path as soon as the robot starts the program
   chassis::path::make(
     {
       point::start,
@@ -108,7 +108,7 @@ void deployClaw(void * ignore)
 }
 
 void stack(void)
-{
+{ // Stacks current load on top of a stack and picks up the whole stack
   lift::moveTo(lift::getPosition() - 300, 127, false);
   pros::delay(500);
   intake::moveTo(RELEASE, 127, true); // waits for action to complete
@@ -121,4 +121,5 @@ void stack(void)
 /* Notes
   i think i can make my own isSetteled object for the turn func
   turn is a bit iffy due to my slippery floor causing wheel slippage
+
 */

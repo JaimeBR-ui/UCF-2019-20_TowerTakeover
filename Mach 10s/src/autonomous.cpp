@@ -19,4 +19,6 @@
  void autonomous(void)
  {
    skills();
+   //red();
+   //blue();
  }
