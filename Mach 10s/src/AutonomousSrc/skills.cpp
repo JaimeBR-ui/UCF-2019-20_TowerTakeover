@@ -121,5 +121,4 @@ void stack(void)
 /* Notes
   i think i can make my own isSetteled object for the turn func
   turn is a bit iffy due to my slippery floor causing wheel slippage
-
 */

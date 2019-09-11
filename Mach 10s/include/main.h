@@ -84,6 +84,7 @@ void opcontrol(void);
 #include "subsystemHeaders/chassis.hpp"
 #include "subsystemHeaders/UI.hpp"
 #include "subsystemHeaders/point.hpp"
+#include "subsystemHeaders/matchRed.hpp"
 #include "iostream"
 #endif
 
