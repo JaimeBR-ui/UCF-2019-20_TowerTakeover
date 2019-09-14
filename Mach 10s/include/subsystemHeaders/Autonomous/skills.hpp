@@ -4,7 +4,7 @@
 
 #include "main.h"
 
-//AUTONOMOUS SKILLS FUNCTION
+// Autonomous Skills Functions
 void skills(void);
 
 void makeFirstPath();
