@@ -77,6 +77,7 @@ void opcontrol(void);
 #include "okapi/impl/chassis/controller/chassisControllerFactory.hpp"
 #include "okapi/impl/control/async/asyncControllerFactory.hpp"
 #include "subsystemHeaders/Autonomous/skills.hpp"
+#include "subsystemHeaders/Autonomous/matchRed.hpp"
 #include "subsystemHeaders/lift.hpp"
 #include "subsystemHeaders/path.hpp"
 #include "subsystemHeaders/globals.hpp"
@@ -84,7 +85,6 @@ void opcontrol(void);
 #include "subsystemHeaders/chassis.hpp"
 #include "subsystemHeaders/UI.hpp"
 #include "subsystemHeaders/point.hpp"
-#include "subsystemHeaders/matchRed.hpp"
 #include "iostream"
 #endif
 

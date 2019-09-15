@@ -5,27 +5,28 @@
 #include "main.h"
 
 // Set targets in lift.hpp:
-//  MIN_POS   LOW_TOWER     HIGH_TOWER  ALLIANCE_TOWER
-//  MAX_POS   STACK_HEIGHT  OFF_GROUND  DEPLOY_HEIGHT
+//   MIN_POS   LOW_TOWER     HIGH_TOWER  ALLIANCE_TOWER
+//   MAX_POS   STACK_HEIGHT  OFF_GROUND  DEPLOY_HEIGHT
 // Set targets in intake.hpp:
-//  STACK  RELEASE  SCORE
+//   STACK  RELEASE  SCORE
 
 // Notes:
-// The boolean in set target makes path to be follwed in reverse
+// The boolean in set target makes path to be follwed in reverse.
 // Boolean in moveTo() defines if program will wait or not.
-// In namespace chassis, forward or backward func have their paths removed automatically
+// In namespace chassis, forward or backward func have their
+// paths removed automatically.
 
 void skills(void)
 {
-     // Score first stack
+     // Score first stack.
      pros::Task deploy(deployClaw);
      chassis::path::set("Straight_6in");
      chassis::path::make(
-     {
-      point::start,
-      Point{24_in, 0_in, 0_deg}
-     },
-     "Straight_24in"
+          {
+               point::start,
+               Point{24_in, 0_in, 0_deg}
+          },
+          "Straight_24in"
      );
      chassis::path::waitUntilSettled();
      chassis::path::remove("Straight_6in");
@@ -44,7 +45,7 @@ void skills(void)
      intake::moveTo(SCORE, 127, true);
      chassis::back(11, true);
 
-     // score second stack
+     // Score second stack.
      chassis::turn(900, 127, 400);
      chassis::forward(30, true);
      chassis::turn(900, 127, 400);
@@ -61,11 +62,11 @@ void skills(void)
      intake::moveTo(SCORE, 127, true); // Releases second stack
      chassis::back(5, false);
 
-     // score on tower 1
+     // Score on tower 1.
      lift::moveTo(600, 127, true);
      chassis::path::waitUntilSettled();
      chassis::path::make(
-          {    // make arc from current location to pole or far side
+          {    // Make arc from current location to pole or far side.
                point::start,
                Point{24_in, 24_in, 90_deg}
           },
@@ -92,7 +93,7 @@ void skills(void)
 }
 
 void makeFirstPath(void)
-{    // Creates path as soon as the robot starts the program
+{    // Creates path as soon as the robot starts the program.
      chassis::path::make(
           {
                point::start,
@@ -103,7 +104,7 @@ void makeFirstPath(void)
 }
 
 void deployClaw(void * ignore)
-{    // Thread that deploys the robot's claw
+{    // Thread that deploys the robot's claw.
      lift::moveTo(DEPLOY_HEIGHT, 127, true);
      intake::moveTo(SCORE, 127, false);
      while(abs(SCORE - intake::getPosition()) > 230)
@@ -112,10 +113,10 @@ void deployClaw(void * ignore)
 }
 
 void stack(void)
-{    // Stacks current load on top of a stack and picks up the whole stack
+{    // Stacks current load on top of a stack and picks up the whole stack.
      lift::moveTo(lift::getPosition() - 300, 127, false);
      pros::delay(500);
-     intake::moveTo(RELEASE, 127, true); // waits for action to complete
+     intake::moveTo(RELEASE, 127, true); // Waits for action.
      lift::moveTo(0, 127, true);
      pros::delay(500);
      intake::moveTo(STACK, 127, true);
