@@ -53,3 +53,7 @@ _____________________________________________________________________________
 
 first recorded issue: turning was messed up due to something wrong with using
 chassis::tare() and motor.get_raw_position(&timestamp);
+
+-------------------------------------------------------------------------------
+
+AS OF TODAY, WE ARE TRANSFERING EVERYTHING FROM CAMEL CASE TO SNAKE CASE

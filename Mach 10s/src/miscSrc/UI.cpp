@@ -11,9 +11,11 @@ lv_obj_t *myLabel;
 lv_style_t myButtonStyleREL; //relesed style
 lv_style_t myButtonStylePR; //pressed style
 
-void runDisplay(void)
+// make into snake_case
+
+void run_display(void)
 {
-  lv_style_copy(&myButtonStyleREL, &lv_style_plain);
+     lv_style_copy(&myButtonStyleREL, &lv_style_plain);
 	myButtonStyleREL.body.main_color = LV_COLOR_MAKE(150, 0, 0);
 	myButtonStyleREL.body.grad_color = LV_COLOR_MAKE(0, 0, 150);
 	myButtonStyleREL.body.radius = 0;
