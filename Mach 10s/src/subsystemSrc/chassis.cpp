@@ -34,7 +34,10 @@ namespace chassis
 
      double avg_turning_enc_units(void)
      {
-          int a = abs(back_left.get_position()) + abs(front_left.get_position()) + abs(back_right.get_position()) + abs(front_right.get_position());
+          int a = abs(back_left.get_position())
+               + abs(front_left.get_position())
+               + abs(back_right.get_position())
+               + abs(front_right.get_position());
           return a/4;
      }
 
