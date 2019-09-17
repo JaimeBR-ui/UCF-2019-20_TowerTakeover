@@ -13,8 +13,8 @@
 // Notes:
 // The boolean in set target makes path to be follwed in reverse.
 // Boolean in move_to() defines if program will wait or not.
-// In namespace chassis, forward or backward func have their
-// paths removed automatically.
+// In namespace chassis, forward or backward functions have
+// their paths removed automatically if they are set to wait
 
 void skills(void)
 {
