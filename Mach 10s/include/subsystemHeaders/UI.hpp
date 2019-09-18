@@ -13,4 +13,4 @@ extern lv_style_t myButtonStylePR; //pressed style
 
 static lv_res_t btn_click_action(lv_obj_t * btn);
 
-void runDisplay();
+void run_display();

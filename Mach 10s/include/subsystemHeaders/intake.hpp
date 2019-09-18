@@ -7,41 +7,42 @@
 #define RELEASE 650
 #define SCORE 500
 
-namespace intake{
-  //Data Functions
-  /*
-  returns data regarding the intake's location.
-  @return position: return average location of the intake.
-  */
-  int getPosition(void);
+namespace intake
+{
+     // Data functions.
+     /*
+     returns data regarding the intake's location.
+     @return position: return average location of the intake.
+     */
+     int get_position(void);
 
-  /*
-  gives feedback regarding the movement of the intake.
-  @return isStopped: return true if intake is stopped, else otherwise.
-  */
-  bool isStopped(void);
+     /*
+     gives feedback regarding the movement of the intake.
+     @return isStopped: return true if intake is stopped, else otherwise.
+     */
+     bool is_stopped(void);
 
-  //Control Functions
-  /*
-  Sets the voltage of the intake motor
-  @param voltage: the voltage to set the motor to
-  */
-  void setVoltage(int leftVolt, int rightVolt);
+     // Control functions.
+     /*
+     Sets the voltage of the intake motor
+     @param voltage: the voltage to set the motor to
+     */
+     void set_voltage(int left_voltage, int right_voltage);
 
-  //Autonomous Functions
-  /**
-   * Sends the intake to the position specified, can use predefined conditions
-   * such as STACK, RELEASE, or SCORE.
-   * @param posiition: Sends intake to specified position.
-   * @param maxSpeed: Specifies the meximum speed when going to target.
-   * @param wait: Defines the behavior of the function to act like a thread or function
-  **/
-  void moveTo(int position, int maxSpeed, bool wait);
+     // Autonomous functions.
+     /**
+     * Sends the intake to the position specified, can use predefined conditions
+     * such as STACK, RELEASE, or SCORE.
+     * @param posiition: Sends intake to specified position.
+     * @param maxSpeed: Specifies the meximum speed when going to target.
+     * @param wait: Defines the behavior of the function to act like a thread or function
+     **/
+     void move_to(int position, int max_speed, bool wait);
 
-  //User Control Functions
-  /*
-  Checks for action on the left bumpers to designate an intakeMode for the robot
-  */
-  void assign(void);
+     // User control functions.
+     /*
+     Checks for action on the left bumpers to designate an intakeMode for the robot
+     */
+     void assign(void);
 
-}//namespace intake
+}// namespace intake

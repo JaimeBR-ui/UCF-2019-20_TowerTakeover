@@ -6,35 +6,22 @@
 
 using namespace okapi;
 
-namespace chassis{
-  namespace path{
-    //Variables
-//    extern pros::Mutex mutex;
-    extern int pathsStored;
-    namespace point
-    {
-      extern Point startingPoint;
-    }
+namespace chassis
+{
+     namespace path
+     {
+          // Data functions.
+          bool is_settled(void);
 
-    //Data Functions
-    bool isSettled(void);
+          // Path functions.
+          void move_to(std::initializer_list<Point>);
 
-    //Control Functions
-    namespace point
-    {
-      Point make(unsigned long long int x, unsigned long long int y, long double theta);
-    }
-    ///Path Functions
-    void makeAll(std::string autonomousRoutine);
+          void make(std::initializer_list<Point>, std::string);
 
-    void moveTo(std::initializer_list<Point>);
+          void remove(std::string id);
 
-    void make(std::initializer_list<Point>, std::string);
+          void wait_until_settled();
 
-    void remove(std::string id);
-
-    void waitUntilSettled();
-
-    void set(std::string id, bool backwards = false);
-  }
-}
+          void set(std::string id, bool backwards = false);
+     }// namespace path
+}// namespace chassis

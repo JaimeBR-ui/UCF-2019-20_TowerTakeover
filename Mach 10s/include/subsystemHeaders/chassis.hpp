@@ -7,45 +7,47 @@
 #define TURN_CONSTANT 0.75
 #define POINT_TURN_CONSTANT 1.5
 
-namespace chassis{
-  //Variables
-  extern int positionL, positionR;
-  extern std::uint32_t now;
-  extern bool wasMoving;
-  //DATA FUNCTIONS//////////////////////////////////////////////////////////////
-  double avgRightSideEncoderUnits(void);
+namespace chassis
+{
+     // Variables.
+     extern int position_left, position_right;
+     extern std::uint32_t now;
+     extern bool was_moving;
 
-  double avgLeftSideEncoderUnits(void);
+     // Data functions.
+     double avg_right_side_enc_units(void);
 
-  double avgEncoderUnits(void);
+     double avg_left_side_enc_units(void);
 
-  double avgTurningEncoderUnits(void);
+     double avg_enc_units(void);
 
-  //CONTROL FUNCTIONS///////////////////////////////////////////////////////////
-  void setMode(pros::motor_brake_mode_e);
+     double avg_turning_enc_units(void);
 
-  void setVoltage(int leftVolt, int rightVolt);
+     // Control functions.
+     void set_mode(pros::motor_brake_mode_e);
 
-  void setVelocity(int leftVel, int rightVel);
+     void set_voltage(int left_voltage, int right_voltage);
 
-  void turnToTarget(int target, int maxSpeed);
+     void set_velocity(int left_velocity, int right_velocity);
 
-  void tare(void);
+     void turn_to_target(int target, int max_speed);
 
-  bool isStopped(void);
+     void tare(void);
 
-  void brake(int mills);
+     bool is_stopped(void);
 
-  //AUTONOMOUS FUNCTIONS////////////////////////////////////////////////////////
-  void forward(unsigned long long int disp, bool wait);
+     void brake(int mills);
 
-  void back(unsigned long long int disp, bool wait);
+     // Autonomous functions.
+     void forward(unsigned long long int distance, bool wait);
 
-  void turn(int degrees10, int maxSpeed, int accuracyTimer);
+     void back(unsigned long long int distance, bool wait);
 
-  void pointTurn(int degrees10, int maxSpeed, int accuracyTimer);
-  //rotates chassis using encoder counts with one side stopped//
+     void turn(int degrees_10, int max_speed, int accuracy_timer);
 
-  //USER CONTROL FUNCTIONS////////////////////////////////////////////////////
-  void assign(void);
-}
+     void point_turn(int degrees_10, int max_speed, int accuracy_timer);
+
+     // User control functions.
+     void assign(void);
+     
+}// namespace chassis

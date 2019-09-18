@@ -7,8 +7,8 @@
 // Autonomous Skills Functions
 void skills(void);
 
-void makeFirstPath();
+void make_first_path();
 
-void deployClaw(void * ignore);
+void deploy_claw(void * ignore);
 
 void stack(void);

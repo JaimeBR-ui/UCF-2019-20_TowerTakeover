@@ -11,41 +11,44 @@
 #define STACK_HEIGHT 500
 #define OFF_GROUND 300
 
-namespace lift{
-  //Variables
-  extern int wasMoving;
+namespace lift
+{
+     // Variables.
+     extern int was_moving;
 
-  //Data Functions
-  /*
-  Gives the caller the current position of the lift.
-  @return position: Returns the raw counts of the IME.
-  */
-  int getPosition(void);
-  /*
-  Gives the caller a statement regarding the lifts movement.
-  @return isStopped: Returns true is the lift is not moving.
-  */
-  bool isStopped(void);
+     // Data functions.
+     /*
+     Gives the caller the current position of the lift.
+     @return position: Returns the raw counts of the IME.
+     */
+     int get_position(void);
 
-  //Control Funtions
-  /*
-  Sets the voltage of the lift motor.
-  @param voltage: the voltage to set the lift motor to.
-  */
-  void setVoltage(int voltage);
+     /*
+     Gives the caller a statement regarding the lifts movement.
+     @return isStopped: Returns true iff the lift is not moving.
+     */
+     bool is_stopped(void);
 
-  //Autonomous Functions
-  /*
-  Moves the lift to a designated position on the lift's IME.
-  @param position: the unit value to move the lift motor to, in raw counts.
-  @param maxSpeed: the maximum allowable speed that the motor will move at.
-  @param wait: waits to finish action if true.
-  */
-  void moveTo(int pos, int maxSpeed, bool wait = false);
+     // Control funtions.
+     /*
+     Sets the voltage of the lift motor.
+     @param voltage: the voltage to set the lift motor to.
+     */
+     void set_voltage(int voltage);
 
-  //User Control Functions
-  /*
-  Assigns the movement of the lift based on the buttons pressed.
-  */
-  void assign(void);
-}
+     // Autonomous functions.
+     /*
+     Moves the lift to a designated position on the lift's IME.
+     @param position: the unit value to move the lift motor to, in raw counts.
+     @param maxSpeed: the maximum allowable speed that the motor will move at.
+     @param wait: waits to finish action if true.
+     */
+     void move_to(int position, int max_speed, bool wait = false);
+
+     // User control functions.
+     /*
+     Assigns the movement of the lift based on the buttons pressed.
+     */
+     void assign(void);
+
+}// namespace lift

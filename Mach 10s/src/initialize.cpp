@@ -12,17 +12,17 @@
  */
 
 void initialize(void)
-{ // initializes motors and sensors//
-  runDisplay();
-	driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-	driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-	driveRightBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-	driveRightFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-	liftLeft.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-	liftRight.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-	intakeRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-	intakeLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-  makeFirstPath();
+{    // Initializes motors and sensors.
+     run_display();
+	back_left.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	front_left.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	back_right.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	front_right.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	lift_left.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	lift_right.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	intake_right.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	intake_left.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+     make_first_path();
 }
 
 /**

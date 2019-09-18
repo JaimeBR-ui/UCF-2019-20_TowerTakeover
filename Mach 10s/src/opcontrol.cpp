@@ -19,16 +19,13 @@
 
 void opcontrol(void)
 {
-	lift::wasMoving = -1;
-	std::cout << "Lift Value" << "     ";
-	std::cout << "Claw Value" << std::endl;
+	lift::was_moving = -1;
 	while (true)
-	{ // make into threads if the code requires it
+	{ 	// Make into threads if the code requires it.
 		chassis::assign();
 		lift::assign();
 		intake::assign();
 		pros::delay(20);
 	}
-	// for (int i = 0; i < 15; i++)
-  // printf("\b");
+
 }

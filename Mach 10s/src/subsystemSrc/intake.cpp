@@ -6,154 +6,156 @@
 
 namespace intake
 {
-  // Variables
-  enum intakeModes
-  {
-    INTAKE_MODE_STACK = 0,
-    INTAKE_MODE_RELEASE = 1,
-    INTAKE_MODE_SCORE = 2,
-    INTAKE_MODE_STORED = 3
-  };
+     // Variables
+     enum intake_modes
+     {
+          INTAKE_MODE_STACK = 0,
+          INTAKE_MODE_RELEASE = 1,
+          INTAKE_MODE_SCORE = 2,
+          INTAKE_MODE_STORED = 3
+     };
 
-  bool wasMoving = true;
-  int intakeMode = INTAKE_MODE_STORED; // Starting position of intake
-  int intakePower = 63;
-  std::uint32_t now = pros::millis();
+     // Starting position of intake.
+     int intake_mode = INTAKE_MODE_STORED;
+     int intake_power = 63;
+     bool was_moving = true;
+     std::uint32_t now = pros::millis();
 
-  // Data Functions
-  int getPosition(void)
-  {
-    return (intakeLeft.get_position() + intakeRight.get_position()) / 2;
-  }
+     // Data Functions
+     int get_position(void)
+     {
+          return (intake_left.get_position() +
+                 intake_right.get_position()) / 2;
+     }
 
-  bool isStopped(void)
-  {
-    return intakeRight.is_stopped()
-         && intakeLeft.is_stopped();
-  }
+     bool is_stopped(void)
+     {
+          return intake_right.is_stopped()
+               && intake_left.is_stopped();
+     }
 
-  bool changedToPressed(std::int32_t a)
-  {
-    static int lastVal = 0;
-    static int newVal = 0;
-    lastVal = newVal;
-    if(a == 0)
-      newVal = 0;
-    else
-      newVal = 1;
-    return newVal == 1 && lastVal == 0;
-  }
+     bool changed_to_pressed(std::int32_t a)
+     {
+          static int last_value = 0;
+          static int new_value = 0;
+          last_value = new_value;
+          if(a == 0)
+               new_value = 0;
+          else
+               new_value = 1;
+          return new_value == 1 && last_value == 0;
+     }
 
-  // Control Functions
-  void setMode(pros::motor_brake_mode_e mode)
-  {
-    intakeRight.set_brake_mode(mode);
-    intakeLeft.set_brake_mode(mode);
-  }
+     // Control Functions
+     void set_mode(pros::motor_brake_mode_e mode)
+     {
+          intake_right.set_brake_mode(mode);
+          intake_left.set_brake_mode(mode);
+     }
 
-  void setVoltage(int voltage)
-  {
-    intakeLeft = voltage;
-    intakeRight = voltage;
-  }
+     void set_voltage(int voltage)
+     {
+          intake_left = voltage;
+          intake_right = voltage;
+     }
 
-  void setVelocity(int leftVel, int rightVel)
-  {
-    intakeLeft.move_velocity(leftVel);
-    intakeRight.move_velocity(rightVel);
-  }
+     void set_velocity(int leftVel, int rightVel)
+     {
+          intake_left.move_velocity(leftVel);
+          intake_right.move_velocity(rightVel);
+     }
 
-  void tare(void)
-  {
-    intakeLeft.tare_position();
-    intakeRight.tare_position();
-  }
+     void tare(void)
+     {
+          intake_left.tare_position();
+          intake_right.tare_position();
+     }
 
-  // Autonomous Functions
-  void moveTo(int position, int maxSpeed, bool wait)
-  {
-    setMode(MOTOR_BRAKE_HOLD);
-    intakeLeft.move_absolute(position, maxSpeed);
-    intakeRight.move_absolute(position, maxSpeed);
-    if (wait && pros::competition::is_autonomous())
-      while (fabs(position - getPosition()) > 200)
-        pros::delay(20);
+     // Autonomous Functions
+     void move_to(int position, int max_speed, bool wait)
+     {
+          set_mode(MOTOR_BRAKE_HOLD);
+          intake_left.move_absolute(position, max_speed);
+          intake_right.move_absolute(position, max_speed);
 
-    else if (wait)
-      while (fabs(position - getPosition()) > 10)
-      {
-        chassis::assign();
-        lift::assign();
-      }
-  }
+          if (wait && pros::competition::is_autonomous())
+               while (fabs(position - get_position()) > 200)
+                    pros::delay(20);
 
-  void holdPosition(void)
-  {
-    int maxSpeed = 127, positionL, positionR;
-    setVoltage(0);
-    setMode(MOTOR_BRAKE_HOLD);
-    positionL = intakeLeft.get_raw_position(&now);
-    positionR = intakeRight.get_raw_position(&now);
-    intakeLeft.move_absolute(positionL, maxSpeed);
-    intakeRight.move_absolute(positionR, maxSpeed);
-    wasMoving = false;
-  }
+          else if (wait)
+               while (fabs(position - get_position()) > 10)
+               {
+                    chassis::assign();
+                    lift::assign();
+               }
+     }
 
-  // User Control Functions
-  void setIntakeMode(int mode)
-  {
-    switch (mode)
-    {
-      case INTAKE_MODE_STACK:
-          moveTo(STACK, 127, false);
-          break;
-      case INTAKE_MODE_RELEASE:
-          moveTo(RELEASE, 127, false);
-          break;
-      case INTAKE_MODE_SCORE:
-          moveTo(SCORE, 127, false);
-          break;
-    }
-  }
+     void hold_position(void)
+     {
+          int max_speed = 127, position_left, position_right;
+          set_voltage(0);
+          set_mode(MOTOR_BRAKE_HOLD);
+          position_left = intake_left.get_raw_position(&now);
+          position_right = intake_right.get_raw_position(&now);
+          intake_left.move_absolute(position_left, max_speed);
+          intake_right.move_absolute(position_right, max_speed);
+          was_moving = false;
+     }
 
-  void assign(void)
-  {
-    if (controllerDigital(INTAKE))
-    {
-          setMode(MOTOR_BRAKE_COAST);
-          setVoltage(-intakePower);
-          wasMoving = true;
-    }
-    else if (controllerDigital(OUTTAKE))
-    {
-          setMode(MOTOR_BRAKE_COAST);
-          setVoltage(intakePower);
-          wasMoving = true;
-    }
-    else if (wasMoving)
-        holdPosition();
-    //printf("%10d", getPosition());
-  }
+     // User Control Functions
+     void set_intake_mode(int mode)
+     {
+          switch (mode)
+          {
+               case INTAKE_MODE_STACK:
+                    move_to(STACK, 127, false);
+                    break;
+               case INTAKE_MODE_RELEASE:
+                    move_to(RELEASE, 127, false);
+                    break;
+               case INTAKE_MODE_SCORE:
+                    move_to(SCORE, 127, false);
+                    break;
+          }
+     }
+
+     void assign(void)
+     {
+          if (controller_digital(INTAKE))
+          {
+               set_mode(MOTOR_BRAKE_COAST);
+               set_voltage(-intake_power);
+               was_moving = true;
+          }
+          else if (controller_digital(OUTTAKE))
+          {
+               set_mode(MOTOR_BRAKE_COAST);
+               set_voltage(intake_power);
+               was_moving = true;
+          }
+          else if (was_moving)
+               hold_position();
+     }
 }// namespace intake
 
-
+// Past toggle code for claw
 /*
 // past toggle code
-if (controllerDigital(INTAKE) && intakeMode > 0)
+if (controller_digital(INTAKE) && intake_mode > 0)
 {
-  intakeMode--;
-  setIntakeMode(intakeMode);
-  while (controllerDigital(INTAKE))
+  intake_mode--;
+  set_intake_mode(intake_mode);
+  while (controller_digital(INTAKE))
   {
     chassis::assign();
     lift::assign();
   }
 }
-else if (controllerDigital(OUTTAKE) && intakeMode < 4)
+else if (controller_digital(OUTTAKE) && intake_mode < 4)
 {
-  intakeMode++;
-  setIntakeMode(intakeMode);
-  while (controllerDigital(OUTTAKE))
+  intake_mode++;
+  set_intake_mode(intake_mode);
+  while (controller_digital(OUTTAKE))
   {
     chassis::assign();
     lift::assign();
