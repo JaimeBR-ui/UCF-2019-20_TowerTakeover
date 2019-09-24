@@ -4,12 +4,14 @@
 
 #include "main.h"
 
+typedef unsigned long long int ull_int;
+
 namespace point
 {
      // Variables.
      extern Point start;
 
      //Data functions.
-     Point make(unsigned long long int x, unsigned long long int y, long double theta);
+     Point make(ull_int x, ull_int y, long double theta);
 
 }// namespace point
