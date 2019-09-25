@@ -282,7 +282,8 @@ set_voltage(0, 0);*/
 
      // User control functions.
      void assign(void)
-     {    // Assigns voltage with deadband
+     {
+          // Assigns voltage with deadband
           int l = controller_analog(LEFT_JOYSTICK);
           int r = controller_analog(RIGHT_JOYSTICK);
 
@@ -290,9 +291,10 @@ set_voltage(0, 0);*/
           r = (abs(r) > 10) ? r : 0;
 
           if (lift::get_position() > 1000)
-          {    // Should be created into a smooth decrease.
+          {
+               // Should be created into a smooth decrease.
                l = (int) l / SLOWDOWN_FACTOR;
-               r = (int) l /SLOWDOWN_FACTOR;
+               r = (int) l / SLOWDOWN_FACTOR;
           }
 
           if (l != 0 || r != 0)

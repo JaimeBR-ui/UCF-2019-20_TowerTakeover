@@ -36,7 +36,8 @@ void skills(void)
      chassis::path::wait_until_settled();
      chassis::path::remove("Straight_24in");
      stack();
-     chassis::back(21, true); // 21 inches backwards, wait for action
+     // 21 inches backwards, wait for action to complete.
+     chassis::back(21, true);
      chassis::turn(-900, 60, 100); // waits by default
      lift::move_to(STACK_HEIGHT, 127, true);
      chassis::forward(11, true);
