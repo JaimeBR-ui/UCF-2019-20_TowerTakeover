@@ -4,6 +4,8 @@
 
 #include "main.h"
 
+#define MIN_VELOCITY 20
+
 namespace chassis
 {
      // Variables
@@ -173,8 +175,8 @@ namespace chassis
 
                if (proportional * error > max_velocity)
                     speed = max_velocity;
-               else if (speed <= 20)
-                    speed = 20;
+               else if (proportional * error < MIN_VELOCITY)
+                    speed = MIN_VELOCITY;
                else
                     speed = proportional * error;
 

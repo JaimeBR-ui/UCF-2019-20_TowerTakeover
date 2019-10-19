@@ -78,6 +78,7 @@ void opcontrol(void);
 #include "okapi/impl/control/async/asyncControllerFactory.hpp"
 #include "subsystemHeaders/Autonomous/skills.hpp"
 #include "subsystemHeaders/Autonomous/matchRed.hpp"
+#include "subsystemHeaders/Autonomous/matchBlue.hpp"
 #include "subsystemHeaders/lift.hpp"
 #include "subsystemHeaders/path.hpp"
 #include "subsystemHeaders/globals.hpp"

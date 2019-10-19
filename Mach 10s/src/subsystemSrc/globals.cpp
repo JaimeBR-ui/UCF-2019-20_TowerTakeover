@@ -4,26 +4,50 @@
 
 #include "main.h"
 
-using namespace okapi;
+// Motor Declarations.
 
-//Motor Declarations
+/*----------------------------------------------------*\
+|   Robot                                              |
+|                                                      |
+|            |-----|     |     |-----|                 |
+|            |     |     |     |     |                 |
+|            |     |     |     |     |                 |
+|            |     |   +---+   |     |                 |
+|            |     |   |   |   |     |                 |
+|            |     |   |   |   |     |                 |
+|            |     | (13) (14) |     |                 |
+|            |_____|-|+++++++|-|_____|                 |
+|                     \\   \\                          |
+|                      \\   \\                         |
+|                       +----+                         |
+|                 (18)  |    |  (17)                   |
+|                       |____|                         |
+|                        ///                           |
+|                       ///                            |
+|                      ///                             |
+|                  +--|  |------+                      |
+|   Right   (12)  /   |  |     /  (20)    Left         |
+|          (11)  /    |  |    /  (19)                  |
+|               +------------+                         |
+|                   Front                              |
+\*----------------------------------------------------*/
 
-//Drive
-pros::Motor front_left(1, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
-pros::Motor front_right(2, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_COUNTS);
-pros::Motor back_right(9, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_COUNTS);
-pros::Motor back_left(10, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
+// Drive.
+pros::Motor front_left(19, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor front_right(11, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor back_right(12, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor back_left(20, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
 
-//Lift
-pros::Motor lift_right(3, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_COUNTS);
-pros::Motor lift_left(8, pros::E_MOTOR_GEARSET_36, true, pros::E_MOTOR_ENCODER_COUNTS);
+// Lift.
+pros::Motor lift_right(18, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor lift_left(17, pros::E_MOTOR_GEARSET_36, true, pros::E_MOTOR_ENCODER_COUNTS);
 
-//Intake
-pros::Motor intake_right(4, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_COUNTS);
-pros::Motor intake_left(7, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
+// Intake.
+pros::Motor intake_right(13, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor intake_left(14, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
 
 
-//Controller Functions
+// Controller Functions.
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 std::int32_t controller_digital(pros::controller_digital_e_t channel)
