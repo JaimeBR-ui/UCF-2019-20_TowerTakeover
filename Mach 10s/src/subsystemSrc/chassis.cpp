@@ -169,7 +169,7 @@ namespace chassis
                pros::delay(20);
           }
 
-          while (abs(avg_turning_enc_units() - target) > 25)
+          while (abs(avg_turning_enc_units() - target) != 0)
           {
                error = target - avg_turning_enc_units();
 
@@ -184,7 +184,6 @@ namespace chassis
                pros::delay(20);
           }
 
-          turn_to_target(target, 20);
           pros::delay(accuracy_timer);
           set_voltage(0, 0);
      }
