@@ -1,0 +1,4065 @@
+
+
+
+         _+=+_
+      .-`  .  `-.          8888888b.  8888888b.   .d88888b.   .d8888b.
+   _+`     "     `+_       888   Y88b 888   Y88b d88P" "Y88b d88P  Y88b
+  \\\sssssssssssss///      888    888 888    888 888     888 Y88b.
+     .ss\  *  /ss.         888   d88P 888   d88P 888     888  "Y888b.
+ .+bm  .s  *  s.  md+.     8888888P"  8888888P"  888     888     "Y88b.
+.hMMMMs .  *  . sMMMMh.    888        888 T88b   888     888       "888
+ `\hMMMb \ | / dMMMh:      888        888  T88b  Y88b. .d88P Y88b  d88P
+   -SNMNo  -  oNMNs-       888        888   T88b  "Y88888P"   "Y8888P"
+     `+dMh\./dMd/
+        `:yNy:`                      Powered by PROS for VEX V5
+           "                Copyright (c) Purdue University ACM SIGBots
+Version:        3.1.6     Platform:  V1.0.4 (b2)     Uptime:    0.000 s
+Compiled:   Oct 20 2019 12:20:58     Directory:  Code/VexU_UCF/Mach 10s
+
+
+
+Left side average:  0
+Right side average: 0
+
+
+
+  _____  _____   ____   _____
+ |  __ \|  __ \ / __ \ / ____|          Powered by PROS for VEX V5
+ | |__) | |__) | |  | | (___      Version:                          3.1.6
+ |  ___/|  _  /| |  | |\___ \     Uptime:                         0.114 s
+ | |    | | \ \| |__| |____) |    Compiled:          Oct 20 2019 12:20:58
+ |_|    |_|  \_\\____/|_____/     Directory:       Code/VexU_UCF/Mach 10s
+
+
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: 0
+
+Left side average:  0
+Right side average: -1074790400
+
+Left side average:  0
+Right side average: -1074790400
+
+Left side average:  0
+Right side average: -1072693248
+
+Left side average:  0
+Right side average: -1072168960
+
+Left side average:  0
+Right side average: -1071382528
+
+Left side average:  0
+Right side average: -1070858240
+
+Left side average:  1072693248
+Right side average: -1070399488
+
+Left side average:  1073741824
+Right side average: -1069940736
+
+Left side average:  1074790400
+Right side average: -1069514752
+
+Left side average:  1075314688
+Right side average: -1069187072
+
+Left side average:  1075576832
+Right side average: -1068892160
+
+Left side average:  1075970048
+Right side average: -1068531712
+
+Left side average:  1076363264
+Right side average: -1068351488
+
+Left side average:  1076494336
+Right side average: -1068171264
+
+Left side average:  1076625408
+Right side average: -1067991040
+
+Left side average:  1076756480
+Right side average: -1067794432
+
+Left side average:  1076887552
+Right side average: -1067614208
+
+Left side average:  1076953088
+Right side average: -1067442176
+
+Left side average:  1077018624
+Right side average: -1067352064
+
+Left side average:  1077084160
+Right side average: -1067253760
+
+Left side average:  1077149696
+Right side average: -1067163648
+
+Left side average:  1077280768
+Right side average: -1067081728
+
+Left side average:  1077477376
+Right side average: -1066999808
+
+Left side average:  1077673984
+Right side average: -1066917888
+
+Left side average:  1077870592
+Right side average: -1066835968
+
+Left side average:  1078034432
+Right side average: -1066762240
+
+Left side average:  1078132736
+Right side average: -1066680320
+
+Left side average:  1078296576
+Right side average: -1066606592
+
+Left side average:  1078460416
+Right side average: -1066532864
+
+Left side average:  1078591488
+Right side average: -1066459136
+
+Left side average:  1078788096
+Right side average: -1066397696
+
+Left side average:  1078984704
+Right side average: -1066360832
+
+Left side average:  1079083008
+Right side average: -1066328064
+
+Left side average:  1079181312
+Right side average: -1066295296
+
+Left side average:  1079312384
+Right side average: -1066262528
+
+Left side average:  1079410688
+Right side average: -1066229760
+
+Left side average:  1079525376
+Right side average: -1066201088
+
+Left side average:  1079623680
+Right side average: -1066172416
+
+Left side average:  1079738368
+Right side average: -1066147840
+
+Left side average:  1079853056
+Right side average: -1066123264
+
+Left side average:  1079967744
+Right side average: -1066094592
+
+Left side average:  1080057856
+Right side average: -1066070016
+
+Left side average:  1080123392
+Right side average: -1066045440
+
+Left side average:  1080180736
+Right side average: -1066020864
+
+Left side average:  1080246272
+Right side average: -1066000384
+
+Left side average:  1080311808
+Right side average: -1065975808
+
+Left side average:  1080369152
+Right side average: -1065955328
+
+Left side average:  1080442880
+Right side average: -1065934848
+
+Left side average:  1080508416
+Right side average: -1065914368
+
+Left side average:  1080573952
+Right side average: -1065897984
+
+Left side average:  1080639488
+Right side average: -1065885696
+
+Left side average:  1080713216
+Right side average: -1065873408
+
+Left side average:  1080786944
+Right side average: -1065861120
+
+Left side average:  1080852480
+Right side average: -1065848832
+
+Left side average:  1080926208
+Right side average: -1065840640
+
+Left side average:  1081008128
+Right side average: -1065832448
+
+Left side average:  1081081856
+Right side average: -1065832448
+
+Left side average:  1081122816
+Right side average: -1065828352
+
+Left side average:  1081163776
+Right side average: -1065828352
+
+Left side average:  1081204736
+Right side average: -1065824256
+
+Left side average:  1081245696
+Right side average: -1065824256
+
+Left side average:  1081282560
+Right side average: -1065824256
+
+Left side average:  1081323520
+Right side average: -1065824256
+
+Left side average:  1081364480
+Right side average: -1065824256
+
+Left side average:  1081397248
+Right side average: -1065824256
+
+Left side average:  1081430016
+Right side average: -1065824256
+
+Left side average:  1081458688
+Right side average: -1065824256
+
+Left side average:  1081475072
+Right side average: -1065816064
+
+Left side average:  1081491456
+Right side average: -1065811968
+
+Left side average:  1081499648
+Right side average: -1065803776
+
+Left side average:  1081503744
+Right side average: -1065795584
+
+Left side average:  1081503744
+Right side average: -1065787392
+
+Left side average:  1081503744
+Right side average: -1065783296
+
+Left side average:  1081503744
+Right side average: -1065779200
+
+Left side average:  1081503744
+Right side average: -1065775104
+
+Left side average:  1081503744
+Right side average: -1065766912
+
+Left side average:  1081503744
+Right side average: -1065766912
+
+Left side average:  1081503744
+Right side average: -1065762816
+
+Left side average:  1081503744
+Right side average: -1065758720
+
+Left side average:  1081503744
+Right side average: -1065750528
+
+Left side average:  1081503744
+Right side average: -1065742336
+
+Left side average:  1081503744
+Right side average: -1065738240
+
+Left side average:  1081503744
+Right side average: -1065725952
+
+Left side average:  1081503744
+Right side average: -1065713664
+
+Left side average:  1081507840
+Right side average: -1065697280
+
+Left side average:  1081511936
+Right side average: -1065680896
+
+Left side average:  1081516032
+Right side average: -1065664512
+
+Left side average:  1081528320
+Right side average: -1065644032
+
+Left side average:  1081536512
+Right side average: -1065627648
+
+Left side average:  1081548800
+Right side average: -1065607168
+
+Left side average:  1081565184
+Right side average: -1065590784
+
+Left side average:  1081585664
+Right side average: -1065570304
+
+Left side average:  1081602048
+Right side average: -1065553920
+
+Left side average:  1081622528
+Right side average: -1065537536
+
+Left side average:  1081647104
+Right side average: -1065521152
+
+Left side average:  1081671680
+Right side average: -1065508864
+
+Left side average:  1081696256
+Right side average: -1065496576
+
+Left side average:  1081716736
+Right side average: -1065480192
+
+Left side average:  1081741312
+Right side average: -1065463808
+
+Left side average:  1081769984
+Right side average: -1065451520
+
+Left side average:  1081794560
+Right side average: -1065439232
+
+Left side average:  1081819136
+Right side average: -1065422848
+
+Left side average:  1081843712
+Right side average: -1065406464
+
+Left side average:  1081868288
+Right side average: -1065390080
+
+Left side average:  1081892864
+Right side average: -1065369600
+
+Left side average:  1081921536
+Right side average: -1065351168
+
+Left side average:  1081946112
+Right side average: -1065338880
+
+Left side average:  1081966592
+Right side average: -1065326592
+
+Left side average:  1081991168
+Right side average: -1065314304
+
+Left side average:  1082015744
+Right side average: -1065302016
+
+Left side average:  1082032128
+Right side average: -1065287680
+
+Left side average:  1082048512
+Right side average: -1065275392
+
+Left side average:  1082064896
+Right side average: -1065261056
+
+Left side average:  1082081280
+Right side average: -1065248768
+
+Left side average:  1082097664
+Right side average: -1065236480
+
+Left side average:  1082118144
+Right side average: -1065224192
+
+Left side average:  1082132480
+Right side average: -1065209856
+
+Left side average:  1082140672
+Right side average: -1065197568
+
+Left side average:  1082150912
+Right side average: -1065185280
+
+Left side average:  1082161152
+Right side average: -1065170944
+
+Left side average:  1082171392
+Right side average: -1065160704
+
+Left side average:  1082179584
+Right side average: -1065148416
+
+Left side average:  1082185728
+Right side average: -1065138176
+
+Left side average:  1082193920
+Right side average: -1065127936
+
+Left side average:  1082200064
+Right side average: -1065117696
+
+Left side average:  1082206208
+Right side average: -1065107456
+
+Left side average:  1082212352
+Right side average: -1065095168
+
+Left side average:  1082216448
+Right side average: -1065084928
+
+Left side average:  1082218496
+Right side average: -1065074688
+
+Left side average:  1082220544
+Right side average: -1065064448
+
+Left side average:  1082222592
+Right side average: -1065054208
+
+Left side average:  1082224640
+Right side average: -1065046016
+
+Left side average:  1082226688
+Right side average: -1065037824
+
+Left side average:  1082228736
+Right side average: -1065029632
+
+Left side average:  1082228736
+Right side average: -1065023488
+
+Left side average:  1082228736
+Right side average: -1065017344
+
+Left side average:  1082228736
+Right side average: -1065013248
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065011200
+
+Left side average:  1082228736
+Right side average: -1065013248
+
+Left side average:  1082228736
+Right side average: -1065013248
+
+Left side average:  1082228736
+Right side average: -1065017344
+
+Left side average:  1082228736
+Right side average: -1065019392
+
+Left side average:  1082228736
+Right side average: -1065021440
+
+Left side average:  1082228736
+Right side average: -1065025536
+
+Left side average:  1082230784
+Right side average: -1065031680
+
+Left side average:  1082232832
+Right side average: -1065035776
+
+Left side average:  1082236928
+Right side average: -1065039872
+
+Left side average:  1082241024
+Right side average: -1065043968
+
+Left side average:  1082245120
+Right side average: -1065046016
+
+Left side average:  1082251264
+Right side average: -1065048064
+
+Left side average:  1082253312
+Right side average: -1065052160
+
+Left side average:  1082255360
+Right side average: -1065054208
+
+Left side average:  1082255360
+Right side average: -1065056256
+
+Left side average:  1082257408
+Right side average: -1065060352
+
+Left side average:  1082259456
+Right side average: -1065062400
+
+Left side average:  1082259456
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082261504
+Right side average: -1065064448
+
+Left side average:  1082263552
+Right side average: -1065064448
+
+Left side average:  1082263552
+Right side average: -1065064448
+
+Left side average:  1082267648
+Right side average: -1065064448
+
+Left side average:  1082273792
+Right side average: -1065064448
+
+Left side average:  1082277888
+Right side average: -1065066496
+
+Left side average:  1082284032
+Right side average: -1065066496
+
+Left side average:  1082288128
+Right side average: -1065068544
+
+Left side average:  1082290176
+Right side average: -1065068544
+
+Left side average:  1082292224
+Right side average: -1065070592
+
+Left side average:  1082296320
+Right side average: -1065070592
+
+Left side average:  1082296320
+Right side average: -1065070592
+
+Left side average:  1082300416
+Right side average: -1065070592
+
+Left side average:  1082302464
+Right side average: -1065072640
+
+Left side average:  1082304512
+Right side average: -1065076736
+
+Left side average:  1082306560
+Right side average: -1065080832
+
+Left side average:  1082310656
+Right side average: -1065084928
+
+Left side average:  1082314752
+Right side average: -1065089024
+
+Left side average:  1082320896
+Right side average: -1065093120
+
+Left side average:  1082327040
+Right side average: -1065097216
+
+Left side average:  1082333184
+Right side average: -1065103360
+
+Left side average:  1082339328
+Right side average: -1065109504
+
+Left side average:  1082345472
+Right side average: -1065115648
+
+Left side average:  1082353664
+Right side average: -1065121792
+
+Left side average:  1082359808
+Right side average: -1065127936
+
+Left side average:  1082368000
+Right side average: -1065132032
+
+Left side average:  1082376192
+Right side average: -1065138176
+
+Left side average:  1082384384
+Right side average: -1065142272
+
+Left side average:  1082390528
+Right side average: -1065148416
+
+Left side average:  1082396672
+Right side average: -1065152512
+
+Left side average:  1082402816
+Right side average: -1065156608
+
+Left side average:  1082406912
+Right side average: -1065160704
+
+Left side average:  1082413056
+Right side average: -1065164800
+
+Left side average:  1082415104
+Right side average: -1065168896
+
+Left side average:  1082419200
+Right side average: -1065172992
+
+Left side average:  1082421248
+Right side average: -1065175040
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082421248
+Right side average: -1065177088
+
+Left side average:  1082419200
+Right side average: -1065177088
+
+Left side average:  1082417152
+Right side average: -1065177088
+
+Left side average:  1082413056
+Right side average: -1065177088
+
+Left side average:  1082408960
+Right side average: -1065175040
+
+Left side average:  1082404864
+Right side average: -1065175040
+
+Left side average:  1082398720
+Right side average: -1065175040
+
+Left side average:  1082390528
+Right side average: -1065170944
+
+Left side average:  1082380288
+Right side average: -1065168896
+
+Left side average:  1082368000
+Right side average: -1065160704
+
+Left side average:  1082355712
+Right side average: -1065154560
+
+Left side average:  1082343424
+Right side average: -1065146368
+
+Left side average:  1082333184
+Right side average: -1065136128
+
+Left side average:  1082322944
+Right side average: -1065127936
+
+Left side average:  1082312704
+Right side average: -1065119744
+
+Left side average:  1082302464
+Right side average: -1065109504
+
+Left side average:  1082290176
+Right side average: -1065099264
+
+Left side average:  1082281984
+Right side average: -1065089024
+
+Left side average:  1082269696
+Right side average: -1065078784
+
+Left side average:  1082257408
+Right side average: -1065068544
+
+Left side average:  1082245120
+Right side average: -1065056256
+
+Left side average:  1082234880
+Right side average: -1065046016
+
+Left side average:  1082224640
+Right side average: -1065037824
+
+Left side average:  1082216448
+Right side average: -1065027584
+
+Left side average:  1082208256
+Right side average: -1065019392
+
+Left side average:  1082200064
+Right side average: -1065013248
+
+Left side average:  1082195968
+Right side average: -1065005056
+
+Left side average:  1082187776
+Right side average: -1064998912
+
+Left side average:  1082183680
+Right side average: -1064992768
+
+Left side average:  1082179584
+Right side average: -1064986624
+
+Left side average:  1082175488
+Right side average: -1064984576
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064982528
+
+Left side average:  1082171392
+Right side average: -1064988672
+
+Left side average:  1082169344
+Right side average: -1064994816
+
+Left side average:  1082167296
+Right side average: -1065007104
+
+Left side average:  1082163200
+Right side average: -1065019392
+
+Left side average:  1082155008
+Right side average: -1065033728
+
+Left side average:  1082144768
+Right side average: -1065046016
+
+Left side average:  1082134528
+Right side average: -1065058304
+
+Left side average:  1082118144
+Right side average: -1065070592
+
+Left side average:  1082093568
+Right side average: -1065082880
+
+Left side average:  1082077184
+Right side average: -1065095168
+
+Left side average:  1082056704
+Right side average: -1065109504
+
+Left side average:  1082032128
+Right side average: -1065121792
+
+Left side average:  1082011648
+Right side average: -1065136128
+
+Left side average:  1081987072
+Right side average: -1065152512
+
+Left side average:  1081962496
+Right side average: -1065166848
+
+Left side average:  1081933824
+Right side average: -1065181184
+
+Left side average:  1081913344
+Right side average: -1065193472
+
+Left side average:  1081888768
+Right side average: -1065207808
+
+Left side average:  1081868288
+Right side average: -1065222144
+
+Left side average:  1081851904
+Right side average: -1065238528
+
+Left side average:  1081831424
+Right side average: -1065252864
+
+Left side average:  1081806848
+Right side average: -1065267200
+
+Left side average:  1081786368
+Right side average: -1065281536
+
+Left side average:  1081761792
+Right side average: -1065295872
+
+Left side average:  1081737216
+Right side average: -1065312256
+
+Left side average:  1081716736
+Right side average: -1065326592
+
+Left side average:  1081696256
+Right side average: -1065342976
+
+Left side average:  1081675776
+Right side average: -1065365504
+
+Left side average:  1081655296
+Right side average: -1065398272
+
+Left side average:  1081634816
+Right side average: -1065426944
+
+Left side average:  1081614336
+Right side average: -1065459712
+
+Left side average:  1081597952
+Right side average: -1065492480
+
+Left side average:  1081577472
+Right side average: -1065525248
+
+Left side average:  1081556992
+Right side average: -1065562112
+
+Left side average:  1081540608
+Right side average: -1065603072
+
+Left side average:  1081516032
+Right side average: -1065644032
+
+Left side average:  1081495552
+Right side average: -1065680896
+
+Left side average:  1081470976
+Right side average: -1065721856
+
+Left side average:  1081450496
+Right side average: -1065758720
+
+Left side average:  1081421824
+Right side average: -1065787392
+
+Left side average:  1081389056
+Right side average: -1065820160
+
+Left side average:  1081356288
+Right side average: -1065848832
+
+Left side average:  1081319424
+Right side average: -1065885696
+
+Left side average:  1081286656
+Right side average: -1065918464
+
+Left side average:  1081253888
+Right side average: -1065947136
+
+Left side average:  1081225216
+Right side average: -1065971712
+
+Left side average:  1081188352
+Right side average: -1066004480
+
+Left side average:  1081147392
+Right side average: -1066033152
+
+Left side average:  1081106432
+Right side average: -1066057728
+
+Left side average:  1081057280
+Right side average: -1066082304
+
+Left side average:  1080975360
+Right side average: -1066110976
+
+Left side average:  1080893440
+Right side average: -1066139648
+
+Left side average:  1080811520
+Right side average: -1066168320
+
+Left side average:  1080729600
+Right side average: -1066196992
+
+Left side average:  1080639488
+Right side average: -1066225664
+
+Left side average:  1080557568
+Right side average: -1066258432
+
+Left side average:  1080475648
+Right side average: -1066278912
+
+Left side average:  1080385536
+Right side average: -1066319872
+
+Left side average:  1080303616
+Right side average: -1066352640
+
+Left side average:  1080213504
+Right side average: -1066389504
+
+Left side average:  1080123392
+Right side average: -1066442752
+
+Left side average:  1080033280
+Right side average: -1066516480
+
+Left side average:  1079853056
+Right side average: -1066598400
+
+Left side average:  1079672832
+Right side average: -1066680320
+
+Left side average:  1079476224
+Right side average: -1066778624
+
+Left side average:  1079296000
+Right side average: -1066868736
+
+Left side average:  1079099392
+Right side average: -1066958848
+
+Left side average:  1078788096
+Right side average: -1067048960
+
+Left side average:  1078394880
+Right side average: -1067139072
+
+Left side average:  1078034432
+Right side average: -1067237376
+
+Left side average:  1077411840
+Right side average: -1067327488
+
+Left side average:  1076232192
+Right side average: -1067425792
+
+Left side average:  0
+Right side average: -1067581440
+
+Left side average:  -1071120384
+Right side average: -1067745280
+
+Left side average:  -1070202880
+Right side average: -1067909120
+
+Left side average:  -1069547520
+Right side average: -1068056576
+
+Left side average:  -1069219840
+Right side average: -1068187648
+
+Left side average:  -1068924928
+Right side average: -1068318720
+
+Left side average:  -1068662784
+Right side average: -1068433408
+
+Left side average:  -1068449792
+Right side average: -1068597248
+
+Left side average:  -1068335104
+Right side average: -1068826624
+
+Left side average:  -1068220416
+Right side average: -1069023232
+
+Left side average:  -1068122112
+Right side average: -1069187072
+
+Left side average:  -1068040192
+Right side average: -1069350912
+
+Left side average:  -1067958272
+Right side average: -1069449216
+
+Left side average:  -1067892736
+Right side average: -1069613056
+
+Left side average:  -1067859968
+Right side average: -1069809664
+
+Left side average:  -1067810816
+Right side average: -1069875200
+
+Left side average:  -1067778048
+Right side average: -1069940736
+
+Left side average:  -1067745280
+Right side average: -1070006272
+
+Left side average:  -1067728896
+Right side average: -1070071808
+
+Left side average:  -1067696128
+Right side average: -1070137344
+
+Left side average:  -1067646976
+Right side average: -1070137344
+
+Left side average:  -1067630592
+Right side average: -1070137344
+
+Left side average:  -1067614208
+Right side average: -1070137344
+
+Left side average:  -1067614208
+Right side average: -1070137344
+
+Left side average:  -1067614208
+Right side average: -1070137344
+
+Left side average:  -1067614208
+Right side average: -1070137344
+
+Left side average:  -1067614208
+Right side average: -1070137344
+
+Left side average:  -1067614208
+Right side average: -1070137344
+
+Left side average:  -1067614208
+Right side average: -1070137344
+
+Left side average:  -1067614208
+Right side average: -1070137344
+
+Left side average:  -1067614208
+Right side average: -1070137344
+
+Left side average:  -1067614208
+Right side average: -1070137344
+
+Left side average:  -1067614208
+Right side average: -1070071808
+
+Left side average:  -1067630592
+Right side average: -1070071808
+
+Left side average:  -1067646976
+Right side average: -1070071808
+
+Left side average:  -1067679744
+Right side average: -1070071808
+
+Left side average:  -1067745280
+Right side average: -1070006272
+
+Left side average:  -1067810816
+Right side average: -1069940736
+
+Left side average:  -1067859968
+Right side average: -1069940736
+
+Left side average:  -1067925504
+Right side average: -1069940736
+
+Left side average:  -1068007424
+Right side average: -1069940736
+
+Left side average:  -1068072960
+Right side average: -1069940736
+
+Left side average:  -1068105728
+Right side average: -1069940736
+
+Left side average:  -1068122112
+Right side average: -1069940736
+
+Left side average:  -1068122112
+Right side average: -1069940736
+
+Left side average:  -1068122112
+Right side average: -1069940736
+
+Left side average:  -1068122112
+Right side average: -1069940736
+
+Left side average:  -1068122112
+Right side average: -1069940736
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070071808
+
+Left side average:  -1068122112
+Right side average: -1070071808
+
+Left side average:  -1068122112
+Right side average: -1070071808
+
+Left side average:  -1068122112
+Right side average: -1070071808
+
+Left side average:  -1068122112
+Right side average: -1070071808
+
+Left side average:  -1068122112
+Right side average: -1070071808
+
+Left side average:  -1068122112
+Right side average: -1070071808
+
+Left side average:  -1068122112
+Right side average: -1070071808
+
+Left side average:  -1068122112
+Right side average: -1070071808
+
+Left side average:  -1068122112
+Right side average: -1070071808
+
+Left side average:  -1068122112
+Right side average: -1070071808
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068122112
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068138496
+Right side average: -1070006272
+
+Left side average:  -1068154880
+Right side average: -1069940736
+
+Left side average:  -1068187648
+Right side average: -1069809664
+
+Left side average:  -1068204032
+Right side average: -1069613056
+
+Left side average:  -1068236800
+Right side average: -1069449216
+
+Left side average:  -1068269568
+Right side average: -1069285376
+
+Left side average:  -1068335104
+Right side average: -1069121536
+
+Left side average:  -1068417024
+Right side average: -1068957696
+
+Left side average:  -1068498944
+Right side average: -1068761088
+
+Left side average:  -1068695552
+Right side average: -1068531712
+
+Left side average:  -1068892160
+Right side average: -1068400640
+
+Left side average:  -1069154304
+Right side average: -1068253184
+
+Left side average:  -1069416448
+Right side average: -1068122112
+
+Left side average:  -1069875200
+Right side average: -1067974656
+
+Left side average:  -1070399488
+Right side average: -1067810816
+
+Left side average:  -1071382528
+Right side average: -1067646976
+
+Left side average:  -1074790400
+Right side average: -1067466752
+
+Left side average:  1075970048
+Right side average: -1067368448
+
+Left side average:  1077149696
+Right side average: -1067270144
+
+Left side average:  1077805056
+Right side average: -1067171840
+
+Left side average:  1078231040
+Right side average: -1067073536
+
+Left side average:  1078624256
+Right side average: -1066975232
+
+Left side average:  1078951936
+Right side average: -1066868736
+
+Left side average:  1079164928
+Right side average: -1066754048
+
+Left side average:  1079361536
+Right side average: -1066647552
+
+Left side average:  1079558144
+Right side average: -1066524672
+
+Left side average:  1079754752
+Right side average: -1066409984
+
+Left side average:  1079951360
+Right side average: -1066352640
+
+Left side average:  1080090624
+Right side average: -1066295296
+
+Left side average:  1080188928
+Right side average: -1066242048
+
+Left side average:  1080303616
+Right side average: -1066188800
+
+Left side average:  1080410112
+Right side average: -1066139648
+
+Left side average:  1080516608
+Right side average: -1066090496
+
+Left side average:  1080614912
+Right side average: -1066045440
+
+Left side average:  1080713216
+Right side average: -1066004480
+
+Left side average:  1080803328
+Right side average: -1065963520
+
+Left side average:  1080901632
+Right side average: -1065926656
+
+Left side average:  1080999936
+Right side average: -1065893888
+
+Left side average:  1081090048
+Right side average: -1065861120
+
+Left side average:  1081135104
+Right side average: -1065832448
+
+Left side average:  1081180160
+Right side average: -1065803776
+
+Left side average:  1081229312
+Right side average: -1065775104
+
+Left side average:  1081270272
+Right side average: -1065742336
+
+Left side average:  1081311232
+Right side average: -1065713664
+
+Left side average:  1081352192
+Right side average: -1065684992
+
+Left side average:  1081393152
+Right side average: -1065656320
+
+Left side average:  1081430016
+Right side average: -1065631744
+
+Left side average:  1081466880
+Right side average: -1065607168
+
+Left side average:  1081507840
+Right side average: -1065582592
+
+Left side average:  1081544704
+Right side average: -1065558016
+
+Left side average:  1081581568
+Right side average: -1065533440
+
+Left side average:  1081622528
+Right side average: -1065508864
+
+Left side average:  1081659392
+Right side average: -1065480192
+
+Left side average:  1081696256
+Right side average: -1065451520
+
+Left side average:  1081733120
+Right side average: -1065414656
+
+Left side average:  1081765888
+Right side average: -1065381888
+
+Left side average:  1081798656
+Right side average: -1065351168
+
+Left side average:  1081831424
+Right side average: -1065330688
+
+Left side average:  1081860096
+Right side average: -1065314304
+
+Left side average:  1081884672
+Right side average: -1065293824
+
+Left side average:  1081909248
+Right side average: -1065275392
+
+Left side average:  1081933824
+Right side average: -1065254912
+
+Left side average:  1081958400
+Right side average: -1065232384
+
+Left side average:  1081982976
+Right side average: -1065213952
+
+Left side average:  1082007552
+Right side average: -1065195520
+
+Left side average:  1082023936
+Right side average: -1065175040
+
+Left side average:  1082044416
+Right side average: -1065154560
+
+Left side average:  1082064896
+Right side average: -1065136128
+
+Left side average:  1082085376
+Right side average: -1065121792
+
+Left side average:  1082101760
+Right side average: -1065105408
+
+Left side average:  1082122240
+Right side average: -1065089024
+
+Left side average:  1082136576
+Right side average: -1065076736
+
+Left side average:  1082148864
+Right side average: -1065064448
+
+Left side average:  1082159104
+Right side average: -1065054208
+
+Left side average:  1082171392
+Right side average: -1065048064
+
+Left side average:  1082183680
+Right side average: -1065041920
+
+Left side average:  1082195968
+Right side average: -1065039872
+
+Left side average:  1082210304
+Right side average: -1065039872
+
+Left side average:  1082222592
+Right side average: -1065039872
+
+Left side average:  1082234880
+Right side average: -1065039872
+
+Left side average:  1082247168
+Right side average: -1065039872
+
+Left side average:  1082259456
+Right side average: -1065039872
+
+Left side average:  1082273792
+Right side average: -1065039872
+
+Left side average:  1082286080
+Right side average: -1065039872
+
+Left side average:  1082298368
+Right side average: -1065041920
+
+Left side average:  1082312704
+Right side average: -1065043968
+
+Left side average:  1082327040
+Right side average: -1065048064
+
+Left side average:  1082341376
+Right side average: -1065058304
+
+Left side average:  1082353664
+Right side average: -1065068544
+
+Left side average:  1082365952
+Right side average: -1065082880
+
+Left side average:  1082378240
+Right side average: -1065095168
+
+Left side average:  1082390528
+Right side average: -1065107456
+
+Left side average:  1082402816
+Right side average: -1065119744
+
+Left side average:  1082413056
+Right side average: -1065132032
+
+Left side average:  1082425344
+Right side average: -1065142272
+
+Left side average:  1082433536
+Right side average: -1065154560
+
+Left side average:  1082445824
+Right side average: -1065164800
+
+Left side average:  1082456064
+Right side average: -1065177088
+
+Left side average:  1082468352
+Right side average: -1065187328
+
+Left side average:  1082476544
+Right side average: -1065199616
+
+Left side average:  1082486784
+Right side average: -1065209856
+
+Left side average:  1082494976
+Right side average: -1065222144
+
+Left side average:  1082503168
+Right side average: -1065234432
+
+Left side average:  1082511360
+Right side average: -1065244672
+
+Left side average:  1082517504
+Right side average: -1065256960
+
+Left side average:  1082521600
+Right side average: -1065267200
+
+Left side average:  1082527744
+Right side average: -1065277440
+
+Left side average:  1082531840
+Right side average: -1065287680
+
+Left side average:  1082535936
+Right side average: -1065299968
+
+Left side average:  1082535936
+Right side average: -1065310208
+
+Left side average:  1082540032
+Right side average: -1065322496
+
+Left side average:  1082540032
+Right side average: -1065334784
+
+Left side average:  1082542080
+Right side average: -1065347072
+
+Left side average:  1082544128
+Right side average: -1065365504
+
+Left side average:  1082544128
+Right side average: -1065385984
+
+Left side average:  1082544128
+Right side average: -1065410560
+
+Left side average:  1082544128
+Right side average: -1065426944
+
+Left side average:  1082544128
+Right side average: -1065447424
+
+Left side average:  1082544128
+Right side average: -1065459712
+
+Left side average:  1082544128
+Right side average: -1065476096
+
+Left side average:  1082544128
+Right side average: -1065488384
+
+Left side average:  1082544128
+Right side average: -1065500672
+
+Left side average:  1082544128
+Right side average: -1065508864
+
+Left side average:  1082544128
+Right side average: -1065517056
+
+Left side average:  1082544128
+Right side average: -1065521152
+
+Left side average:  1082544128
+Right side average: -1065525248
+
+Left side average:  1082544128
+Right side average: -1065529344
+
+Left side average:  1082546176
+Right side average: -1065533440
+
+Left side average:  1082548224
+Right side average: -1065533440
+
+Left side average:  1082550272
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082552320
+Right side average: -1065533440
+
+Left side average:  1082550272
+Right side average: -1065533440
+
+Left side average:  1082548224
+Right side average: -1065533440
+
+Left side average:  1082546176
+Right side average: -1065529344
+
+Left side average:  1082544128
+Right side average: -1065529344
+
+Left side average:  1082544128
+Right side average: -1065529344
+
+Left side average:  1082544128
+Right side average: -1065525248
+
+Left side average:  1082544128
+Right side average: -1065525248
+
+Left side average:  1082544128
+Right side average: -1065525248
+
+Left side average:  1082544128
+Right side average: -1065525248
+
+Left side average:  1082544128
+Right side average: -1065525248
+
+Left side average:  1082544128
+Right side average: -1065525248
+
+Left side average:  1082544128
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082546176
+Right side average: -1065525248
+
+Left side average:  1082544128
+Right side average: -1065525248
+
+Left side average:  1082544128
+Right side average: -1065525248
+
+Left side average:  1082544128
+Right side average: -1065525248
+
+Left side average:  1082542080
+Right side average: -1065525248
+
+Left side average:  1082540032
+Right side average: -1065529344
+
+Left side average:  1082533888
+Right side average: -1065529344
+
+Left side average:  1082529792
+Right side average: -1065529344
+
+Left side average:  1082521600
+Right side average: -1065529344
+
+Left side average:  1082511360
+Right side average: -1065533440
+
+Left side average:  1082499072
+Right side average: -1065541632
+
+Left side average:  1082482688
+Right side average: -1065558016
+
+Left side average:  1082468352
+Right side average: -1065574400
+
+Left side average:  1082451968
+Right side average: -1065590784
+
+Left side average:  1082435584
+Right side average: -1065598976
+
+Left side average:  1082421248
+Right side average: -1065615360
+
+Left side average:  1082404864
+Right side average: -1065623552
+
+Left side average:  1082388480
+Right side average: -1065639936
+
+Left side average:  1082368000
+Right side average: -1065656320
+
+Left side average:  1082345472
+Right side average: -1065672704
+
+Left side average:  1082320896
+Right side average: -1065693184
+
+Left side average:  1082296320
+Right side average: -1065709568
+
+Left side average:  1082273792
+Right side average: -1065725952
+
+Left side average:  1082251264
+Right side average: -1065746432
+
+Left side average:  1082224640
+Right side average: -1065762816
+
+Left side average:  1082198016
+Right side average: -1065779200
+
+Left side average:  1082173440
+Right side average: -1065795584
+
+Left side average:  1082146816
+Right side average: -1065811968
+
+Left side average:  1082109952
+Right side average: -1065824256
+
+Left side average:  1082060800
+Right side average: -1065840640
+
+Left side average:  1082007552
+Right side average: -1065852928
+
+Left side average:  1081954304
+Right side average: -1065873408
+
+Left side average:  1081901056
+Right side average: -1065885696
+
+Left side average:  1081847808
+Right side average: -1065902080
+
+Left side average:  1081794560
+Right side average: -1065918464
+
+Left side average:  1081745408
+Right side average: -1065930752
+
+Left side average:  1081688064
+Right side average: -1065943040
+
+Left side average:  1081634816
+Right side average: -1065955328
+
+Left side average:  1081581568
+Right side average: -1065967616
+
+Left side average:  1081524224
+Right side average: -1065979904
+
+Left side average:  1081470976
+Right side average: -1065992192
+
+Left side average:  1081417728
+Right side average: -1066008576
+
+Left side average:  1081368576
+Right side average: -1066024960
+
+Left side average:  1081315328
+Right side average: -1066041344
+
+Left side average:  1081257984
+Right side average: -1066057728
+
+Left side average:  1081208832
+Right side average: -1066074112
+
+Left side average:  1081159680
+Right side average: -1066090496
+
+Left side average:  1081114624
+Right side average: -1066106880
+
+Left side average:  1081049088
+Right side average: -1066127360
+
+Left side average:  1080958976
+Right side average: -1066151936
+
+Left side average:  1080868864
+Right side average: -1066168320
+
+Left side average:  1080786944
+Right side average: -1066188800
+
+Left side average:  1080696832
+Right side average: -1066209280
+
+Left side average:  1080614912
+Right side average: -1066229760
+
+Left side average:  1080532992
+Right side average: -1066246144
+
+Left side average:  1080467456
+Right side average: -1066262528
+
+Left side average:  1080385536
+Right side average: -1066278912
+
+Left side average:  1080320000
+Right side average: -1066291200
+
+Left side average:  1080238080
+Right side average: -1066307584
+
+Left side average:  1080180736
+Right side average: -1066323968
+
+Left side average:  1080115200
+Right side average: -1066336256
+
+Left side average:  1080057856
+Right side average: -1066348544
+
+Left side average:  1079951360
+Right side average: -1066360832
+
+Left side average:  1079820288
+Right side average: -1066369024
+
+Left side average:  1079705600
+Right side average: -1066381312
+
+Left side average:  1079590912
+Right side average: -1066393600
+
+Left side average:  1079476224
+Right side average: -1066409984
+
+Left side average:  1079394304
+Right side average: -1066426368
+
+Left side average:  1079312384
+Right side average: -1066442752
+
+Left side average:  1079246848
+Right side average: -1066467328
+
+Left side average:  1079164928
+Right side average: -1066491904
+
+Left side average:  1079099392
+Right side average: -1066524672
+
+Left side average:  1079033856
+Right side average: -1066549248
+
+Left side average:  1078919168
+Right side average: -1066590208
+
+Left side average:  1078820864
+Right side average: -1066622976
+
+Left side average:  1078722560
+Right side average: -1066655744
+
+Left side average:  1078624256
+Right side average: -1066704896
+
+Left side average:  1078591488
+Right side average: -1066745856
+
+Left side average:  1078525952
+Right side average: -1066795008
+
+Left side average:  1078493184
+Right side average: -1066852352
+
+Left side average:  1078427648
+Right side average: -1066901504
+
+Left side average:  1078394880
+Right side average: -1066958848
+
+Left side average:  1078362112
+Right side average: -1067008000
+
+Left side average:  1078329344
+Right side average: -1067073536
+
+Left side average:  1078329344
+Right side average: -1067139072
+
+Left side average:  1078329344
+Right side average: -1067204608
+
+Left side average:  1078329344
+Right side average: -1067278336
+
+Left side average:  1078329344
+Right side average: -1067335680
+
+Left side average:  1078329344
+Right side average: -1067401216
+
+Left side average:  1078329344
+Right side average: -1067483136
+
+Left side average:  1078329344
+Right side average: -1067614208
+
+Left side average:  1078329344
+Right side average: -1067745280
+
+Left side average:  1078329344
+Right side average: -1067859968
+
+Left side average:  1078329344
+Right side average: -1067974656
+
+Left side average:  1078329344
+Right side average: -1068072960
+
+Left side average:  1078329344
+Right side average: -1068204032
+
+Left side average:  1078329344
+Right side average: -1068302336
+
+Left side average:  1078329344
+Right side average: -1068417024
+
+Left side average:  1078329344
+Right side average: -1068564480
+
+Left side average:  1078329344
+Right side average: -1068761088
+
+Left side average:  1078329344
+Right side average: -1068924928
+
+Left side average:  1078329344
+Right side average: -1069088768
+
+Left side average:  1078329344
+Right side average: -1069219840
+
+Left side average:  1078329344
+Right side average: -1069383680
+
+Left side average:  1078329344
+Right side average: -1069514752
+
+Left side average:  1078329344
+Right side average: -1069744128
+
+Left side average:  1078263808
+Right side average: -1070006272
+
+Left side average:  1078165504
+Right side average: -1070268416
+
+Left side average:  1078067200
+Right side average: -1070465024
+
+Left side average:  1077968896
+Right side average: -1070858240
+
+Left side average:  1077739520
+Right side average: -1071251456
+
+Left side average:  1077477376
+Right side average: -1071513600
+
+Left side average:  1077215232
+Right side average: -1071644672
+
+Left side average:  1076887552
+Right side average: -1072168960
+
+Left side average:  1076101120
+Right side average: -1072693248
+
+Left side average:  1074790400
+Right side average: -1073217536
+
+Left side average:  -1074790400
+Right side average: -1074790400
+
+Left side average:  -1071906816
+Right side average: 0
+
+Left side average:  -1070989312
+Right side average: 0
+
+Left side average:  -1070333952
+Right side average: 0
+
+Left side average:  -1069940736
+Right side average: 1073741824
+
+Left side average:  -1069514752
+Right side average: 1074266112
+
+Left side average:  -1069318144
+Right side average: 1075052544
+
+Left side average:  -1069088768
+Right side average: 1075576832
+
+Left side average:  -1068924928
+Right side average: 1076101120
+
+Left side average:  -1068761088
+Right side average: 1076363264
+
+Left side average:  -1068597248
+Right side average: 1076625408
+
+Left side average:  -1068482560
+Right side average: 1076887552
+
+Left side average:  -1068417024
+Right side average: 1077018624
+
+Left side average:  -1068384256
+Right side average: 1077084160
+
+Left side average:  -1068351488
+Right side average: 1077084160
+
+Left side average:  -1068351488
+Right side average: 1077084160
+
+Left side average:  -1068351488
+Right side average: 1077084160
+
+Left side average:  -1068351488
+Right side average: 1077084160
+
+Left side average:  -1068351488
+Right side average: 1077084160
+
+Left side average:  -1068351488
+Right side average: 1077084160
+
+Left side average:  -1068351488
+Right side average: 1077084160
+
+Left side average:  -1068351488
+Right side average: 1077084160
+
+Left side average:  -1068367872
+Right side average: 1077084160
+
+Left side average:  -1068400640
+Right side average: 1077084160
+
+Left side average:  -1068433408
+Right side average: 1077084160
+
+Left side average:  -1068466176
+Right side average: 1077084160
+
+Left side average:  -1068531712
+Right side average: 1077084160
+
+Left side average:  -1068564480
+Right side average: 1077084160
+
+Left side average:  -1068630016
+Right side average: 1077084160
+
+Left side average:  -1068695552
+Right side average: 1077084160
+
+Left side average:  -1068793856
+Right side average: 1077084160
+
+Left side average:  -1068826624
+Right side average: 1077084160
+
+Left side average:  -1068892160
+Right side average: 1077084160
+
+Left side average:  -1068892160
+Right side average: 1077084160
+
+Left side average:  -1068924928
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068957696
+Right side average: 1077084160
+
+Left side average:  -1068990464
+Right side average: 1077084160
+
+Left side average:  -1068990464
+Right side average: 1077084160
+
+Left side average:  -1069023232
+Right side average: 1077084160
+
+Left side average:  -1069056000
+Right side average: 1077084160
+
+Left side average:  -1069088768
+Right side average: 1077084160
+
+Left side average:  -1069121536
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077084160
+
+Left side average:  -1069154304
+Right side average: 1077215232
+
+Left side average:  -1069154304
+Right side average: 1077411840
+
+Left side average:  -1069154304
+Right side average: 1077608448
+
+Left side average:  -1069154304
+Right side average: 1077870592
+
+Left side average:  -1069154304
+Right side average: 1077968896
+
+Left side average:  -1069154304
+Right side average: 1078001664
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432
+
+Left side average:  -1069154304
+Right side average: 1078034432

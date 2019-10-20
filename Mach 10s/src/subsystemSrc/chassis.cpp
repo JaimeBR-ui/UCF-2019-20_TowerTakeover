@@ -4,8 +4,6 @@
 
 #include "main.h"
 
-#define MIN_VELOCITY 20
-
 namespace chassis
 {
      // Variables
@@ -13,33 +11,39 @@ namespace chassis
      std::uint32_t now = pros::millis();
 
      // Data functions.
-     double avg_right_side_enc_units(void)
+     int avg_right_side_enc_units(void)
      {
           now = pros::millis();
           return (front_right.get_raw_position(&now) +
           back_right.get_raw_position(&now)) / 2;
      }
 
-     double avg_left_side_enc_units(void)
+     int avg_left_side_enc_units(void)
      {
           now = pros::millis();
           return (front_left.get_raw_position(&now) +
                   back_left.get_raw_position(&now)) / 2;
      }
 
-     double avg_enc_units(void)
+     int avg_enc_units(void)
      {
           return (avg_right_side_enc_units() +
                   avg_left_side_enc_units()) / 2;
      }
 
-     double avg_turning_enc_units(void)
+     int avg_turning_enc_units(void)
      {
           int a = abs(back_left.get_position())
                + abs(front_left.get_position())
                + abs(back_right.get_position())
                + abs(front_right.get_position());
           return a/4;
+     }
+
+     void print_sensors(void)
+     {
+          printf("Left side average:  %d\n", avg_left_side_enc_units());
+          printf("Right side average: %d\n", avg_right_side_enc_units());
      }
 
      bool is_stopped(void)
@@ -141,14 +145,15 @@ namespace chassis
           }
      }
 
-     void turn(int degrees_10, int max_speed, int accuracy_timer)
-     {    // Sketchy turning with proportional control (that works lol).
+     void turn(int degrees_10, int max_velocity, int accuracy_timer)
+     {
           // Rotates robot using encoder counts.
-          int max_velocity = max_speed * 1.57, speed = 0;
-          int target = degrees_10 * TURN_CONSTANT;
-          float proportional = 0.18, error = 0.0, ratio;
+          int speed = 0;
+          int min_velocity = 32;
+          int target = degrees_10 * 0.75;
+          float proportional = 0.30;
+          float error = 0.0, ratio, ratio_const = 0.18;
           int reverse = abs(target) / target;
-          // Make distance_to_speed_up decrease as the degrees_10 increases.
           int distance_to_speed_up = target * 0.2;
 
           set_mode(MOTOR_BRAKE_COAST);
@@ -157,32 +162,34 @@ namespace chassis
 
           while (avg_turning_enc_units() < abs(distance_to_speed_up))
           {
-               if (avg_turning_enc_units() / abs(distance_to_speed_up) >= 0.15)
+               if (avg_turning_enc_units() / abs(distance_to_speed_up) >= ratio_const)
                     ratio = avg_turning_enc_units() / abs(distance_to_speed_up);
                else
-                    ratio = 0.15;
+                    ratio_const = 0.18;
 
-               speed = max_speed * ratio * reverse;
-               speed = speed * 1.57 * max_speed / 127;
+               speed = max_velocity * ratio * reverse;
 
                set_velocity(speed, -speed);
                pros::delay(20);
           }
 
-          while (abs(avg_turning_enc_units() - target) != 0)
+          while (abs(avg_turning_enc_units() - target) > 25)
           {
                error = target - avg_turning_enc_units();
 
-               if (proportional * error > max_velocity)
+               speed = proportional * error;
+
+               if (speed > max_velocity)
                     speed = max_velocity;
-               else if (proportional * error < MIN_VELOCITY)
-                    speed = MIN_VELOCITY;
-               else
-                    speed = proportional * error;
+
+               else if (speed < min_velocity)
+                    speed = min_velocity;
 
                set_velocity(speed, -speed);
                pros::delay(20);
           }
+
+          turn_to_target(target, 20);
 
           pros::delay(accuracy_timer);
           set_voltage(0, 0);
@@ -302,5 +309,6 @@ set_voltage(0, 0);*/
                set_voltage(l, r);
           else
                set_voltage(0, 0);
+          print_sensors();
      }
 }// namespace chassis
