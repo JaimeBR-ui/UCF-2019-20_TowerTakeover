@@ -24,11 +24,24 @@ namespace lift{
              && lift_right.is_stopped();
      }
 
+     int get_max_temperature(void)
+     {
+          return (lift_left.get_temperature() > lift_right.get_temperature())
+               ? lift_left.get_temperature()
+               : lift_right.get_temperature();
+     }
+
      //Control Functions
      void set_voltage(int voltage)
      {
           lift_left = voltage;
           lift_right = voltage;
+     }
+
+     void tare(void)
+     {
+          lift_left.tare_position();
+          lift_right.tare_position();
      }
 
      void set_mode(pros::motor_brake_mode_e mode)
@@ -104,7 +117,7 @@ namespace lift{
           {
                set_mode(MOTOR_BRAKE_COAST);
                if(get_position() < 0)
-                    set_voltage(-15);
+                    set_voltage(-20);
                else if(get_position() < 107)
                     set_voltage(-(get_position()+20));
                else
@@ -122,5 +135,7 @@ namespace lift{
           }
           else if (was_moving != 0)
                hold_position();
+
+          lv_gauge_set_value(gauge1, 2, get_max_temperature());
      }
 }//namespace lift

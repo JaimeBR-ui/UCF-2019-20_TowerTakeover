@@ -15,6 +15,7 @@
 #define B pros::E_CONTROLLER_DIGITAL_B
 #define X pros::E_CONTROLLER_DIGITAL_X
 #define Y pros::E_CONTROLLER_DIGITAL_Y
+#define DOWN pros::E_CONTROLLER_DIGITAL_DOWN
 #define DEPLOY_HEIGHT 400
 
 // Controller.

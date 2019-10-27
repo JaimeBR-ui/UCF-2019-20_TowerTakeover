@@ -46,6 +46,13 @@ namespace intake
           return new_value == 1 && last_value == 0;
      }
 
+     int get_max_temperature(void)
+     {
+          return (intake_right.get_temperature() > intake_left.get_temperature())
+               ? intake_right.get_temperature()
+               : intake_left.get_temperature();
+     }
+
      // Control Functions
      void set_mode(pros::motor_brake_mode_e mode)
      {
@@ -135,30 +142,7 @@ namespace intake
           }
           else if (was_moving)
                hold_position();
+
+          lv_gauge_set_value(gauge1, 0, intake_left.get_temperature());
      }
 }// namespace intake
-
-// Past toggle code for claw
-/*
-// past toggle code
-if (controller_digital(INTAKE) && intake_mode > 0)
-{
-  intake_mode--;
-  set_intake_mode(intake_mode);
-  while (controller_digital(INTAKE))
-  {
-    chassis::assign();
-    lift::assign();
-  }
-}
-else if (controller_digital(OUTTAKE) && intake_mode < 4)
-{
-  intake_mode++;
-  set_intake_mode(intake_mode);
-  while (controller_digital(OUTTAKE))
-  {
-    chassis::assign();
-    lift::assign();
-  }
-}
-*/

@@ -3,18 +3,31 @@
 // Programmed using Atom + Terminal on Mac OS
 
 #include "main.h"
+#include "pros/apix.h"
+#include "display/lvgl.h"
+#include "display/lv_conf.h"
 
 lv_obj_t *myButton;
 lv_obj_t *myButtonLabel;
 lv_obj_t *myLabel;
+lv_obj_t *temperatureLabel;
 
 lv_style_t myButtonStyleREL; //relesed style
 lv_style_t myButtonStylePR; //pressed style
+lv_style_t style;
 
+lv_obj_t * gauge1;
+lv_obj_t * bar1;
+
+
+void lv_ex_gauge_1(void);
+void lv_ex_bar_1(void);
 // make into snake_case
 
 void run_display(void)
 {
+     lv_ex_gauge_1();
+     lv_ex_bar_1();
      lv_style_copy(&myButtonStyleREL, &lv_style_plain);
 	myButtonStyleREL.body.main_color = LV_COLOR_MAKE(150, 0, 0);
 	myButtonStyleREL.body.grad_color = LV_COLOR_MAKE(0, 0, 150);
@@ -36,11 +49,39 @@ void run_display(void)
 	lv_obj_align(myButton, NULL, LV_ALIGN_IN_TOP_LEFT, 10, 10); //set the position to top mid
 
 	myButtonLabel = lv_label_create(myButton, NULL); //create label and puts it inside of the button
-	lv_label_set_text(myButtonLabel, "Click the Button"); //sets label text
-
+	lv_label_set_text(myButtonLabel, "Click the Button?"); //sets label text
+     /*
+     char * image =
+          "    |-----|     |     |-----|\n"
+          "    |     |     |     |     |\n"
+          "    |     |     |     |     |\n"
+          "    |     |   +---+   |     |\n"
+          "    |     |   |   |   |     |\n"
+          "    |     |   |   |   |     |\n"
+          "    |     | (13) (14) |     |\n"
+          "    |_____|-|+++++++|-|_____|\n"
+          "              \\   \\        \n"
+          "               \\   \\       \n"
+          "                +----+       \n"
+          "          (18)  |    |  (17) \n"
+          "                |____|       \n"
+          "                 ///         \n"
+          "       Right    ///      Left\n"
+          "               ///           \n"
+          "           +--|  |------+    \n"
+          "    (12)  /   |  |     /  (20)\n"
+          "   (11)  /    |  |    /  (19)\n"
+          "        +------------+         ";
+     //"lift: green\ndrive: orange\nclaw: blue"*/
 	myLabel = lv_label_create(lv_scr_act(), NULL); //create label and puts it on the screen
-	lv_label_set_text(myLabel, "Never let a computer tell you what to do"); //sets label text
-	lv_obj_align(myLabel, NULL, LV_ALIGN_IN_LEFT_MID, 10, 0); //set the position to center
+     lv_label_set_recolor(myLabel, true);
+     lv_label_set_text(myLabel, "#00ff00 Lift\n#ffbf00 Chassis \n#00ffff Intake\n\n#2222ff Battery"); //sets label text
+	lv_obj_align(myLabel, NULL, LV_ALIGN_IN_LEFT_MID, 10, 20); //set the position to center
+
+     temperatureLabel = lv_label_create(lv_scr_act(), NULL); //create label and puts it on the screen
+     lv_label_set_recolor(temperatureLabel, true);
+     lv_label_set_text(temperatureLabel, "#ff00cc Temp °C"); //sets label text
+	lv_obj_align(temperatureLabel, NULL, LV_ALIGN_CENTER, 100, 70); //set the position to center
 }
 
 static lv_res_t btn_click_action(lv_obj_t * btn)
@@ -50,73 +91,64 @@ static lv_res_t btn_click_action(lv_obj_t * btn)
     if(id == 0)
     {
         char buffer[100];
-   sprintf(buffer, "Current gyroscope value: ");
+   sprintf(buffer, "OH NOO");
    lv_label_set_text(myLabel, buffer);
     }
 
     return LV_RES_OK;
 }
 
-lv_obj_t * createBtn(lv_obj_t * parent, lv_coord_t x, lv_coord_t y, lv_coord_t width, lv_coord_t height,
-    int id, const char * title)
+void lv_ex_gauge_1(void)
 {
-    lv_obj_t * btn = lv_btn_create(parent, NULL);
-    lv_obj_set_pos(btn, x, y);
-    lv_obj_set_size(btn, width, height);
-    lv_obj_set_free_num(btn, id);
+    /*Create a style*/
+    static lv_style_t style;
+    lv_style_copy(&style, &lv_style_pretty_color);
+    //style.body.main_color = lv_color_hex3(0x666);     /*Line color at the beginning*/
+  //  style.body.grad_color =  lv_color_hex3(0x666);    /*Line color at the end*/
+   // style.body.padding.left = 10;                      /*Scale line length*/
+    style.body.padding.inner = 8 ;                    /*Scale label padding*/
+    style.body.border.color = LV_COLOR_WHITE;   /*Needle middle circle color*/
+    style.line.width = 3;
+  //  style.text.color = lv_color_hex3(0x333);
+    style.line.color = LV_COLOR_RED;                  /*Line color after the critical value*/
 
-    lv_obj_t * label = lv_label_create(btn, NULL);
-    lv_label_set_text(label, title);
-    lv_obj_align(label, NULL, LV_ALIGN_IN_TOP_MID, 0, 5);
+    /*Describe the color for the needles*/
+    static lv_color_t needle_colors[] = {LV_COLOR_AQUA, LV_COLOR_ORANGE, LV_COLOR_LIME};
 
-    return btn;
+    /*Create a gauge*/
+    gauge1 = lv_gauge_create(lv_scr_act(), NULL);
+
+    lv_gauge_set_style(gauge1, &style);
+
+    lv_gauge_set_needle_count(gauge1, 3, needle_colors);
+    lv_obj_set_size(gauge1, 200, 200);
+    lv_gauge_set_range(gauge1, 20, 70);
+    lv_gauge_set_critical_value(gauge1, 55);
+    lv_gauge_set_scale(gauge1, 270 , 26, 6);
+    lv_obj_align(gauge1, NULL, LV_ALIGN_CENTER, 100, 0);
+
+    /*Set the values*/
+    lv_gauge_set_value(gauge1, 0, 10);
+    lv_gauge_set_value(gauge1, 1, 20);
+    lv_gauge_set_value(gauge1, 2, 30);
 }
 
-lv_style_t * createBtnStyle(lv_style_t * copy, lv_color_t rel, lv_color_t pr,
-    lv_color_t tglRel, lv_color_t tglPr, lv_color_t tglBorder, lv_color_t textColor, lv_obj_t * btn)
+void lv_ex_bar_1(void)
 {
-    lv_style_t * btnStyle = (lv_style_t *)malloc(sizeof(lv_style_t) * 4);
+     static lv_style_t style1;
+     lv_style_copy(&style1, &lv_style_plain);    /*Copy a built-in style to initialize the new style*/
+     style1.body.main_color = LV_COLOR_WHITE;
+     style1.body.grad_color = LV_COLOR_LIME;
+     style1.body.radius = 10;
+     style1.body.border.color = LV_COLOR_GRAY;
+     style1.body.border.width = 2;
+     style1.body.border.opa = LV_OPA_50;
+     style1.text.color = LV_COLOR_RED;
 
-    for(int i = 0; i < 4; i++) lv_style_copy(&btnStyle[i], copy);
-
-    btnStyle[0].body.main_color = rel;
-    btnStyle[0].body.grad_color = rel;
-    btnStyle[0].text.color = textColor;
-
-    btnStyle[1].body.main_color = pr;
-    btnStyle[1].body.grad_color = pr;
-    btnStyle[1].text.color = textColor;
-
-    btnStyle[2].body.main_color = tglRel;
-    btnStyle[2].body.grad_color = tglRel;
-    btnStyle[2].body.border.width = 2;
-    btnStyle[2].body.border.color = tglBorder;
-    btnStyle[2].text.color = textColor;
-
-    btnStyle[3].body.main_color = tglPr;
-    btnStyle[3].body.grad_color = tglPr;
-    btnStyle[3].body.border.width = 2;
-    btnStyle[3].body.border.color = tglBorder;
-    btnStyle[3].text.color = textColor;
-
-    lv_btn_set_style(btn, LV_BTN_STYLE_REL, &btnStyle[0]);
-    lv_btn_set_style(btn, LV_BTN_STYLE_PR, &btnStyle[1]);
-    lv_btn_set_style(btn, LV_BTN_STYLE_TGL_REL, &btnStyle[2]);
-    lv_btn_set_style(btn, LV_BTN_STYLE_TGL_PR, &btnStyle[3]);
-
-    return btnStyle;
-}
-
-void setBtnStyle(lv_style_t * btnStyle, lv_obj_t * btn)
-{
-    lv_btn_set_style(btn, LV_BTN_STYLE_REL, &btnStyle[0]);
-    lv_btn_set_style(btn, LV_BTN_STYLE_PR, &btnStyle[1]);
-    lv_btn_set_style(btn, LV_BTN_STYLE_TGL_REL, &btnStyle[2]);
-    lv_btn_set_style(btn, LV_BTN_STYLE_TGL_PR, &btnStyle[3]);
-    return;
-}
-void btnSetToggled(lv_obj_t * btn, bool toggled)
-{
-    if(toggled != (lv_btn_get_state(btn) >= 2)) lv_btn_toggle(btn);
-    return;
+    bar1 = lv_bar_create(lv_scr_act(), NULL);
+    lv_obj_set_size(bar1, 200, 30);
+    lv_obj_align(bar1, NULL, LV_ALIGN_IN_BOTTOM_LEFT, 10, -10);
+    //lv_bar_set_anim_time(bar1, 1000);
+    lv_bar_set_style(bar1, LV_BAR_STYLE_INDIC, &style1);
+    lv_bar_set_value(bar1, 100);
 }

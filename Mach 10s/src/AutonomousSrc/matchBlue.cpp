@@ -6,7 +6,7 @@
 
 void blue(void)
 {
-  chassis::turn(900, 127, 1000);
+  chassis::turn(900, 100, 1000);
   /*pros::delay(5000);
   chassis::path::make(
     {

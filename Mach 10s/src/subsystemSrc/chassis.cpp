@@ -4,40 +4,44 @@
 
 #include "main.h"
 
+#define SLOWDOWN_FACTOR 2
+#define TURN_CONSTANT 0.75
+#define POINT_TURN_CONSTANT 1.5
+
 namespace chassis
 {
      // Variables
      int position_left, position_right;
-     std::uint32_t now = pros::millis();
 
      // Data functions.
      int avg_right_side_enc_units(void)
      {
-          now = pros::millis();
-          return (front_right.get_raw_position(&now) +
-          back_right.get_raw_position(&now)) / 2;
+          return back_right.get_position();
      }
 
      int avg_left_side_enc_units(void)
      {
-          now = pros::millis();
-          return (front_left.get_raw_position(&now) +
-                  back_left.get_raw_position(&now)) / 2;
+          return back_left.get_position();
+     }
+
+     int get_max_temperature(void)
+     {
+          int retval = front_left.get_temperature();
+
+          if (retval < front_right.get_temperature())
+               retval = front_right.get_temperature();
+          if (retval < back_right.get_temperature())
+               retval = back_right.get_temperature();
+          if (retval < back_left.get_temperature())
+               retval = back_left.get_temperature();
+
+          return retval;
      }
 
      int avg_enc_units(void)
      {
           return (avg_right_side_enc_units() +
                   avg_left_side_enc_units()) / 2;
-     }
-
-     int avg_turning_enc_units(void)
-     {
-          int a = abs(back_left.get_position())
-               + abs(front_left.get_position())
-               + abs(back_right.get_position())
-               + abs(front_right.get_position());
-          return a/4;
      }
 
      void print_sensors(void)
@@ -98,6 +102,7 @@ namespace chassis
      void brake(int mills)
      {    // Brakes drive for set amount of milliseconds.
           set_mode(MOTOR_BRAKE_HOLD);
+          set_velocity(0, 0);
           pros::delay(mills);
           set_mode(MOTOR_BRAKE_COAST);
      }
@@ -145,147 +150,77 @@ namespace chassis
           }
      }
 
-     void turn(int degrees_10, int max_velocity, int accuracy_timer)
+     void turn(int degrees_10, int max_percent, int accuracy_timer)
      {
           // Rotates robot using encoder counts.
-          int speed = 0;
-          int min_velocity = 32;
-          int target = degrees_10 * 0.75;
-          float proportional = 0.30;
-          float error = 0.0, ratio, ratio_const = 0.18;
+          // Max Linear Vel : 1.064 m/s.
+          // Max Linear Accel : 2 m/s/s;
+          int velocity_l = 0, velocity_r = 0;
+          int max_velocity = 120, min_velocity = 20;
+          int target = degrees_10 * TURN_CONSTANT;
           int reverse = abs(target) / target;
-          int distance_to_speed_up = target * 0.2;
+
+          double proportional = 0.16, integral = 0.0001;
+          double ratio = max_percent / 100;
+          double error_l = 0.0, error_r = 0.0;
+          double sum_integral_r = 0, sum_integral_l = 0;
 
           set_mode(MOTOR_BRAKE_COAST);
           set_voltage(0, 0);
           tare();
-
-          while (avg_turning_enc_units() < abs(distance_to_speed_up))
           {
-               if (avg_turning_enc_units() / abs(distance_to_speed_up) >= ratio_const)
-                    ratio = avg_turning_enc_units() / abs(distance_to_speed_up);
-               else
-                    ratio_const = 0.18;
+               // Just some constant acceleration to prevent initial slippage.
+               // Independent from encoder counts.
+               std::cout << "Ran turn code" << std::endl;
+               for (int i = 0; i < max_velocity; i+=2)
+               {
+                    velocity_l = (reverse * i * ratio);
+                    std::cout << "vel: " << velocity_l << std::endl;
+                    set_velocity(velocity_l, -velocity_l);
+                    pros::delay(10);
+               }
 
-               speed = max_velocity * ratio * reverse;
+               velocity_r = velocity_l;
 
-               set_velocity(speed, -speed);
-               pros::delay(20);
+               std::cout << "ended for loop, going into while loop" << std::endl;
+               std::cout << "left right" << std::endl;
+               std::cout << velocity_l << "  " << velocity_r << std::endl;
           }
-
-          while (abs(avg_turning_enc_units() - target) > 25)
+          int count = 0;
+          while (velocity_l != 0 || velocity_r != 0) // velocity_l != 0 || velocity_r != 0
           {
-               error = target - avg_turning_enc_units();
+               std::cout << "iteration: " << count << std::endl;
 
-               speed = proportional * error;
+               error_l = target - avg_left_side_enc_units();
+               error_r = target + avg_right_side_enc_units();
 
-               if (speed > max_velocity)
-                    speed = max_velocity;
+               sum_integral_l += error_l * integral;
+               sum_integral_r += error_r * integral;
 
-               else if (speed < min_velocity)
-                    speed = min_velocity;
+               // Integral and proportional applied.
+               velocity_l = proportional * error_l ;//+ sum_integral_l;
+               velocity_r = proportional * error_r ;//+ sum_integral_r;
+               {
+                    if (velocity_l > max_velocity)
+                         velocity_l = max_velocity;
 
-               set_velocity(speed, -speed);
+                    if (velocity_r > max_velocity)
+                         velocity_r = max_velocity;
+
+                    std::cout << "left right" << std::endl;
+                    std::cout << velocity_l << "  " << velocity_r << std::endl;
+               }
+               set_velocity(velocity_l, -velocity_r);
                pros::delay(20);
+               count++;
           }
-
-          turn_to_target(target, 20);
-
-          pros::delay(accuracy_timer);
-          set_voltage(0, 0);
+          std::cout << "ended while loop" << std::endl;
+          brake(accuracy_timer); // maybe i dont need this
      }
 
      void pointTurn(int degrees_10, int max_speed, int accuracy_timer)
-     {    // Skip to line 278, this is not readable so don't attempt to!
-          /* Rotates chassis using encoder counts with one side stopped
-          // Part of development, point turning is more accurate, but slower.
-int target = degrees_10 * POINT_TURN_CONSTANT;
-float proportional = 0.18, error = 0.0, ratio;
-int speed = 0;
-int reverse = abs(target) / target;
-int distance_to_speed_up = target * 0.2 * 900 / degrees_10;
-tare();
-if (target > 0)
-{    // If we are turning right
-back_right.move_absolute(0, max_speed);
-front_right.move_absolute(0, max_speed);
-while (avg_left_side_enc_units() < abs(distance_to_speed_up))
-{
-ratio = (avg_left_side_enc_units() / abs(distance_to_speed_up) >= 0.15)
-? avg_left_side_enc_units() / abs(distance_to_speed_up)
-: 0.15;
-speed = max_speed * ratio * reverse * 1.57;
-if (speed>200)
-speed = 200;
-else if (speed< -200)
-speed = -200;
-front_left.move_velocity(speed);
-back_left.move_velocity(speed);
-pros::delay(20);
-/*printf("rotateEncoder(); loop2; avg_turning_enc_units(): %f; target: \
-%d; speed: %d;\n", avg_left_side_enc_units(), target,speed);/
-}
-while (avg_left_side_enc_units() > target + 50
-|| avg_left_side_enc_units() < target - 50)
-{
-error = target - avg_left_side_enc_units();
-speed = (proportional * error > 127)
-? 127
-: proportional * error;
-speed = (speed >= 20)? speed: 20;
-speed = speed * 1.57;
-front_left.move_velocity(speed);
-back_left.move_velocity(speed);
-/*printf("rotateEncoder(): avg_turning_enc_units(): %f; target: %d; \
-speed: %d;\n", \
-avg_left_side_enc_units(), target,speed);/
-pros::delay(20);
-}
-back_left.move_absolute(target, 20);
-front_left.move_absolute(target, 20);
-}
-else
-{    // If we are turning left
-back_left.move_absolute(0, max_speed);
-front_left.move_absolute(0, max_speed);
-while (avg_right_side_enc_units() < abs(distance_to_speed_up))
-{
-ratio = (avg_right_side_enc_units() / abs(distance_to_speed_up) >= 0.15)
-? avg_right_side_enc_units() / abs(distance_to_speed_up)
-: 0.15;
-speed = max_speed * ratio * reverse * 1.57;
-if (speed > 200)
-speed = 200;
-else if (speed < -200)
-speed = -200;
-front_right.move_velocity(speed);
-back_right.move_velocity(speed);
-pros::delay(20);
-/*printf("rotateEncoder(); loop2; avg_turning_enc_units(): %f; target: \
-%d; speed: %d;\n", \
-avg_right_side_enc_units(), target,speed);/
-}
-while (avg_right_side_enc_units() > target + 50
-|| avg_right_side_enc_units() < target - 50)
-{
-error = target - avg_right_side_enc_units();
-speed = (proportional * error > 127)
-? 127
-: proportional * error;
-speed = (speed >= 20)? speed: 20;
-speed = speed * 1.57;
-front_right.move_velocity(speed);
-back_right.move_velocity(speed);
-/*printf("rotateEncoder(): avg_turning_enc_units(): %f; target: \
-%d; speed: %d;\n", \
-avg_right_side_enc_units(), target,speed);/
-pros::delay(20);
-}
-back_right.move_absolute(target, 20);
-front_right.move_absolute(target, 20);
-}
-pros::delay(accuracy_timer);
-set_voltage(0, 0);*/
+     {
+          return;
      }
 
      // User control functions.
@@ -302,13 +237,15 @@ set_voltage(0, 0);*/
           {
                // Should be created into a smooth decrease.
                l = (int) l / SLOWDOWN_FACTOR;
-               r = (int) l / SLOWDOWN_FACTOR;
+               r = (int) r / SLOWDOWN_FACTOR;
           }
 
           if (l != 0 || r != 0)
                set_voltage(l, r);
           else
                set_voltage(0, 0);
-          print_sensors();
+          //print_sensors();
+           lv_gauge_set_value(gauge1, 1, get_max_temperature());
+
      }
 }// namespace chassis

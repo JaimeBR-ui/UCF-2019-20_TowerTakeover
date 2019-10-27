@@ -3,9 +3,6 @@
 // Programmed using Atom + Terminal on Mac OS
 
 #include "main.h"
-#define SLOWDOWN_FACTOR 2
-#define TURN_CONSTANT 0.75
-#define POINT_TURN_CONSTANT 1.5
 
 namespace chassis
 {
@@ -15,13 +12,13 @@ namespace chassis
      extern bool was_moving;
 
      // Data functions.
-     double avg_right_side_enc_units(void);
+     int avg_right_side_enc_units(void);
 
-     double avg_left_side_enc_units(void);
+     int avg_left_side_enc_units(void);
 
-     double avg_enc_units(void);
+     int avg_enc_units(void);
 
-     double avg_turning_enc_units(void);
+     int avg_turning_enc_units(void);
 
      // Control functions.
      void set_mode(pros::motor_brake_mode_e);
@@ -43,11 +40,11 @@ namespace chassis
 
      void back(unsigned long long int distance, bool wait);
 
-     void turn(int degrees_10, int max_speed, int accuracy_timer);
+     void turn(int degrees_10, int max_percent, int accuracy_timer);
 
      void point_turn(int degrees_10, int max_speed, int accuracy_timer);
 
      // User control functions.
      void assign(void);
-     
+
 }// namespace chassis

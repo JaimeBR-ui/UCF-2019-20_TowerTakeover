@@ -20,11 +20,14 @@
 void opcontrol(void)
 {
 	lift::was_moving = -1;
-	while (true)
+	while (1)
 	{ 	// Make into threads if the code requires it.
+		if (controller_digital(DOWN))
+               blue();
 		chassis::assign();
 		lift::assign();
 		intake::assign();
+		lv_bar_set_value(bar1, pros::battery::get_capacity());
 		pros::delay(20);
 	}
 

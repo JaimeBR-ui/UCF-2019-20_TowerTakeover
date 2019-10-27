@@ -4,6 +4,9 @@
 
 #include "main.h"
 
+extern lv_obj_t * gauge1;
+extern lv_obj_t * bar1;
+
 extern lv_obj_t * myButton;
 extern lv_obj_t * myButtonLabel;
 extern lv_obj_t * myLabel;
