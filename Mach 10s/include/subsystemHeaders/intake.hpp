@@ -3,9 +3,11 @@
 // Programmed using Atom + Terminal on Mac OS
 
 #include "main.h"
-#define STACK 750
-#define RELEASE 650
-#define SCORE 500
+
+// reajust values
+#define STACK 2000
+#define RELEASE 1750
+#define SCORE 1500
 
 namespace intake
 {

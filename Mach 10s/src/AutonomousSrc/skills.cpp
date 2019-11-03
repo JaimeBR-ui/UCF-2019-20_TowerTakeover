@@ -38,7 +38,7 @@ void skills(void)
      stack();
      // 21 inches backwards, wait for action to complete.
      chassis::back(21, true);
-     chassis::turn(-900, 60, 100); // waits by default
+     chassis::turn(-900, 100, 1000); // waits by default
      lift::move_to(STACK_HEIGHT, 127, true);
      chassis::forward(11, true);
      lift::move_to(0, 127, true);
@@ -47,14 +47,14 @@ void skills(void)
      chassis::back(11, true);
 
      // Score second stack.
-     chassis::turn(900, 127, 400);
+     chassis::turn(900, 100, 1000);
      chassis::forward(30, true);
-     chassis::turn(900, 127, 400);
+     chassis::turn(900, 100, 1000);
      chassis::forward(24, true);
      intake::move_to(STACK, 127, true);
      lift::move_to(OFF_GROUND, 127, true);
      chassis::back(52, true);
-     chassis::turn(900, 127, 400);
+     chassis::turn(900, 100, 1000);
      chassis::forward(9, true); // may want to do an s path instead of straight
      lift::move_to(2000, 127, true);
      chassis::forward(5, true);
@@ -76,7 +76,7 @@ void skills(void)
      chassis::path::set("ArcToPole", true);
      chassis::path::wait_until_settled();
      chassis::path::remove("ArcToPole");
-     chassis::turn(900, 127, true);
+     chassis::turn(900, 100, 1000);
      chassis::forward(3, true);
      intake::move_to(STACK, 127, true);
      pros::delay(500);

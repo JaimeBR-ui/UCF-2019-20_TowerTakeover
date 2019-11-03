@@ -6,6 +6,14 @@
 
 void blue(void)
 {
+     chassis::path::make({
+         point::start,
+         Point{24_in, 24_in, 90_deg}
+       },
+       "Test"
+     );
+     chassis::path::set("Test");
+     chassis::path::wait_until_settled();
   chassis::turn(900, 100, 1000);
   /*pros::delay(5000);
   chassis::path::make(

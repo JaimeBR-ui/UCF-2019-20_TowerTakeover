@@ -5,7 +5,7 @@
 #include "main.h"
 
 #define SLOWDOWN_FACTOR 2
-#define TURN_CONSTANT 0.75
+#define TURN_CONSTANT 0.294
 #define POINT_TURN_CONSTANT 1.5
 
 namespace chassis
@@ -13,15 +13,19 @@ namespace chassis
      // Variables
      int position_left, position_right;
 
+     pros::ADIEncoder left_enc = pros::ADIEncoder('A', 'B', false);
+
+     pros::ADIEncoder right_enc = pros::ADIEncoder('G', 'H', false);
+
      // Data functions.
      int avg_right_side_enc_units(void)
      {
-          return back_right.get_position();
+          return abs(right_enc.get_value());
      }
 
      int avg_left_side_enc_units(void)
      {
-          return back_left.get_position();
+          return abs(left_enc.get_value());
      }
 
      int get_max_temperature(void)
@@ -93,6 +97,8 @@ namespace chassis
 
      void tare(void)
      {    // Sets chassis encoders to zero.
+          right_enc.reset();
+          left_enc.reset();
           front_left.tare_position();
           back_left.tare_position();
           front_right.tare_position();
@@ -153,16 +159,34 @@ namespace chassis
      void turn(int degrees_10, int max_percent, int accuracy_timer)
      {
           // Rotates robot using encoder counts.
+          // Uses a velocity based PD control.
           // Max Linear Vel : 1.064 m/s.
-          // Max Linear Accel : 2 m/s/s;
+          // Max Linear Accel : 2 m/s/s.
+
+          // TODO: add anti windup.
+
           int velocity_l = 0, velocity_r = 0;
-          int max_velocity = 120, min_velocity = 20;
+          int max_velocity = 100, min_velocity = 20;
           int target = degrees_10 * TURN_CONSTANT;
           int reverse = abs(target) / target;
 
-          double proportional = 0.16, integral = 0.0001;
+          // Attempt to deal with slop on IME:
+
+          // Mission failed, we'll get em' next time.
+
+          ////////////////////////////////////
+
+          // Gains
+          double proportional = 0.55;
+          double integral = 0; //ehh
+          double derivative = 1.0;
+
+          double P_l = 0, I_l = 0, D_l = 0;
+          double P_r = 0, I_r = 0, D_r = 0;
           double ratio = max_percent / 100;
+
           double error_l = 0.0, error_r = 0.0;
+          double total_error_l, total_error_r, prev_error_l = 0, prev_error_r = 0;
           double sum_integral_r = 0, sum_integral_l = 0;
 
           set_mode(MOTOR_BRAKE_COAST);
@@ -177,7 +201,7 @@ namespace chassis
                     velocity_l = (reverse * i * ratio);
                     std::cout << "vel: " << velocity_l << std::endl;
                     set_velocity(velocity_l, -velocity_l);
-                    pros::delay(10);
+                    pros::delay(15);
                }
 
                velocity_r = velocity_l;
@@ -187,19 +211,34 @@ namespace chassis
                std::cout << velocity_l << "  " << velocity_r << std::endl;
           }
           int count = 0;
-          while (velocity_l != 0 || velocity_r != 0) // velocity_l != 0 || velocity_r != 0
+          while ((velocity_l != 0 || velocity_r != 0) && count < 300)
+          // velocity_l != 0 || velocity_r != 0
           {
                std::cout << "iteration: " << count << std::endl;
 
                error_l = target - avg_left_side_enc_units();
-               error_r = target + avg_right_side_enc_units();
+               error_r = target - avg_right_side_enc_units();
 
-               sum_integral_l += error_l * integral;
-               sum_integral_r += error_r * integral;
+               total_error_l += error_l;
+               total_error_r += error_r;
 
-               // Integral and proportional applied.
-               velocity_l = proportional * error_l ;//+ sum_integral_l;
-               velocity_r = proportional * error_r ;//+ sum_integral_r;
+               prev_error_l = error_l;
+               prev_error_r = error_r;
+
+               // Assign values to each
+               P_l = proportional * error_l;
+               P_r = proportional * error_r;
+
+               I_l = integral * total_error_l;
+               I_r = integral * total_error_r;
+
+               D_l = derivative * (error_l - prev_error_l);
+               D_r = derivative * (error_r - prev_error_r);
+
+               // Add up values.
+               velocity_l = P_l + I_l + D_l;
+               velocity_r = P_r + I_r + D_r;
+
                {
                     if (velocity_l > max_velocity)
                          velocity_l = max_velocity;
@@ -210,7 +249,9 @@ namespace chassis
                     std::cout << "left right" << std::endl;
                     std::cout << velocity_l << "  " << velocity_r << std::endl;
                }
+
                set_velocity(velocity_l, -velocity_r);
+
                pros::delay(20);
                count++;
           }
@@ -232,6 +273,9 @@ namespace chassis
 
           l = (abs(l) > 10) ? l: 0;
           r = (abs(r) > 10) ? r : 0;
+
+          std::cout << (int)abs(right_enc.get_value()) << std::endl;
+          std::cout << (int)abs(left_enc.get_value()) << std::endl;
 
           if (lift::get_position() > 1000)
           {

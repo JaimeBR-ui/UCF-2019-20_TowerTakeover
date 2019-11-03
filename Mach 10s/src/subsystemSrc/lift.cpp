@@ -4,6 +4,8 @@
 
 #include "main.h"
 
+#define MAX_VOLTAGE 110
+
 namespace lift{
      //Variables
      int lift_position_left = 0, lift_position_right = 0;
@@ -106,13 +108,13 @@ namespace lift{
      void assign(void)
      {
           if (controller_digital(A))
-               move_to(MAX_POS, 127, true);
+               move_to(MAX_POS, MAX_VOLTAGE, true);
           else if (controller_digital(B))
-               move_to(ALLIANCE_TOWER, 127, true);
+               move_to(ALLIANCE_TOWER, MAX_VOLTAGE, true);
           else if (controller_digital(X))
-               move_to(HIGH_TOWER, 127, true);
+               move_to(HIGH_TOWER, MAX_VOLTAGE, true);
           else if (controller_digital(Y))
-               move_to(LOW_TOWER, 127, true);
+               move_to(LOW_TOWER, MAX_VOLTAGE, true);
           else if (controller_digital(LIFT_SHIFTER_UP))
           {
                set_mode(MOTOR_BRAKE_COAST);
@@ -121,7 +123,7 @@ namespace lift{
                else if(get_position() < 107)
                     set_voltage(-(get_position()+20));
                else
-                    set_voltage(-127);
+                    set_voltage(-MAX_VOLTAGE);
                was_moving = -1;
           }
           else if (controller_digital(LIFT_SHIFTER_DOWN) && get_position() < 3000)
@@ -130,7 +132,7 @@ namespace lift{
                if (get_position() > 2873)
                     set_voltage(3000 - get_position());
                else
-                    set_voltage(127);
+                    set_voltage(MAX_VOLTAGE);
                was_moving = 1;
           }
           else if (was_moving != 0)

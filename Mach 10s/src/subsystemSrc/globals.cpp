@@ -31,7 +31,8 @@
 |               +------------+                         |
 |                   Front                              |
 \*----------------------------------------------------*/
-
+// new clawR: 5
+// new clawL: 16
 // Drive.
 pros::Motor front_left(19, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
 pros::Motor front_right(11, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_COUNTS);
@@ -43,8 +44,8 @@ pros::Motor lift_right(18, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODE
 pros::Motor lift_left(17, pros::E_MOTOR_GEARSET_36, true, pros::E_MOTOR_ENCODER_COUNTS);
 
 // Intake.
-pros::Motor intake_right(13, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
-pros::Motor intake_left(14, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor intake_right(6, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_COUNTS);
+pros::Motor intake_left(16, pros::E_MOTOR_GEARSET_18, true, pros::E_MOTOR_ENCODER_COUNTS);
 
 
 // Controller Functions.

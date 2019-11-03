@@ -17,16 +17,38 @@
  * task, not resume it from where it left off.
  */
 
+void quick_deploy(void)
+{
+	lift::move_to(DEPLOY_HEIGHT + 300, 127, true);
+     intake::move_to(SCORE, 127, false);
+     while (abs(SCORE - intake::get_position()) > 230)
+          pros::delay(100);
+     lift::move_to(0, 127, true);
+}
+
 void opcontrol(void)
 {
+	// enable just the chassi here
+	// Hold down at the start of the match to deploy
+	if (controller_digital(LIFT_SHIFTER_DOWN))
+		quick_deploy();
+
+	// enable the rest of the subsystems here
+
 	lift::was_moving = -1;
 	while (1)
-	{ 	// Make into threads if the code requires it.
+	{ 	// Transfer to 15_inch branch that has threads implemented
 		if (controller_digital(DOWN))
-               blue();
+			chassis::turn(900, 100, 1000);
+			
+		// subsystem assign
 		chassis::assign();
 		lift::assign();
 		intake::assign();
+
+
+
+		// screen stuff
 		lv_bar_set_value(bar1, pros::battery::get_capacity());
 		pros::delay(20);
 	}

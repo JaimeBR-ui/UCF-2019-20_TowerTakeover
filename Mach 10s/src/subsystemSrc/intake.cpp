@@ -143,6 +143,6 @@ namespace intake
           else if (was_moving)
                hold_position();
 
-          lv_gauge_set_value(gauge1, 0, intake_left.get_temperature());
+          lv_gauge_set_value(gauge1, 0, get_max_temperature());
      }
 }// namespace intake
