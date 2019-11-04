@@ -14,6 +14,7 @@
 void initialize(void)
 {    // Initializes motors and sensors.
      run_display();
+     chassis::initialize();
 	back_left.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	front_left.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	back_right.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);

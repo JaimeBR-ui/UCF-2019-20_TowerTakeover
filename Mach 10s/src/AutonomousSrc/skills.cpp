@@ -17,7 +17,7 @@
 // their paths removed automatically if they are set to wait
 
 void skills(void)
-{
+{/*
      // Score first stack.
      pros::Task deploy(deploy_claw);
      chassis::path::set("Straight_6in");
@@ -90,7 +90,7 @@ void skills(void)
      lift::move_to(0, 127, true);
      chassis::path::wait_until_settled();
 
-     // Score on tower 2.
+     // Score on tower 2.*/
 }
 
 void make_first_path(void)

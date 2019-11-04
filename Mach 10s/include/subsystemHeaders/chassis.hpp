@@ -11,6 +11,14 @@ namespace chassis
      extern std::uint32_t now;
      extern bool was_moving;
 
+     // Chassis Gains
+     extern struct Gains * not_deployed;
+     extern struct Gains * deployed;
+     extern struct Gains * deployed_1cube;
+
+     // Initialization
+     void initialize(void);
+
      // Data functions.
      int avg_right_side_enc_units(void);
 
@@ -40,7 +48,7 @@ namespace chassis
 
      void back(unsigned long long int distance, bool wait);
 
-     void turn(int degrees_10, int max_percent, int accuracy_timer);
+     void turn(int degrees_10, int max_percent, int accuracy_timer, struct Gains * gain);
 
      void point_turn(int degrees_10, int max_speed, int accuracy_timer);
 

@@ -39,8 +39,8 @@ void opcontrol(void)
 	while (1)
 	{ 	// Transfer to 15_inch branch that has threads implemented
 		if (controller_digital(DOWN))
-			chassis::turn(900, 100, 1000);
-			
+			chassis::turn(900, 100, 1000, chassis::not_deployed);
+
 		// subsystem assign
 		chassis::assign();
 		lift::assign();

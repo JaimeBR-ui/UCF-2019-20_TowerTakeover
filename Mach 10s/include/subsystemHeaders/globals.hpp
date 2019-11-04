@@ -23,6 +23,14 @@ extern pros::Controller controller;
 std::int32_t controller_digital(pros::controller_digital_e_t channel);
 std::int32_t controller_analog(pros::controller_analog_e_t channel);
 
+// PID struct
+struct Gains
+{
+     double Kp;
+     double Ki;
+     double Kd;
+};
+
 // Motors.
 extern pros::Motor back_left;
 extern pros::Motor front_left;

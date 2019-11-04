@@ -17,6 +17,29 @@ namespace chassis
 
      pros::ADIEncoder right_enc = pros::ADIEncoder('G', 'H', false);
 
+     struct Gains * not_deployed;
+     struct Gains * deployed;
+     struct Gains * deployed_1cube;
+
+     // Initialization
+     void initialize(void)
+     {
+          struct Gains * not_deployed = (struct Gains *)malloc(sizeof(struct Gains));
+          struct Gains * deployed = (struct Gains *)malloc(sizeof(struct Gains));
+          struct Gains * deployed_1cube = (struct Gains *)malloc(sizeof(struct Gains));
+          not_deployed->Kp = 0.55;
+          not_deployed->Ki = 0;
+          not_deployed->Kd = 1;
+
+          deployed->Kp = 0.55;
+          deployed->Ki = 0;
+          deployed->Kd = 1;
+
+          deployed_1cube->Kp = 0.55;
+          deployed_1cube->Ki = 0;
+          deployed_1cube->Kd = 1;
+     }
+
      // Data functions.
      int avg_right_side_enc_units(void)
      {
@@ -156,7 +179,7 @@ namespace chassis
           }
      }
 
-     void turn(int degrees_10, int max_percent, int accuracy_timer)
+     void turn(int degrees_10, int max_percent, int accuracy_timer, struct Gains * gain)
      {
           // Rotates robot using encoder counts.
           // Uses a velocity based PD control.
@@ -177,9 +200,9 @@ namespace chassis
           ////////////////////////////////////
 
           // Gains
-          double proportional = 0.55;
-          double integral = 0; //ehh
-          double derivative = 1.0;
+          double proportional = gain->Kp;
+          double integral = gain->Ki;
+          double derivative = gain->Kd;
 
           double P_l = 0, I_l = 0, D_l = 0;
           double P_r = 0, I_r = 0, D_r = 0;
