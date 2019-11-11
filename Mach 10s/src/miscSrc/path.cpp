@@ -20,8 +20,8 @@ namespace chassis
           auto profileController = AsyncControllerFactory::motionProfile(
                // Set vel, accel, and jerk.
                // Note: Max chassis velocity: 1.064 m/s.
-               1.0,  // Maximum linear velocity of the Chassis in m/s  1.0
-               2.0,  // Maximum linear acceleration of the Chassis in m/s/s
+               0.8,  // Maximum linear velocity of the Chassis in m/s  1.0
+               1.0,  // Maximum linear acceleration of the Chassis in m/s/s
                10.0, // Maximum linear jerk of the Chassis in m/s/s/s  10.0
                RobotChassis // Robot Chassis Controller
           );

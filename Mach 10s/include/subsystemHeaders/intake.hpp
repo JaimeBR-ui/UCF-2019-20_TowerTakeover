@@ -5,9 +5,9 @@
 #include "main.h"
 
 // reajust values
-#define STACK 2000
-#define RELEASE 1750
-#define SCORE 1500
+#define STACK 2200
+#define RELEASE 2000
+#define SCORE 1750
 
 namespace intake
 {

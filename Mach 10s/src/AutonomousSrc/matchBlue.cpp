@@ -4,17 +4,21 @@
 
 #include "main.h"
 
+// Set targets in lift.hpp:
+//   MIN_POS   LOW_TOWER     HIGH_TOWER  ALLIANCE_TOWER
+//   MAX_POS   STACK_HEIGHT  OFF_GROUND  DEPLOY_HEIGHT
+// Set targets in intake.hpp:
+//   STACK  RELEASE  SCORE
+
 void blue(void)
 {
-     chassis::path::make({
-         point::start,
-         Point{24_in, 24_in, 90_deg}
-       },
-       "Test"
-     );
-     chassis::path::set("Test");
-     chassis::path::wait_until_settled();
-  chassis::turn(900, 100, 1000, chassis::not_deployed);
+
+  intake::move_to(SCORE, 127, true);
+  pros::delay(2000);
+  intake::move_to(RELEASE, 127, true);
+  pros::delay(2000);
+  intake::move_to(STACK, 127, true);
+  pros::delay(2000);
   /*pros::delay(5000);
   chassis::path::make(
     {

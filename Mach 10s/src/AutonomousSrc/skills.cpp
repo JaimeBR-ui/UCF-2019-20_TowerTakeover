@@ -16,8 +16,63 @@
 // In namespace chassis, forward or backward functions have
 // their paths removed automatically if they are set to wait
 
+void quick_deploy(void)
+{
+	lift::move_to(DEPLOY_HEIGHT + 300, 127, true);
+     intake::move_to(SCORE, 127, false);
+     while (abs(SCORE - intake::get_position()) > 230)
+          pros::delay(100);
+     lift::move_to(0, 127, true);
+}
+
 void skills(void)
-{/*
+{
+     chassis::forward(12, true);
+     quick_deploy();
+     intake::move_to(STACK, 127, true);
+	pros::delay(500);
+	lift::move_to(OFF_GROUND, 127, true);
+	chassis::back(2, false);
+     chassis::turn(900, 100, 0, chassis::deployed);
+	chassis::forward(10, true);
+	lift::move_to(LOW_TOWER, 127, true);
+	chassis::forward(6.5, true);
+	intake::move_to(SCORE, 127, true);
+	chassis::back(25, false);
+	pros::delay(500);
+	lift::move_to(MIN_POS, 127, true);
+	chassis::path::wait_until_settled();
+	chassis::turn(-850, 100, 0, chassis::deployed);
+	intake::move_to(RELEASE - 120, 127, true);
+	chassis::forward(37, true);
+	intake::move_to(STACK, 127, true);
+	chassis::back(4, true);
+	lift::move_to(LOW_TOWER - 350, 127, true);
+	chassis::forward(9, true);
+	intake::move_to(SCORE, 127, true);
+	chassis::back(4, true);
+	intake::move_to(STACK, 127, false);
+	chassis::turn(730, 100, 100, chassis::deployed);
+	lift::move_to(MIN_POS, 127, true);
+	intake::move_to(RELEASE - 200, 127, true);
+	chassis::forward(27, false);
+	chassis::path::wait_until_settled();
+	intake::move_to(STACK, 127, true);
+	chassis::back(7, true);
+	lift::move_to(MAX_POS - 300, 127, true);
+	chassis::forward(10, true);
+	pros::delay(500);
+	chassis::turn(100, 100, 100, chassis::deployed);
+	chassis::forward(3, true);
+	pros::delay(2000);
+	intake::move_to(SCORE, 127, true);
+	chassis::back(6, true);
+	lift::move_to(MIN_POS, 127, true);
+	chassis::turn(-230, 100, 100, chassis::deployed);
+	chassis::back(70, true);
+	chassis::forward(30, true);
+
+     /*
      // Score first stack.
      pros::Task deploy(deploy_claw);
      chassis::path::set("Straight_6in");

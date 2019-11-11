@@ -12,3 +12,5 @@ void make_first_path();
 void deploy_claw(void * ignore);
 
 void stack(void);
+
+void quick_deploy(void);

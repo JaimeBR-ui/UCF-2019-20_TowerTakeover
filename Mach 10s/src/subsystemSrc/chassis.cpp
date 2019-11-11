@@ -5,7 +5,7 @@
 #include "main.h"
 
 #define SLOWDOWN_FACTOR 2
-#define TURN_CONSTANT 0.294
+#define TURN_CONSTANT 0.29
 #define POINT_TURN_CONSTANT 1.5
 
 namespace chassis
@@ -24,20 +24,21 @@ namespace chassis
      // Initialization
      void initialize(void)
      {
-          struct Gains * not_deployed = (struct Gains *)malloc(sizeof(struct Gains));
-          struct Gains * deployed = (struct Gains *)malloc(sizeof(struct Gains));
-          struct Gains * deployed_1cube = (struct Gains *)malloc(sizeof(struct Gains));
+          not_deployed = (struct Gains *)malloc(sizeof(struct Gains));
+          deployed = (struct Gains *)malloc(sizeof(struct Gains));
+          deployed_1cube = (struct Gains *)malloc(sizeof(struct Gains));
           not_deployed->Kp = 0.55;
           not_deployed->Ki = 0;
           not_deployed->Kd = 1;
 
           deployed->Kp = 0.55;
           deployed->Ki = 0;
-          deployed->Kd = 1;
+          deployed->Kd = 1.4;
 
-          deployed_1cube->Kp = 0.55;
+          // todo this one
+          deployed_1cube->Kp = 0.55; // .55 is good
           deployed_1cube->Ki = 0;
-          deployed_1cube->Kd = 1;
+          deployed_1cube->Kd = 1.4;
      }
 
      // Data functions.
@@ -165,17 +166,18 @@ namespace chassis
      }
      void back(unsigned long long distance, bool wait)
      {
+          path::remove("back");
           path::make({
                     point::start,
                     point::make(distance, 0, 0)
                },
-               "temp"
+               "back"
           );
-          path::set("temp", true);
+          path::set("back", true);
           if (wait)
           {
                path::wait_until_settled();
-               path::remove("temp");
+               path::remove("back");
           }
      }
 
@@ -189,9 +191,9 @@ namespace chassis
           // TODO: add anti windup.
 
           int velocity_l = 0, velocity_r = 0;
-          int max_velocity = 100, min_velocity = 20;
-          int target = degrees_10 * TURN_CONSTANT;
-          int reverse = abs(target) / target;
+          int max_velocity = 80, min_velocity = 20;
+          int target = abs(degrees_10) * TURN_CONSTANT;
+          int reverse = abs(degrees_10) / degrees_10;
 
           // Attempt to deal with slop on IME:
 
@@ -224,7 +226,7 @@ namespace chassis
                     velocity_l = (reverse * i * ratio);
                     std::cout << "vel: " << velocity_l << std::endl;
                     set_velocity(velocity_l, -velocity_l);
-                    pros::delay(15);
+                    pros::delay(20);
                }
 
                velocity_r = velocity_l;
@@ -234,7 +236,7 @@ namespace chassis
                std::cout << velocity_l << "  " << velocity_r << std::endl;
           }
           int count = 0;
-          while ((velocity_l != 0 || velocity_r != 0) && count < 300)
+          while ((velocity_l != 0 || velocity_r != 0) && count < 70)
           // velocity_l != 0 || velocity_r != 0
           {
                std::cout << "iteration: " << count << std::endl;
@@ -273,7 +275,7 @@ namespace chassis
                     std::cout << velocity_l << "  " << velocity_r << std::endl;
                }
 
-               set_velocity(velocity_l, -velocity_r);
+               set_velocity(velocity_l*(reverse), -velocity_r*(reverse));
 
                pros::delay(20);
                count++;
@@ -296,9 +298,9 @@ namespace chassis
 
           l = (abs(l) > 10) ? l: 0;
           r = (abs(r) > 10) ? r : 0;
-
-          std::cout << (int)abs(right_enc.get_value()) << std::endl;
-          std::cout << (int)abs(left_enc.get_value()) << std::endl;
+//encoder values
+//          std::cout << (int)abs(right_enc.get_value()) << std::endl;
+//          std::cout << (int)abs(left_enc.get_value()) << std::endl;
 
           if (lift::get_position() > 1000)
           {

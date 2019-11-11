@@ -4,8 +4,8 @@
 
 #include "main.h"
 #define MIN_POS 0
-#define LOW_TOWER 1500
-#define HIGH_TOWER 2200
+#define LOW_TOWER 1900
+#define HIGH_TOWER 2900
 #define ALLIANCE_TOWER 700
 #define MAX_POS 3000
 #define STACK_HEIGHT 500

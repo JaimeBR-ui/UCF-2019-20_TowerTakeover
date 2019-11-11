@@ -17,14 +17,7 @@
  * task, not resume it from where it left off.
  */
 
-void quick_deploy(void)
-{
-	lift::move_to(DEPLOY_HEIGHT + 300, 127, true);
-     intake::move_to(SCORE, 127, false);
-     while (abs(SCORE - intake::get_position()) > 230)
-          pros::delay(100);
-     lift::move_to(0, 127, true);
-}
+
 
 void opcontrol(void)
 {
@@ -39,7 +32,11 @@ void opcontrol(void)
 	while (1)
 	{ 	// Transfer to 15_inch branch that has threads implemented
 		if (controller_digital(DOWN))
-			chassis::turn(900, 100, 1000, chassis::not_deployed);
+			blue();
+		else if (controller_digital(LEFT))
+			chassis::turn(900, 100, 1000, chassis::deployed);
+		else if (controller_digital(RIGHT))
+			chassis::turn(900, 100, 1000, chassis::deployed_1cube);
 
 		// subsystem assign
 		chassis::assign();

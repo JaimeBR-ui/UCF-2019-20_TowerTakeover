@@ -24,8 +24,9 @@ namespace intake
      // Data Functions
      int get_position(void)
      {
-          return (intake_left.get_position() +
-                 intake_right.get_position()) / 2;
+          return /*(intake_left.get_position() +
+                 intake_right.get_position()) / 2;*/
+                 intake_left.get_position();
      }
 
      bool is_stopped(void)
