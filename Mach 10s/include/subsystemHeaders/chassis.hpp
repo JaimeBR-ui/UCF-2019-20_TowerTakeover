@@ -48,11 +48,28 @@ namespace chassis
 
      void back(unsigned long long int distance, bool wait);
 
-     void turn(int degrees_10, int max_percent, int accuracy_timer, struct Gains * gain);
-
      void point_turn(int degrees_10, int max_speed, int accuracy_timer);
 
-     // User control functions.
-     void assign(void);
+     /*
+ Turns the robot the desired amount.
+ @param degrees_10:
+       target angle multiplied by 10. Ex: turn 90 deg, degrees_10 = 900
+ @param accuracy_timer:
+       Timer that tells the function to end after the specified time in ms.
+ @param gain:
+       This is a struct that contains the PID gains required to turn.
+       Fields of the Gains struct:
+            double Kp - Proportional gain.
+            double Ki - Integral gain.
+            double Kd - Derivative gain.
+ @return: returns 0 if accuracy_timer forced ended the turn.
+ */
+ void turn(int degrees_10, int accuracy_timer, struct Gains * gain);
+
+ // User control functions.
+ /*
+ Thread that runs the teleoperated program for the chassis
+ */
+ void assign(void * ignore);
 
 }// namespace chassis

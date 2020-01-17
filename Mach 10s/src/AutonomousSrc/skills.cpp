@@ -27,13 +27,14 @@ void quick_deploy(void)
 
 void skills(void)
 {
+
      chassis::forward(12, true);
      quick_deploy();
      intake::move_to(STACK, 127, true);
 	pros::delay(500);
 	lift::move_to(OFF_GROUND, 127, true);
 	chassis::back(2, false);
-     chassis::turn(900, 100, 0, chassis::deployed);
+     chassis::turn(900, 0, chassis::deployed);
 	chassis::forward(10, true);
 	lift::move_to(LOW_TOWER, 127, true);
 	chassis::forward(6.5, true);
@@ -42,7 +43,7 @@ void skills(void)
 	pros::delay(500);
 	lift::move_to(MIN_POS, 127, true);
 	chassis::path::wait_until_settled();
-	chassis::turn(-850, 100, 0, chassis::deployed);
+	chassis::turn(-850, 0, chassis::deployed);
 	intake::move_to(RELEASE - 120, 127, true);
 	chassis::forward(37, true);
 	intake::move_to(STACK, 127, true);
@@ -52,7 +53,7 @@ void skills(void)
 	intake::move_to(SCORE, 127, true);
 	chassis::back(4, true);
 	intake::move_to(STACK, 127, false);
-	chassis::turn(730, 100, 100, chassis::deployed);
+	chassis::turn(730, 100, chassis::deployed);
 	lift::move_to(MIN_POS, 127, true);
 	intake::move_to(RELEASE - 200, 127, true);
 	chassis::forward(27, false);
@@ -62,13 +63,13 @@ void skills(void)
 	lift::move_to(MAX_POS - 300, 127, true);
 	chassis::forward(10, true);
 	pros::delay(500);
-	chassis::turn(100, 100, 100, chassis::deployed);
+	chassis::turn(100, 100, chassis::deployed);
 	chassis::forward(3, true);
 	pros::delay(2000);
 	intake::move_to(SCORE, 127, true);
 	chassis::back(6, true);
 	lift::move_to(MIN_POS, 127, true);
-	chassis::turn(-230, 100, 100, chassis::deployed);
+	chassis::turn(-230, 100, chassis::deployed);
 	chassis::back(70, true);
 	chassis::forward(30, true);
 

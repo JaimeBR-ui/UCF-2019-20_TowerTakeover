@@ -4,9 +4,10 @@
 
 #include "main.h"
 
-#define SLOWDOWN_FACTOR 2
 #define TURN_CONSTANT 0.29
-#define POINT_TURN_CONSTANT 1.5
+#define LINEAR_INCREASE 0.54
+#define SLOWDOWN_FACTOR 2.00
+#define POINT_TURN_CONSTANT 1.50
 
 namespace chassis
 {
@@ -48,6 +49,16 @@ namespace chassis
      }
 
      int avg_left_side_enc_units(void)
+     {
+          return abs(left_enc.get_value());
+     }
+
+     int right_side_enc_units(void)
+     {
+          return abs(right_enc.get_value());
+     }
+
+     int left_side_enc_units(void)
      {
           return abs(left_enc.get_value());
      }
@@ -181,25 +192,22 @@ namespace chassis
           }
      }
 
-     void turn(int degrees_10, int max_percent, int accuracy_timer, struct Gains * gain)
+     void turn(int degrees_10, int accuracy_timer, struct Gains * gain)
      {
           // Rotates robot using encoder counts.
-          // Uses a velocity based PD control.
+          // Uses a velocity based PID control.
           // Max Linear Vel : 1.064 m/s.
           // Max Linear Accel : 2 m/s/s.
 
-          // TODO: add anti windup.
-
+          int counter = 0, calculated_velocity;
           int velocity_l = 0, velocity_r = 0;
           int max_velocity = 80, min_velocity = 20;
           int target = abs(degrees_10) * TURN_CONSTANT;
           int reverse = abs(degrees_10) / degrees_10;
 
-          // Attempt to deal with slop on IME:
-
-          // Mission failed, we'll get em' next time.
-
-          ////////////////////////////////////
+          const int integral_kick_in_target = 20;
+          const int vertical_shift = 18;
+          const int allowed_error = 1;
 
           // Gains
           double proportional = gain->Kp;
@@ -208,24 +216,32 @@ namespace chassis
 
           double P_l = 0, I_l = 0, D_l = 0;
           double P_r = 0, I_r = 0, D_r = 0;
-          double ratio = max_percent / 100;
 
           double error_l = 0.0, error_r = 0.0;
           double total_error_l, total_error_r, prev_error_l = 0, prev_error_r = 0;
-          double sum_integral_r = 0, sum_integral_l = 0;
 
           set_mode(MOTOR_BRAKE_COAST);
           set_voltage(0, 0);
           tare();
+
+          // Lets make an equation that gives the maximum velocity of the robot
+          // based on how much it has to turn.
+          calculated_velocity = target * LINEAR_INCREASE;
+
+          if (calculated_velocity < min_velocity)
+               max_velocity = min_velocity;
+          else if (calculated_velocity < max_velocity)
+               max_velocity = calculated_velocity;
+
           {
                // Just some constant acceleration to prevent initial slippage.
                // Independent from encoder counts.
-               std::cout << "Ran turn code" << std::endl;
-               for (int i = 0; i < max_velocity; i+=2)
+               std::cout << "Ran linear speed up" << std::endl;
+               for (int i = 16; i < max_velocity; i+=2)
                {
-                    velocity_l = (reverse * i * ratio);
-                    std::cout << "vel: " << velocity_l << std::endl;
-                    set_velocity(velocity_l, -velocity_l);
+                    velocity_l = (reverse * i);
+                    std::cout << "Speeding up. Current Vel: " << velocity_l << std::endl;
+                    set_voltage(velocity_l, -velocity_l);
                     pros::delay(20);
                }
 
@@ -235,20 +251,33 @@ namespace chassis
                std::cout << "left right" << std::endl;
                std::cout << velocity_l << "  " << velocity_r << std::endl;
           }
-          int count = 0;
-          while ((velocity_l != 0 || velocity_r != 0) && count < 70)
-          // velocity_l != 0 || velocity_r != 0
+
+          int i = 0;
+          while (counter < 30)
           {
-               std::cout << "iteration: " << count << std::endl;
+               // If everything is going out of control.
+               if (controller_digital(DOWN))
+                    break;
+               std::cout << "iteration: " << (i++) << std::endl;
 
-               error_l = target - avg_left_side_enc_units();
-               error_r = target - avg_right_side_enc_units();
-
-               total_error_l += error_l;
-               total_error_r += error_r;
-
+               // Save previous errors before overwritting.
                prev_error_l = error_l;
                prev_error_r = error_r;
+
+               // Update error values
+               error_l = target - left_side_enc_units();
+               error_r = target - right_side_enc_units();
+
+               // Shut down itegration away from the target or at the target.
+               if (error_l != 0 && abs(error_l) < integral_kick_in_target)
+                    total_error_l += error_l;
+               else
+                    total_error_l = 0;
+
+               if (error_r != 0 && abs(error_r) < integral_kick_in_target)
+                    total_error_r += error_r;
+               else
+                    total_error_r = 0;
 
                // Assign values to each
                P_l = proportional * error_l;
@@ -261,27 +290,52 @@ namespace chassis
                D_r = derivative * (error_r - prev_error_r);
 
                // Add up values.
+               std::cout << "Pl: " << P_l << " Il: " << I_l << std::endl;
+               std::cout << "Pr: " << P_r << " Ir: " << I_r << std::endl;
+               std::cout << "errl: " << error_l << " errr: " << error_r << std::endl;
                velocity_l = P_l + I_l + D_l;
                velocity_r = P_r + I_r + D_r;
 
                {
+                    if (velocity_r > 0)
+                         velocity_r += vertical_shift;
+                    else if (velocity_r < 0)
+                         velocity_r -= vertical_shift;
+
+                    if (velocity_l > 0)
+                         velocity_l += vertical_shift;
+                    else if (velocity_l < 0)
+                         velocity_l -= vertical_shift;
+
+                    // Bound our velocity to the desired range.
                     if (velocity_l > max_velocity)
                          velocity_l = max_velocity;
 
                     if (velocity_r > max_velocity)
                          velocity_r = max_velocity;
 
+                    // Debug prints.
                     std::cout << "left right" << std::endl;
                     std::cout << velocity_l << "  " << velocity_r << std::endl;
                }
 
-               set_velocity(velocity_l*(reverse), -velocity_r*(reverse));
+               set_voltage(velocity_l*(reverse), -velocity_r*(reverse));
+
+               // Ends the turn when the robot has been resting for 200 ms.
+               if ((abs(error_r) <= allowed_error && abs(error_l) <= allowed_error))
+                    counter += 3;
+
+//               if (D_l == 0 && D_r == 0)
+//;//                    counter++;
 
                pros::delay(20);
-               count++;
+
           }
-          std::cout << "ended while loop" << std::endl;
-          brake(accuracy_timer); // maybe i dont need this
+          std::cout << "Turn has ended. Final error Left: " << error_l << std::endl;
+          std::cout << "Turn has ended. Final error Right: " << error_l << std::endl;
+          std::cout << "Desired Target: " << target << std::endl;
+
+
      }
 
      void pointTurn(int degrees_10, int max_speed, int accuracy_timer)
@@ -289,32 +343,43 @@ namespace chassis
           return;
      }
 
-     // User control functions.
-     void assign(void)
+          // User control functions.
+     void assign(void * ignore)
      {
-          // Assigns voltage with deadband
-          int l = controller_analog(LEFT_JOYSTICK);
-          int r = controller_analog(RIGHT_JOYSTICK);
-
-          l = (abs(l) > 10) ? l: 0;
-          r = (abs(r) > 10) ? r : 0;
-//encoder values
-//          std::cout << (int)abs(right_enc.get_value()) << std::endl;
-//          std::cout << (int)abs(left_enc.get_value()) << std::endl;
-
-          if (lift::get_position() > 1000)
+          while (true)
           {
-               // Should be created into a smooth decrease.
-               l = (int) l / SLOWDOWN_FACTOR;
-               r = (int) r / SLOWDOWN_FACTOR;
-          }
+               // Assigns voltage with deadband
+               // int l = controller_analog(LEFT_JOYSTICK);
+               // int r = controller_analog(RIGHT_JOYSTICK);
+               // // Tank drive
+               // l = (abs(l) > 10) ? l: 0;
+               // r = (abs(r) > 10) ? r : 0;
 
-          if (l != 0 || r != 0)
-               set_voltage(l, r);
-          else
-               set_voltage(0, 0);
-          //print_sensors();
-           lv_gauge_set_value(gauge1, 1, get_max_temperature());
+               int vertical = controller_analog(LEFT_JOYSTICK);
+               int horizontal = controller_analog(LEFT_JOYSTICK_H);
+
+               int l = vertical + horizontal;
+               int r = vertical - horizontal;
+
+               // if (lift::get_position() > 1500)
+               // {
+               //      // Should be created into a smooth decrease.
+               //      l = (int) l / SLOWDOWN_FACTOR;
+               //      r = (int) r / SLOWDOWN_FACTOR;
+               // }
+
+               if (l != 0 || r != 0)
+                    set_voltage(l, r);
+               else
+                    set_voltage(0, 0);
+               //print_sensors();
+                lv_gauge_set_value(gauge1, 1, get_max_temperature());
+
+                // Turn testing.
+               
+
+                pros::delay(20);
+           }
 
      }
 }// namespace chassis

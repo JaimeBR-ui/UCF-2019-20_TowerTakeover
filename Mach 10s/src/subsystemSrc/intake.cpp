@@ -93,7 +93,6 @@ namespace intake
           else if (wait)
                while (fabs(position - get_position()) > 10)
                {
-                    chassis::assign();
                     lift::assign();
                }
      }

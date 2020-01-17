@@ -23,6 +23,9 @@ void opcontrol(void)
 {
 	// enable just the chassi here
 	// Hold down at the start of the match to deploy
+	std::string chassi = "chassi";
+	pros::Task chassis(chassis::assign, &chassi, "");
+
 	if (controller_digital(LIFT_SHIFTER_DOWN))
 		quick_deploy();
 
@@ -30,21 +33,10 @@ void opcontrol(void)
 
 	lift::was_moving = -1;
 	while (1)
-	{ 	// Transfer to 15_inch branch that has threads implemented
-		if (controller_digital(DOWN))
-			blue();
-		else if (controller_digital(LEFT))
-			chassis::turn(900, 100, 1000, chassis::deployed);
-		else if (controller_digital(RIGHT))
-			chassis::turn(900, 100, 1000, chassis::deployed_1cube);
-
-		// subsystem assign
-		chassis::assign();
+	{
 		lift::assign();
 		intake::assign();
-
-
-
+		
 		// screen stuff
 		lv_bar_set_value(bar1, pros::battery::get_capacity());
 		pros::delay(20);

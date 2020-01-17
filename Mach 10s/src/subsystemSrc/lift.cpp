@@ -99,7 +99,7 @@ namespace lift{
           else if (wait)
                while (fabs(position - get_position()) > 10)
                {
-                    chassis::assign();
+
                     intake::assign();
                }
      }
@@ -107,7 +107,17 @@ namespace lift{
      //User Control Functions
      void assign(void)
      {
-          if (controller_digital(A))
+          if (controller_digital(DOWN))
+          {
+               set_mode(MOTOR_BRAKE_COAST);
+               set_voltage(MAX_VOLTAGE);
+               while (controller_digital(DOWN))
+                    pros::delay(20);
+
+               tare();
+               pros::delay(100);
+          }
+          else if (controller_digital(A))
                move_to(MAX_POS, MAX_VOLTAGE, true);
           else if (controller_digital(B))
                move_to(ALLIANCE_TOWER, MAX_VOLTAGE, true);

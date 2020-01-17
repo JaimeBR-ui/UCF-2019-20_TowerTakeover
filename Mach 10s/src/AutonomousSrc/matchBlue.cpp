@@ -12,7 +12,7 @@
 
 void blue(void)
 {
-
+/*
   intake::move_to(SCORE, 127, true);
   pros::delay(2000);
   intake::move_to(RELEASE, 127, true);
