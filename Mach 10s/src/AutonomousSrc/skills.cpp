@@ -27,7 +27,6 @@ void quick_deploy(void)
 
 void skills(void)
 {
-
      chassis::forward(12, true);
      quick_deploy();
      intake::move_to(STACK, 127, true);
@@ -39,6 +38,8 @@ void skills(void)
 	lift::move_to(LOW_TOWER, 127, true);
 	chassis::forward(6.5, true);
 	intake::move_to(SCORE, 127, true);
+
+	// Score on tower 2.
 	chassis::back(25, false);
 	pros::delay(500);
 	lift::move_to(MIN_POS, 127, true);
@@ -51,102 +52,44 @@ void skills(void)
 	lift::move_to(LOW_TOWER - 350, 127, true);
 	chassis::forward(9, true);
 	intake::move_to(SCORE, 127, true);
+
+	// Score on tower 3.
 	chassis::back(4, true);
 	intake::move_to(STACK, 127, false);
-	chassis::turn(730, 100, chassis::deployed);
-	lift::move_to(MIN_POS, 127, true);
-	intake::move_to(RELEASE - 200, 127, true);
-	chassis::forward(27, false);
+	chassis::turn(800, 100, chassis::deployed);
+	chassis::path::make(
+		{
+			point::start,
+			Point{24_in, 10_in, 0_deg}
+		},
+		"SCurve"
+	);
+	chassis::path::set("SCurve");
 	chassis::path::wait_until_settled();
 	intake::move_to(STACK, 127, true);
 	chassis::back(7, true);
 	lift::move_to(MAX_POS - 300, 127, true);
 	chassis::forward(10, true);
-	pros::delay(500);
-	chassis::turn(100, 100, chassis::deployed);
-	chassis::forward(3, true);
-	pros::delay(2000);
+	pros::delay(1000);
 	intake::move_to(SCORE, 127, true);
 	chassis::back(6, true);
 	lift::move_to(MIN_POS, 127, true);
-	chassis::turn(-230, 100, chassis::deployed);
-	chassis::back(70, true);
-	chassis::forward(30, true);
+	chassis::turn(-800, 0, chassis::deployed);
+	chassis::forward(75, true);
 
-     /*
-     // Score first stack.
-     pros::Task deploy(deploy_claw);
-     chassis::path::set("Straight_6in");
-     chassis::path::make(
-          {
-               point::start,
-               Point{24_in, 0_in, 0_deg}
-          },
-          "Straight_24in"
-     );
-     chassis::path::wait_until_settled();
-     chassis::path::remove("Straight_6in");
-     intake::move_to(STACK, 127, true);
-     lift::move_to(1700, 127, true);
-     chassis::path::set("Straight_24in");
-     chassis::path::wait_until_settled();
-     chassis::path::remove("Straight_24in");
-     stack();
-     // 21 inches backwards, wait for action to complete.
-     chassis::back(21, true);
-     chassis::turn(-900, 100, 1000); // waits by default
-     lift::move_to(STACK_HEIGHT, 127, true);
-     chassis::forward(11, true);
-     lift::move_to(0, 127, true);
-     pros::delay(700);
-     intake::move_to(SCORE, 127, true);
-     chassis::back(11, true);
+	// Score on tower 4
+	chassis::back(20, true);
+	chassis::turn(900, 0, chassis::deployed);
+	chassis::forward(24, true);
+	intake::move_to(STACK, 127, true);
+	chassis::back(4, true);
+	lift::move_to(LOW_TOWER - 350, 127, true);
+	chassis::forward(9, true);
+	intake::move_to(SCORE, 127, true);
+	chassis::back(4, true);
 
-     // Score second stack.
-     chassis::turn(900, 100, 1000);
-     chassis::forward(30, true);
-     chassis::turn(900, 100, 1000);
-     chassis::forward(24, true);
-     intake::move_to(STACK, 127, true);
-     lift::move_to(OFF_GROUND, 127, true);
-     chassis::back(52, true);
-     chassis::turn(900, 100, 1000);
-     chassis::forward(9, true); // may want to do an s path instead of straight
-     lift::move_to(2000, 127, true);
-     chassis::forward(5, true);
-     lift::move_to(lift::get_position() - 300, 127, true);
-     pros::delay(500);
-     intake::move_to(SCORE, 127, true); // Releases second stack
-     chassis::back(5, false);
+	// maybe go back and get the 4 stack.
 
-     // Score on tower 1.
-     lift::move_to(600, 127, true);
-     chassis::path::wait_until_settled();
-     chassis::path::make(
-          {    // Make arc from current location to pole or far side.
-               point::start,
-               Point{24_in, 24_in, 90_deg}
-          },
-          "ArcToPole"
-     );
-     chassis::path::set("ArcToPole", true);
-     chassis::path::wait_until_settled();
-     chassis::path::remove("ArcToPole");
-     chassis::turn(900, 100, 1000);
-     chassis::forward(3, true);
-     intake::move_to(STACK, 127, true);
-     pros::delay(500);
-     lift::move_to(LOW_TOWER, 127, true);
-     chassis::forward(3, true);
-     lift::move_to(lift::get_position() - 300, 127, true);
-     pros::delay(500);
-     intake::move_to(SCORE, 127, true);
-     chassis::back(3, false);
-     pros::delay(500);
-     lift::move_to(0, 127, true);
-     chassis::path::wait_until_settled();
-
-     // Score on tower 2.*/
 }
 
 void make_first_path(void)
