@@ -27,33 +27,34 @@ void quick_deploy(void)
 
 void skills(void)
 {
-     chassis::forward(12, true);
-     quick_deploy();
-     intake::move_to(STACK, 127, true);
-	pros::delay(500);
-	lift::move_to(OFF_GROUND, 127, true);
-	chassis::back(2, false);
-     chassis::turn(900, 0, chassis::deployed);
-	chassis::forward(10, true);
-	lift::move_to(LOW_TOWER, 127, true);
-	chassis::forward(6.5, true);
-	intake::move_to(SCORE, 127, true);
-
-	// Score on tower 2.
-	chassis::back(25, false);
-	pros::delay(500);
-	lift::move_to(MIN_POS, 127, true);
-	chassis::path::wait_until_settled();
-	chassis::turn(-850, 0, chassis::deployed);
-	intake::move_to(RELEASE - 120, 127, true);
-	chassis::forward(37, true);
-	intake::move_to(STACK, 127, true);
-	chassis::back(4, true);
-	lift::move_to(LOW_TOWER - 350, 127, true);
-	chassis::forward(9, true);
-	intake::move_to(SCORE, 127, true);
+     // chassis::forward(12, true);
+     // quick_deploy();
+     // intake::move_to(STACK, 127, true);
+	// pros::delay(500);
+	// lift::move_to(OFF_GROUND, 127, true);
+	// chassis::back(2, false);
+     // chassis::turn(900, 0, chassis::deployed);
+	// chassis::forward(10, true);
+	// lift::move_to(LOW_TOWER, 127, true);
+	// chassis::forward(6.5, true);
+	// intake::move_to(SCORE, 127, true);
+	//
+	// // Score on tower 2.
+	// chassis::back(25, false);
+	// pros::delay(500);
+	// lift::move_to(MIN_POS, 127, true);
+	// chassis::path::wait_until_settled();
+	// chassis::turn(-850, 0, chassis::deployed);
+	// intake::move_to(RELEASE - 120, 127, true);
+	// chassis::forward(37, true);
+	// intake::move_to(STACK, 127, true);
+	// chassis::back(4, true);
+	// lift::move_to(LOW_TOWER - 350, 127, true);
+	// chassis::forward(9, true);
+	// intake::move_to(SCORE, 127, true);
 
 	// Score on tower 3.
+	quick_deploy();// for home prog.
 	chassis::back(4, true);
 	intake::move_to(STACK, 127, false);
 	chassis::turn(800, 100, chassis::deployed);
@@ -75,20 +76,20 @@ void skills(void)
 	chassis::back(6, true);
 	lift::move_to(MIN_POS, 127, true);
 	chassis::turn(-800, 0, chassis::deployed);
-	chassis::forward(75, true);
-
-	// Score on tower 4
-	chassis::back(20, true);
-	chassis::turn(900, 0, chassis::deployed);
-	chassis::forward(24, true);
-	intake::move_to(STACK, 127, true);
-	chassis::back(4, true);
-	lift::move_to(LOW_TOWER - 350, 127, true);
-	chassis::forward(9, true);
-	intake::move_to(SCORE, 127, true);
-	chassis::back(4, true);
-
-	// maybe go back and get the 4 stack.
+	// chassis::forward(75, true);
+	//
+	// // Score on tower 4
+	// chassis::back(20, true);
+	// chassis::turn(900, 0, chassis::deployed);
+	// chassis::forward(24, true);
+	// intake::move_to(STACK, 127, true);
+	// chassis::back(4, true);
+	// lift::move_to(LOW_TOWER - 350, 127, true);
+	// chassis::forward(9, true);
+	// intake::move_to(SCORE, 127, true);
+	// chassis::back(4, true);
+	//
+	// // maybe go back and get the 4 stack.
 
 }
 
