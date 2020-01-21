@@ -14,7 +14,7 @@ namespace chassis
                {19, 20}, // Left motors.
                {-11, -12},   // Right motors.
                AbstractMotor::gearset::green, // Torque gearset.
-               {4_in, 18.5_in} // 4 inch wheels, 16 inch wheelbase width.
+               {4_in, 12_in} // 4 inch wheels, 16 inch wheelbase width.
           );
 
           auto profileController = AsyncControllerFactory::motionProfile(
