@@ -4,8 +4,9 @@
 
 # Wireless upload build script
 
-prosv5 make
-echo "y" | prosv5 upload
+# Ensures that the program doesn't upload if it doesn't
+# compile sucessfully.
+prosv5 make && echo "y" | prosv5 upload
 
 # pros CLI commands:
 # prosv5 make
