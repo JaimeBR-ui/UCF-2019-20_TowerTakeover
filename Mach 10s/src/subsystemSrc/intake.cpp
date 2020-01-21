@@ -17,7 +17,7 @@ namespace intake
 
      // Starting position of intake.
      int intake_mode = INTAKE_MODE_STORED;
-     int intake_power = 63;
+     int intake_power = 85;
      bool was_moving = true;
      std::uint32_t now = pros::millis();
 
