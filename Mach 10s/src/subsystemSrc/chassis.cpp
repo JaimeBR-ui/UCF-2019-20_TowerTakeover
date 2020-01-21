@@ -32,14 +32,14 @@ namespace chassis
           not_deployed->Ki = 0;
           not_deployed->Kd = 1;
 
-          deployed->Kp = 0.55;
-          deployed->Ki = 0;
-          deployed->Kd = 1.4;
+          deployed->Kp = 0.71;
+          deployed->Ki = 0.036;
+          deployed->Kd = 1.5;
 
-          // todo this one
-          deployed_1cube->Kp = 0.55; // .55 is good
-          deployed_1cube->Ki = 0;
-          deployed_1cube->Kd = 1.4;
+          // todo this one - use for small turns
+          deployed_1cube->Kp = 0.8; // .55 is good
+          deployed_1cube->Ki = 0.1;
+          deployed_1cube->Kd = 1.0;
      }
 
      // Data functions.
@@ -201,7 +201,7 @@ namespace chassis
 
           int counter = 0, calculated_velocity;
           int velocity_l = 0, velocity_r = 0;
-          int max_velocity = 80, min_velocity = 20;
+          int max_velocity = 80, min_velocity = (accuracy_timer == 0) ? 20 : accuracy_timer;
           int target = abs(degrees_10) * TURN_CONSTANT;
           int reverse = abs(degrees_10) / degrees_10;
 
@@ -376,7 +376,7 @@ namespace chassis
                 lv_gauge_set_value(gauge1, 1, get_max_temperature());
 
                 // Turn testing.
-               
+
 
                 pros::delay(20);
            }
