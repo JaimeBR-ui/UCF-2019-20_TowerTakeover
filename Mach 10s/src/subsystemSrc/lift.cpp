@@ -107,17 +107,7 @@ namespace lift{
      //User Control Functions
      void assign(void)
      {
-          if (controller_digital(DOWN))
-          {
-               set_mode(MOTOR_BRAKE_COAST);
-               set_voltage(MAX_VOLTAGE);
-               while (controller_digital(DOWN))
-                    pros::delay(20);
-
-               tare();
-               pros::delay(100);
-          }
-          else if (controller_digital(A))
+          if (controller_digital(A))
                move_to(MAX_POS, MAX_VOLTAGE, true);
           else if (controller_digital(B))
                move_to(ALLIANCE_TOWER, MAX_VOLTAGE, true);
@@ -129,7 +119,9 @@ namespace lift{
           {
                set_mode(MOTOR_BRAKE_COAST);
                if(get_position() < 0)
-                    set_voltage(-20);
+               {
+                    set_voltage(-40);
+               }
                else if(get_position() < 107)
                     set_voltage(-(get_position()+20));
                else
