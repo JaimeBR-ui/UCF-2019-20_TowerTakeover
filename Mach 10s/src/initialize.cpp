@@ -1,6 +1,7 @@
 // Author(s): Jaime Bohorquez
 // Copyright (c) 2019-2020, Knightmare Engineering Club.
 // Programmed using Atom + Terminal on Mac OS
+// Filename: initialize.cpp
 
 #include "main.h"
 
@@ -12,7 +13,8 @@
  */
 
 void initialize(void)
-{    // Initializes motors and sensors.
+{
+     // Initializes motors and sensors.
      run_display();
      chassis::initialize();
 	back_left.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);

@@ -1,6 +1,7 @@
 // Author(s): Jaime Bohorquez
 // Copyright (c) 2019-2020, Knightmare Engineering Club.
 // Programmed using Atom + Terminal on Mac OS
+// Filename: opcontrol.cpp
 
 #include "main.h"
 /**
@@ -17,27 +18,22 @@
  * task, not resume it from where it left off.
  */
 
-
-
 void opcontrol(void)
 {
-	// enable just the chassi here
-	// Hold down at the start of the match to deploy
+	// Hold lift down at the start of the match to deploy.
 	std::string chassi = "chassi";
 	pros::Task chassis(chassis::assign, &chassi, "");
 
 	if (controller_digital(LIFT_SHIFTER_DOWN))
 		quick_deploy();
 
-	// enable the rest of the subsystems here
-
 	lift::was_moving = -1;
 	while (1)
 	{
 		lift::assign();
 		intake::assign();
-		
-		// screen stuff
+
+		// Set battery voltage.
 		lv_bar_set_value(bar1, pros::battery::get_capacity());
 		pros::delay(20);
 	}

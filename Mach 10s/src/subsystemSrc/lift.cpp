@@ -1,18 +1,21 @@
 // Author(s): Jaime Bohorquez
 // Copyright (c) 2019-2020, Knightmare Engineering Club.
 // Programmed using Atom + Terminal on Mac OS
+// File: lift.cpp
 
 #include "main.h"
 
 #define MAX_VOLTAGE 110
 
-namespace lift{
-     //Variables
-     int lift_position_left = 0, lift_position_right = 0;
+namespace lift
+{
+     // Variables.
      int was_moving = 1;
+     int lift_position_left = 0;
+     int lift_position_right = 0;
      std::uint32_t now = pros::millis();
 
-     //Data Functions
+     // Data Functions.
      int get_position(void)
      {
           now = pros::millis();
@@ -33,7 +36,7 @@ namespace lift{
                : lift_right.get_temperature();
      }
 
-     //Control Functions
+     // Control Functions.
      void set_voltage(int voltage)
      {
           lift_left = voltage;
@@ -142,4 +145,4 @@ namespace lift{
 
           lv_gauge_set_value(gauge1, 2, get_max_temperature());
      }
-}//namespace lift
+}// namespace lift

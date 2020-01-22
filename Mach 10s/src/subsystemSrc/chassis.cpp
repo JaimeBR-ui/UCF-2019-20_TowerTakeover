@@ -1,6 +1,7 @@
 // Author(s): Jaime Bohorquez
 // Copyright (c) 2019-2020, Knightmare Engineering Club.
 // Programmed using Atom + Terminal on Mac OS
+// Filename: chassis.cpp
 
 #include "main.h"
 
@@ -28,6 +29,7 @@ namespace chassis
           not_deployed = (struct Gains *)malloc(sizeof(struct Gains));
           deployed = (struct Gains *)malloc(sizeof(struct Gains));
           deployed_1cube = (struct Gains *)malloc(sizeof(struct Gains));
+
           not_deployed->Kp = 0.55;
           not_deployed->Ki = 0;
           not_deployed->Kd = 1;
@@ -107,7 +109,8 @@ namespace chassis
      }
 
      void set_voltage(int left_voltage, int right_voltage)
-     {    // Sets drive voltage to an 8 bit signed integer.
+     {
+          // Sets drive voltage to an 8 bit signed integer.
           back_right = right_voltage;
           front_right = right_voltage;
           back_left = left_voltage;
@@ -115,7 +118,8 @@ namespace chassis
      }
 
      void set_velocity(int left_velocity, int right_velocity)
-     {    // Sets chassis velocity.
+     {
+          // Sets chassis velocity.
           front_right.move_velocity(right_velocity);
           back_right.move_velocity(right_velocity);
           front_left.move_velocity(left_velocity);
@@ -123,7 +127,8 @@ namespace chassis
      }
 
      void turn_to_target(int target, int max_speed)
-     {    // Chassis goes to encoder target when turning.
+     {
+          // Chassis goes to encoder target when turning.
           back_left.move_absolute(target, max_speed);
           front_left.move_absolute(target, max_speed);
           back_right.move_absolute(-target, max_speed);
@@ -131,7 +136,8 @@ namespace chassis
      }
 
      void tare(void)
-     {    // Sets chassis encoders to zero.
+     {
+          // Sets chassis encoders to zero.
           right_enc.reset();
           left_enc.reset();
           front_left.tare_position();
@@ -141,7 +147,8 @@ namespace chassis
      }
 
      void brake(int mills)
-     {    // Brakes drive for set amount of milliseconds.
+     {
+          // Brakes drive for set amount of milliseconds.
           set_mode(MOTOR_BRAKE_HOLD);
           set_velocity(0, 0);
           pros::delay(mills);
@@ -175,6 +182,7 @@ namespace chassis
           if (wait)
                path::wait_until_settled();
      }
+
      void back(unsigned long long distance, bool wait)
      {
           path::remove("back");
@@ -279,7 +287,7 @@ namespace chassis
                else
                     total_error_r = 0;
 
-               // Assign values to each
+               // Assign values to each.
                P_l = proportional * error_l;
                P_r = proportional * error_r;
 
@@ -325,61 +333,35 @@ namespace chassis
                if ((abs(error_r) <= allowed_error && abs(error_l) <= allowed_error))
                     counter += 3;
 
-//               if (D_l == 0 && D_r == 0)
-//;//                    counter++;
-
                pros::delay(20);
 
           }
           std::cout << "Turn has ended. Final error Left: " << error_l << std::endl;
           std::cout << "Turn has ended. Final error Right: " << error_l << std::endl;
           std::cout << "Desired Target: " << target << std::endl;
-
-
      }
 
-     void pointTurn(int degrees_10, int max_speed, int accuracy_timer)
-     {
-          return;
-     }
-
-          // User control functions.
+     // User control functions.
      void assign(void * ignore)
      {
           while (true)
           {
                // Assigns voltage with deadband
-               // int l = controller_analog(LEFT_JOYSTICK);
-               // int r = controller_analog(RIGHT_JOYSTICK);
-               // // Tank drive
-               // l = (abs(l) > 10) ? l: 0;
-               // r = (abs(r) > 10) ? r : 0;
-
                int vertical = controller_analog(LEFT_JOYSTICK);
                int horizontal = controller_analog(LEFT_JOYSTICK_H);
 
                int l = vertical + horizontal;
                int r = vertical - horizontal;
 
-               // if (lift::get_position() > 1500)
-               // {
-               //      // Should be created into a smooth decrease.
-               //      l = (int) l / SLOWDOWN_FACTOR;
-               //      r = (int) r / SLOWDOWN_FACTOR;
-               // }
-
                if (l != 0 || r != 0)
                     set_voltage(l, r);
                else
                     set_voltage(0, 0);
-               //print_sensors();
-                lv_gauge_set_value(gauge1, 1, get_max_temperature());
 
-                // Turn testing.
+               lv_gauge_set_value(gauge1, 1, get_max_temperature());
 
-
-                pros::delay(20);
-           }
+               pros::delay(20);
+          }
 
      }
 }// namespace chassis
