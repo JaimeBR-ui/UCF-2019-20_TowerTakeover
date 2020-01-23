@@ -51,8 +51,7 @@ void run_display(void)
 	lv_label_set_text(myButtonLabel, "Click the Button?"); //sets label text
 	myLabel = lv_label_create(lv_scr_act(), NULL); // puts it on the screen
      lv_label_set_recolor(myLabel, true);
-     std::string tmp = "#00ff00 Lift\n#ffbf00 Chassis \n#00ffff Intake\n\n#2222ff Battery";
-     lv_label_set_text(myLabel, tmp); //sets label text
+     lv_label_set_text(myLabel, "#00ff00 Lift\n#ffbf00 Chassis \n#00ffff Intake\n\n#2222ff Battery"); //sets label text
 	lv_obj_align(myLabel, NULL, LV_ALIGN_IN_LEFT_MID, 10, 20); //set the position to center
 
      temperatureLabel = lv_label_create(lv_scr_act(), NULL); //create label

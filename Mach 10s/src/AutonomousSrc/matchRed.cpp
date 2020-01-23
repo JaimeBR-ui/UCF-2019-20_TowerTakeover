@@ -34,7 +34,7 @@ void red(void)
 	lift::move_to(OFF_GROUND + 100, 127, true);
 	chassis::forward(3, true);
 
-	chassis::turn(-900, 0, chassis::deployed);
+	chassis::turn(-850, 0, chassis::deployed);
 	lift::move_to(OFF_GROUND + 600, 127, true);
 	chassis::forward(16, true);
 	intake::move_to(SCORE, 127, true);

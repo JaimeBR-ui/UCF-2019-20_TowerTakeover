@@ -34,12 +34,12 @@ namespace chassis
           not_deployed->Ki = 0;
           not_deployed->Kd = 1;
 
-          deployed->Kp = 0.71;
-          deployed->Ki = 0.036;
+          deployed->Kp = 0.73;
+          deployed->Ki = 0.04;
           deployed->Kd = 1.5;
 
           // todo this one - use for small turns
-          deployed_1cube->Kp = 0.8; // .55 is good
+          deployed_1cube->Kp = 0.84; // .55 is good
           deployed_1cube->Ki = 0.1;
           deployed_1cube->Kd = 1.0;
      }
@@ -215,7 +215,7 @@ namespace chassis
 
           const int integral_kick_in_target = 20;
           const int vertical_shift = 18;
-          const int allowed_error = 1;
+          const int allowed_error = 2;
 
           // Gains
           double proportional = gain->Kp;
@@ -261,7 +261,7 @@ namespace chassis
           }
 
           int i = 0;
-          while (counter < 30)
+          while (counter < 20)
           {
                // If everything is going out of control.
                if (controller_digital(DOWN))

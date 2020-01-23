@@ -28,20 +28,20 @@ void quick_deploy(void)
 
 void skills(void)
 {
-     chassis::forward(12, true);
+     chassis::path::set("Straight_10in");
+	chassis::path::wait_until_settled();
      quick_deploy();
      intake::move_to(STACK, 127, true);
 	pros::delay(500);
 	lift::move_to(OFF_GROUND, 127, true);
-	chassis::back(2, false);
      chassis::turn(900, 0, chassis::deployed);
-	chassis::forward(10, true);
+	chassis::forward(13, true);
 	lift::move_to(LOW_TOWER, 127, true);
 	chassis::forward(6.5, true);
 	intake::move_to(SCORE, 127, true);
 
 	// Score on tower 2.
-	chassis::back(25, false);
+	chassis::back(27, false);
 	pros::delay(500);
 	lift::move_to(MIN_POS, 127, true);
 	chassis::path::wait_until_settled();
@@ -51,13 +51,13 @@ void skills(void)
 	intake::move_to(STACK, 127, true);
 	chassis::back(4, true);
 	lift::move_to(LOW_TOWER - 350, 127, true);
-	chassis::forward(9, true);
+	chassis::forward(10, true);
 	intake::move_to(SCORE, 127, true);
 
 	// Score on tower 3.
-	chassis::back(4, true);
+	chassis::back(8, true);
 	intake::move_to(STACK, 127, false);
-	chassis::turn(730, 0, chassis::deployed);
+	chassis::turn(700, 0, chassis::deployed);
 	lift::move_to(MIN_POS, 127, true);
 	intake::move_to(RELEASE - 200, 127, true);
 
@@ -66,31 +66,33 @@ void skills(void)
 	intake::move_to(STACK, 127, true);
 	pros::delay(200);
 	lift::move_to(OFF_GROUND, 127, true);
-	chassis::back(7, true);
-	chassis::turn(100, 35, chassis::deployed_1cube);
+	chassis::back(6, true);
 	lift::move_to(MAX_POS - 300, 127, true);
 
-	chassis::forward(11, true);
+	chassis::turn(120, 35, chassis::deployed_1cube);
+
+	chassis::forward(10, true);
 	pros::delay(2000);
 	intake::move_to(SCORE, 127, true);
-	chassis::back(10, true);
-	pros::delay(600);
-	lift::move_to(MIN_POS, 127, true);
-	chassis::turn(-830, 0, chassis::deployed);
+	chassis::back(8, true);
+	pros::delay(1200);
+	lift::move_to(OFF_GROUND + 800, 127, true);
+	chassis::turn(-840, 0, chassis::deployed);
+	intake::move_to(STACK, 127, true);
 
 	// // Score on tower 4.
-	chassis::forward(40, true);
-	chassis::turn(450, 0, chassis::deployed);
-	chassis::forward(6, true);
+	chassis::forward(80, true);
+	chassis::back(22, true);
+	chassis::turn(900, 0, chassis::deployed);
+	intake::move_to(SCORE, 127, false);
+	lift::move_to(MIN_POS, 127, true);
+	chassis::forward(8, true);
 	intake::move_to(STACK, 127, true);
-	pros::delay(500);
-	lift::move_to(OFF_GROUND, 127, true);
-	chassis::back(7, true);
-	chassis::turn(100, 35, chassis::deployed_1cube);
+	chassis::back(8, true);
 	lift::move_to(LOW_TOWER, 127, true);
-	chassis::forward(11, true);
+	chassis::forward(13, true);
 	intake::move_to(SCORE, 127, true);
-
+	chassis::back(24, true);
 	// // maybe go back and get the 4 stack.
 
 }
@@ -100,9 +102,9 @@ void make_first_path(void)
      chassis::path::make(
           {
                point::start,
-               Point{6_in, 0_in, 0_deg}
+               Point{10_in, 0_in, 0_deg}
           },
-          "Straight_6in"
+          "Straight_10in"
      );
 }
 
