@@ -27,21 +27,28 @@ void red(void)
 	pros::delay(500);
 	lift::move_to(OFF_GROUND + 600, 127, true);
 	chassis::forward(6, true);
+     lift::move_to(OFF_GROUND + 300, 120, false);
+     pros::delay(500);
 	intake::move_to(SCORE, 127, true);
+     pros::delay(500);
 	lift::move_to(MIN_POS, 127, true);
 	intake::move_to(STACK, 127, true);
 	pros::delay(200);
 	lift::move_to(OFF_GROUND + 100, 127, true);
 	chassis::forward(3, true);
 
-	chassis::turn(-850, 0, chassis::deployed);
+	chassis::turn(-970, 0, chassis::deployed);
 	lift::move_to(OFF_GROUND + 600, 127, true);
 	chassis::forward(16, true);
+
+	lift::move_to(OFF_GROUND + 300, 120, false);
+     pros::delay(500);
 	intake::move_to(SCORE, 127, true);
      pros::delay(600);
 	lift::move_to(MIN_POS, 127, true);
 	intake::move_to(STACK, 127, true);
-	lift::move_to(OFF_GROUND + 200, 127, true);
+     pros::delay(500);
+	lift::move_to(OFF_GROUND + 300, 127, true);
      pros::delay(500);
 	chassis::forward(4, true);
 
@@ -49,30 +56,31 @@ void red(void)
      chassis::turn(-450, 0, chassis::deployed);
 	chassis::forward(15, true);
 	lift::move_to(MIN_POS, 127, true);
+     pros::delay(500);
 	intake::move_to(SCORE, 127, true);
 	chassis::back(14, true);
 
      // Align with wall.
 	chassis::turn(450, 0, chassis::deployed);
-	lift::move_to(LOW_TOWER - 100, 127, true);
-     intake::move_to(200, 127, true); // only here for testing.
-	chassis::forward(12, true);
+	lift::move_to(OFF_GROUND + 800, 127, true);
+	chassis::forward(24, true);
 
      // Go to 4 stack.
-	chassis::back(48, false);
+	chassis::back(43, false);
 	pros::delay(500);
-     intake::move_to(SCORE, 127, false); // oly here for testing
 	lift::move_to(MIN_POS, 127, true);
 	chassis::path::wait_until_settled();
 	chassis::turn(900, 0, chassis::deployed);
-	chassis::forward(19, true);
+	chassis::forward(17, true);
      intake::move_to(STACK, 127, true);
+     lift::move_to(OFF_GROUND + 300, 127, true);
+     chassis::forward(11, true);
      chassis::turn(-1350, 0, chassis::deployed);
-     chassis::forward(40, true);
+     chassis::forward(37, true);
      lift::move_to(LOW_TOWER, 127, true);
-     chassis::forward(5, true);
-     intake::move_to(RELEASE, 127, true);
-     pros::delay(500);
+     chassis::forward(12, true);
+     lift::move_to(LOW_TOWER - 300, 120, false);
+     pros::delay(700);
      intake::move_to(SCORE, 127, true);
 
      // Reset lift position.
