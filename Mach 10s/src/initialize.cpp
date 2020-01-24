@@ -14,6 +14,7 @@
 
 void initialize(void)
 {
+     pros::delay(20);
      // Initializes motors and sensors.
      run_display();
      chassis::initialize();

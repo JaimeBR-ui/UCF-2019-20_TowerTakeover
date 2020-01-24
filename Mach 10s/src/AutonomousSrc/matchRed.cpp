@@ -21,12 +21,31 @@ void get_last3(void);
 
 void red(void)
 {
-     chassis::forward(4, true);
+     chassis::path::set("Straight_4in");
+     chassis::path::make(
+          {
+               point::start,
+               Point{6_in, 0_in, 0_deg}
+          },
+          "Straight_6in"
+     );
+     // Do not remove this one.
+	chassis::path::wait_until_settled();
+
 	quick_deploy();
 	intake::move_to(STACK, 127, true);
 	pros::delay(500);
 	lift::move_to(OFF_GROUND + 600, 127, true);
-	chassis::forward(6, true);
+     chassis::path::set("Straight_6in");
+     chassis::path::make(
+          {
+               point::start,
+               Point{3_in, 0_in, 0_deg}
+          },
+          "Straight_3in"
+     );
+	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_6in");
      lift::move_to(OFF_GROUND + 300, 120, false);
      pros::delay(500);
 	intake::move_to(SCORE, 127, true);
@@ -35,11 +54,29 @@ void red(void)
 	intake::move_to(STACK, 127, true);
 	pros::delay(200);
 	lift::move_to(OFF_GROUND + 100, 127, true);
-	chassis::forward(3, true);
+     chassis::path::set("Straight_3in");
+     chassis::path::make(
+          {
+               point::start,
+               Point{16_in, 0_in, 0_deg}
+          },
+          "Straight_16in"
+     );
+	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_3in");
 
 	chassis::turn(-970, 0, chassis::deployed);
 	lift::move_to(OFF_GROUND + 600, 127, true);
-	chassis::forward(16, true);
+     chassis::path::set("Straight_16in");
+     chassis::path::make(
+          {
+               point::start,
+               Point{15_in, 0_in, 0_deg}
+          },
+          "Straight_15in"
+     );
+	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_16in");
 
 	lift::move_to(OFF_GROUND + 300, 120, false);
      pros::delay(500);
@@ -50,44 +87,125 @@ void red(void)
      pros::delay(500);
 	lift::move_to(OFF_GROUND + 300, 127, true);
      pros::delay(500);
-	chassis::forward(4, true);
+     chassis::path::set("Straight_4in");
+	chassis::path::wait_until_settled();
+     // Do not remove this one.
 
      // Turn and score in the zone.
      chassis::turn(-450, 0, chassis::deployed);
-	chassis::forward(15, true);
+     chassis::path::set("Straight_15in");
+     chassis::path::make(
+          {
+               point::start,
+               Point{14_in, 0_in, 0_deg}
+          },
+          "Straight_14in"
+     );
+	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_15in");
+
 	lift::move_to(MIN_POS, 127, true);
      pros::delay(500);
 	intake::move_to(SCORE, 127, true);
-	chassis::back(14, true);
+     chassis::path::set("Straight_14in", true);
+     chassis::path::make(
+          {
+               point::start,
+               Point{24_in, 0_in, 0_deg}
+          },
+          "Straight_24in"
+     );
+	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_14in");
 
      // Align with wall.
 	chassis::turn(450, 0, chassis::deployed);
 	lift::move_to(OFF_GROUND + 800, 127, true);
-	chassis::forward(24, true);
+     chassis::path::set("Straight_24in");
+     chassis::path::make(
+          {
+               point::start,
+               Point{43_in, 0_in, 0_deg}
+          },
+          "Straight_43in"
+     );
+	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_24in");
 
      // Go to 4 stack.
-	chassis::back(43, false);
+     chassis::path::set("Straight_43in", true);
+     chassis::path::make(
+          {
+               point::start,
+               Point{17_in, 0_in, 0_deg}
+          },
+          "Straight_17in"
+     );
+
 	pros::delay(500);
 	lift::move_to(MIN_POS, 127, true);
 	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_43in");
+
 	chassis::turn(900, 0, chassis::deployed);
-	chassis::forward(17, true);
+     chassis::path::set("Straight_17in");
+     chassis::path::make(
+          {
+               point::start,
+               Point{11_in, 0_in, 0_deg}
+          },
+          "Straight_11in"
+     );
+	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_17in");
+
      intake::move_to(STACK, 127, true);
      lift::move_to(OFF_GROUND + 300, 127, true);
-     chassis::forward(11, true);
+     chassis::path::set("Straight_11in");
+     chassis::path::make(
+          {
+               point::start,
+               Point{37_in, 0_in, 0_deg}
+          },
+          "Straight_37in"
+     );
+	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_11in");
+
      chassis::turn(-1350, 0, chassis::deployed);
-     chassis::forward(37, true);
+     chassis::path::set("Straight_37in");
+     chassis::path::make(
+          {
+               point::start,
+               Point{12_in, 0_in, 0_deg}
+          },
+          "Straight_12in"
+     );
+	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_37in");
      lift::move_to(LOW_TOWER, 127, true);
-     chassis::forward(12, true);
+     chassis::path::set("Straight_12in");
+     chassis::path::make(
+          {
+               point::start,
+               Point{20_in, 0_in, 0_deg}
+          },
+          "Straight_20in"
+     );
+	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_12in");
+
      lift::move_to(LOW_TOWER - 300, 120, false);
      pros::delay(700);
      intake::move_to(SCORE, 127, true);
 
      // Reset lift position.
-     chassis::back(20, false);
+     chassis::path::set("Straight_20in", true);
      pros::delay(600);
      lift::move_to(MIN_POS, 127, true);
      chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_20in");
+
 }
 
 void get_last3(void) {}

@@ -106,6 +106,14 @@ void make_first_path(void)
           },
           "Straight_10in"
      );
+	chassis::path::make(
+          {
+               point::start,
+               Point{4_in, 0_in, 0_deg}
+          },
+          "Straight_4in"
+     );
+
 }
 
 void deploy_claw(void * ignore)
