@@ -40,9 +40,9 @@ void red(void)
      chassis::path::make(
           {
                point::start,
-               Point{3_in, 0_in, 0_deg}
+               Point{4_in, 0_in, 0_deg}
           },
-          "Straight_3in"
+          "Straight_4in"
      );
 	chassis::path::wait_until_settled();
      chassis::path::remove("Straight_6in");
@@ -53,7 +53,7 @@ void red(void)
 	intake::move_to(STACK, 127, true);
 	pros::delay(200);
 	lift::move_to(OFF_GROUND + 100, 127, true);
-     chassis::path::set("Straight_3in");
+     chassis::path::set("Straight_4in");
      chassis::path::make(
           {
                point::start,
@@ -62,7 +62,7 @@ void red(void)
           "Straight_16in"
      );
 	chassis::path::wait_until_settled();
-     chassis::path::remove("Straight_3in");
+     chassis::path::remove("Straight_4in");
 
 	chassis::turn(-950, 0, chassis::deployed);
 	lift::move_to(OFF_GROUND + 600, 127, true);

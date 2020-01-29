@@ -32,9 +32,9 @@ void blue(void)
      chassis::path::make(
           {
                point::start,
-               Point{3_in, 0_in, 0_deg}
+               Point{3.5_in, 0_in, 0_deg}
           },
-          "Straight_3in"
+          "Straight_3.5in"
      );
 	chassis::path::wait_until_settled();
      chassis::path::remove("Straight_6in");
@@ -45,7 +45,7 @@ void blue(void)
 	intake::move_to(STACK, 127, true);
 	pros::delay(200);
 	lift::move_to(OFF_GROUND + 100, 127, true);
-     chassis::path::set("Straight_3in");
+     chassis::path::set("Straight_3.5in");
      chassis::path::make(
           {
                point::start,
@@ -54,17 +54,17 @@ void blue(void)
           "Straight_16in"
      );
 	chassis::path::wait_until_settled();
-     chassis::path::remove("Straight_3in");
+     chassis::path::remove("Straight_3.5in");
 
-	chassis::turn(900, 0, chassis::deployed);// bet 90 and 97
+	chassis::turn(870, 0, chassis::deployed);// bet 90 and 97
 	lift::move_to(OFF_GROUND + 600, 127, true);
      chassis::path::set("Straight_16in");
      chassis::path::make(
           {
                point::start,
-               Point{17_in, 0_in, 0_deg}
+               Point{15_in, 0_in, 0_deg}
           },
-          "Straight_17in"
+          "Straight_15in"
      );
 	chassis::path::wait_until_settled();
      chassis::path::remove("Straight_16in");
@@ -84,7 +84,7 @@ void blue(void)
 
      // Turn and score in the zone.
      chassis::turn(450, 0, chassis::deployed);
-     chassis::path::set("Straight_17in");
+     chassis::path::set("Straight_15in");
      chassis::path::make(
           {
                point::start,
@@ -93,11 +93,11 @@ void blue(void)
           "Straight_14in"
      );
 	chassis::path::wait_until_settled();
-     chassis::path::remove("Straight_17in");
+     chassis::path::remove("Straight_15in");
 
 	lift::move_to(MIN_POS, 127, true);
      pros::delay(500);
-	intake::move_to(SCORE - 500, 127, false);
+	intake::move_to(SCORE - 200, 127, false);
      pros::delay(500);
      chassis::path::set("Straight_14in", true);
      chassis::path::make(

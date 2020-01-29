@@ -209,7 +209,7 @@ namespace chassis
 
           int counter = 0, calculated_velocity;
           int velocity_l = 0, velocity_r = 0;
-          int max_velocity = 80, min_velocity = (accuracy_timer == 0) ? 20 : accuracy_timer;
+          int max_velocity = 80, min_velocity = (accuracy_timer == 0) ? 30 : accuracy_timer;
           int target = abs(degrees_10) * TURN_CONSTANT;
           int reverse = abs(degrees_10) / degrees_10;
 

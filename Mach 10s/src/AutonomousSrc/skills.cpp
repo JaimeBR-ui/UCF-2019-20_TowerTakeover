@@ -37,11 +37,11 @@ void skills(void)
      chassis::turn(900, 0, chassis::deployed);
 	chassis::forward(13, true);
 	lift::move_to(LOW_TOWER, 127, true);
-	chassis::forward(6.5, true);
+	chassis::forward(8, true);
 	intake::move_to(SCORE, 127, true);
 
 	// Score on tower 2.
-	chassis::back(27, false);
+	chassis::back(29, false);
 	pros::delay(400);
 	lift::move_to(MIN_POS, 127, false);
 	chassis::path::make(
@@ -118,15 +118,15 @@ void skills(void)
 	chassis::back(6, true);
 	lift::move_to(MAX_POS - 300, 127, true);
 
-	chassis::turn(120, 35, chassis::deployed_1cube);
+	chassis::turn(100, 38, chassis::deployed_1cube);
 
 	chassis::forward(10, true);
 	pros::delay(2000);
 	intake::move_to(SCORE, 127, true);
-	chassis::back(8, true);
+	chassis::back(6, true);
 	pros::delay(1200);
 	lift::move_to(OFF_GROUND + 800, 127, true);
-	chassis::turn(-840, 0, chassis::deployed);
+	chassis::turn(-860, 0, chassis::deployed);
 	intake::move_to(STACK, 127, true);
 
 	// // Score on tower 4.
