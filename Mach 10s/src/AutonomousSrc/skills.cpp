@@ -29,19 +29,47 @@ void quick_deploy(void)
 void skills(void)
 {
      chassis::path::set("Straight_10in");
+	chassis::path::make(
+          {
+               point::start,
+               Point{13_in, 0_in, 0_deg}
+          },
+          "Straight_37in"
+     );
 	chassis::path::wait_until_settled();
      quick_deploy();
      intake::move_to(STACK, 127, true);
 	pros::delay(500);
 	lift::move_to(OFF_GROUND, 127, true);
      chassis::turn(900, 0, chassis::deployed);
-	chassis::forward(13, true);
+
+	chassis::path::set("Straight_13in");
+	chassis::path::make(
+		{
+			point::start,
+			Point{8_in, 0_in, 0_deg}
+		},
+		"Straight_8in"
+	);
+	chassis::path::wait_until_settled();
+	chassis::path::remove("Straight_13in");
+
 	lift::move_to(LOW_TOWER, 127, true);
-	chassis::forward(8, true);
+	chassis::path::set("Straight_8in");
+	chassis::path::make(
+          {
+               point::start,
+               Point{29_in, 0_in, 0_deg}
+          },
+          "Straight_29in"
+     );
+	chassis::path::wait_until_settled();
+	chassis::path::remove("Straight_8in");
+
 	intake::move_to(SCORE, 127, true);
 
 	// Score on tower 2.
-	chassis::back(29, false);
+	chassis::path::set("Straight_29in", true);
 	pros::delay(400);
 	lift::move_to(MIN_POS, 127, false);
 	chassis::path::make(
@@ -52,9 +80,11 @@ void skills(void)
           "Straight_37in"
      );
 	chassis::path::wait_until_settled();
+	chassis::path::remove("Straight_29in");
 	chassis::turn(-850, 0, chassis::deployed);
 
 	chassis::path::set("Straight_37in");
+
 	intake::move_to(RELEASE - 120, 127, false);
 	chassis::path::make(
           {
@@ -109,40 +139,97 @@ void skills(void)
 	intake::move_to(RELEASE - 200, 127, true);
 
 	chassis::path::set("Straight_27in");
+	chassis::path::make(
+          {
+               point::start,
+               Point{6_in, 0_in, 0_deg}
+          },
+          "Straight_6in"
+     );
 	chassis::path::wait_until_settled();
      chassis::path::remove("Straight_27in");
 
 	intake::move_to(STACK, 127, true);
 	pros::delay(200);
 	lift::move_to(OFF_GROUND, 127, true);
-	chassis::back(6, true);
+	chassis::path::set("Straight_6in", true);
+	chassis::path::make(
+          {
+               point::start,
+               Point{10_in, 0_in, 0_deg}
+          },
+          "Straight_10in"
+     );
+	chassis::path::wait_until_settled();
+
 	lift::move_to(MAX_POS - 300, 127, true);
 
 	chassis::turn(100, 38, chassis::deployed_1cube);
 
-	chassis::forward(10, true);
+	chassis::path::set("Straight_10in");
+	chassis::path::wait_until_settled();
+     chassis::path::remove("Straight_10in");
+
 	pros::delay(2000);
 	intake::move_to(SCORE, 127, true);
-	chassis::back(6, true);
+	chassis::path::set("Straight_6in", true);
+	//-------------------------------------------- generate new path here.
+	chassis::path::make(
+          {
+               point::start,
+               Point{30_in, 0_in, 0_deg},
+			Point{55_in, 19_in, 0_deg}
+          },
+          "S_path_1"
+     );
+	chassis::path::wait_until_settled();
+	chassis::path::remove("Straight_6in");
 	pros::delay(1200);
-	lift::move_to(OFF_GROUND + 800, 127, true);
-	chassis::turn(-860, 0, chassis::deployed);
-	intake::move_to(STACK, 127, true);
-
-	// // Score on tower 4.
-	chassis::forward(80, true);
-	chassis::back(22, true);
-	chassis::turn(900, 0, chassis::deployed);
-	intake::move_to(SCORE, 127, false);
 	lift::move_to(MIN_POS, 127, true);
-	chassis::forward(8, true);
-	intake::move_to(STACK, 127, true);
-	chassis::back(8, true);
-	lift::move_to(LOW_TOWER, 127, true);
-	chassis::forward(13, true);
+	chassis::turn(-820, 0, chassis::deployed);
 	intake::move_to(SCORE, 127, true);
-	chassis::back(24, true);
-	// // maybe go back and get the 4 stack.
+
+	// score on tower 4
+	chassis::path::set("S_path_1");
+	chassis::path::make(
+          {
+               point::start,
+               Point{23_in, 0_in, 0_deg}
+          },
+          "Straight_23in"
+     );
+	chassis::path::wait_until_settled();
+	chassis::path::remove("S_path_1");
+	intake::move_to(STACK, 127, true);
+	pros::delay(300);
+	chassis::turn(900, 0, chassis::deployed);
+	lift::move_to(LOW_TOWER, 127, true);
+	chassis::path::set("Straight_23in");
+	chassis::path::make(
+          {
+               point::start,
+               Point{8_in, 0_in, 0_deg}
+          },
+          "Straight_8in"
+     );
+	chassis::path::wait_until_settled();
+	chassis::path::remove("Straight_23in");
+	intake::move_to(SCORE, 127, true);
+	chassis::path::set("Straight_8in", true);
+	chassis::path::wait_until_settled();
+	lift::move_to(MIN_POS, 127, true);
+
+	chassis::path::set("Straight_8in");
+	chassis::path::wait_until_settled();
+
+	intake::move_to(SCORE, 127, true);
+	chassis::path::set("Straight_8in", true);
+	//-------------------------------------------- generate new path here.
+	chassis::path::wait_until_settled();
+	chassis::path::remove("Straight_8in");
+
+	// score on tower 5
+
 
 }
 
