@@ -344,7 +344,7 @@ namespace chassis
      // User control functions.
      void assign(void * ignore)
      {
-          while (true)
+          while (!pros::competition::is_autonomous())
           {
                // Assigns voltage with deadband
                int vertical = controller_analog(LEFT_JOYSTICK);
