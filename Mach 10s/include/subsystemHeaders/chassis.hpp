@@ -23,6 +23,8 @@ namespace chassis
      */
      void initialize(void);
 
+     void reset(void);
+
      // Data functions.
      /*
      Gives the caller the current counts of the right side of the chassis.

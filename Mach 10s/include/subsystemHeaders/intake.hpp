@@ -12,6 +12,8 @@
 
 namespace intake
 {
+     void reset(void);
+
      // Data functions.
      /*
      returns data regarding the intake's location.

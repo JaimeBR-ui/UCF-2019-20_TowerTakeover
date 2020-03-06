@@ -17,6 +17,8 @@ namespace lift
      // Variables.
      extern int was_moving;
 
+     void reset(void);
+
      // Data functions.
      /*
      Gives the caller the current position of the lift.
