@@ -107,6 +107,13 @@ namespace lift
                }
      }
 
+     void reset(void)
+     {
+          set_mode(MOTOR_BRAKE_COAST);
+          tare();
+          set_voltage(0);
+     }
+
      //User Control Functions
      void assign(void)
      {

@@ -127,6 +127,13 @@ namespace intake
           }
      }
 
+     void reset(void)
+     {
+          set_mode(MOTOR_BRAKE_COAST);
+          tare();
+          set_voltage(0, 0);
+     }
+
      void assign(void)
      {
           if (controller_digital(INTAKE))

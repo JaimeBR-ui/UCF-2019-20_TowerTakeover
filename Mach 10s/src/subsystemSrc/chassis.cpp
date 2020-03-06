@@ -341,6 +341,13 @@ namespace chassis
           std::cout << "Desired Target: " << target << std::endl;
      }
 
+     void reset(void)
+     {
+          set_mode(MOTOR_BRAKE_COAST);
+          tare();
+          set_voltage(0, 0);
+     }
+
      // User control functions.
      void assign(void * ignore)
      {
