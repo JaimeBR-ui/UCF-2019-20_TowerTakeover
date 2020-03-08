@@ -67,6 +67,8 @@ void competition_initialize() {}
  */
 void autonomous()
 {
+	robot::reset();
+
 	skills();
      //red();
      //blue();
