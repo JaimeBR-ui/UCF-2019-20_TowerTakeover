@@ -61,3 +61,10 @@ std::int32_t controller_analog(pros::controller_analog_e_t channel)
 {
   return controller.get_analog(channel);
 }
+
+void robot::reset(void)
+{
+     chassis::reset();
+     lift::reset();
+     intake::reset();
+}
