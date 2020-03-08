@@ -131,7 +131,7 @@ namespace intake
      {
           set_mode(MOTOR_BRAKE_COAST);
           tare();
-          set_voltage(0, 0);
+          set_voltage(0);
      }
 
      void assign(void)
