@@ -45,3 +45,8 @@ extern pros::Motor intake_right;
 extern pros::Motor intake_left;
 extern pros::Motor lift_left;
 extern pros::Motor lift_right;
+
+namespace robot
+{
+     void reset(void);
+}
