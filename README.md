@@ -4,9 +4,6 @@ University of Central Florida runs the VexU Robotics competition project.
 ________________________________________________________________________________
 VexU Team Plate: UCF
 ________________________________________________________________________________
-This software was created by:
-Jaime Bohorquez
-________________________________________________________________________________
 
 These repositories contain the software needed to run the robots.
 ________________________________________________________________________________
